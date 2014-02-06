@@ -1,0 +1,80 @@
+ EYES
+    COLOUR (Genes 1-2)
+        - brown (AA/AT/AC/AG/TA/TC/TG)
+        - blue (CA/CT/CC)
+        - green (GA/GC)
+        - hazel (GG/GT)
+        - grey (defect) (TT)
+        - purple (defect) (CG)
+    SIZE (Gene 3)
+        -S (A)
+        -M (T/C)
+        -L (G)
+ 
+ HAIR 
+    COLOUR (Genes 4-5)
+        - black(AA/AT/AC/AG/TA/TC/TG)
+        - brown(CA/CT/CC/GA/GC)
+        - blonde(GG/GT/TT)
+        - red(CG)
+    AMOUNT (Gene 6)
+        - hairy(A)
+        - average(T/C)
+        - no hair(G)
+ 
+ BODY
+    HEIGHT(Genes 7-8)
+        - tall(CA/CT/CC/GA)
+        - average(AA/AT/AC/AG/TA/TC)
+        - short(GG/GT/TT/TG)
+        - dwarf (GC)
+        - giant (CG)
+    BODY TYPE(Genes 9-10)
+        - slim(CA/CT/CC/GA)
+        - average(AA/AT/AC/AG/TA/TC)
+        - large(GG/GT/TT/TG)
+        - obesity(GC)
+        - anorexia(CG)
+    SKIN COLOUR(Genes 11-12)
+        - fair(CT/CC/GA)
+        - dark(AA/AT/AC/AG/TA)
+        - yellow(GG/GT/TT)
+        - brown(GC/CA/TC/TG)
+        - albino(CG)
+        
+ GENDER(Gene 13-14)
+        - male(AA/AG/AC/AG/GA/GC/GT)
+        - female(CA/CT/CG/TT/TC/TG/TA)
+        - hermafrodite (defect)(GG/CC)
+ 
+ FACE
+    NOSE SIZE(Gene 15)
+        - small(A) 
+        - medium (G/C)
+        - large(T)
+    EAR LOBE(Gene 16)
+        - attached (A/G)
+        - detached (C/T)
+  
+ PERSONALITY
+    OUTLOOK(Gene 17)
+        - optimistic(A)
+        - pessimistic(G)
+        - realistic(C/T)
+    INTELLIGENCE LEVEL(Gene 18)
+        - above average(A)
+        - average(G/C)
+        - below average(T)
+    OTHER PERSONALITY(Gene 19) 
+        - ADHD(A)
+        - autism(G)
+	// these should have MANY more random traits, so we can fill them with appropriate permutations
+  
+ MUTATIONS
+        -   
+ 
+  
+  
+ 
+ 
+ 
