@@ -3,7 +3,7 @@ public class tester{
 		Eyes e = new Eyes();
 		e.getColour("brown");
 		e.getEyeColourDNA(e.currentDNA);
-		e.getSize("large");
+		e.getSize("large");lololololollo
 		Hair h = new Hair();
 		h.getHairColourDNA("GG");
 		h.getHairColour("brown");
