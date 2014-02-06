@@ -11,33 +11,31 @@ public class Hair{
 	List<String> HAIRY_HAIR_DNA = Arrays.asList("A");
 	List<String> AVERAGE_HAIR_DNA = Arrays.asList("T","C");
 	List<String> SMOOTH_HAIR_DNA = Arrays.asList("G");
-	void getHairColour(String hairColour){
-		colour = hairColour;
-		System.out.println(colour);
+	void getHairColour(String hairColourInput){
+		hairColour = hairColourInput;
+		System.out.println(hairColour);
 	}
-	void getAmmount(String hairAmmount){
-		ammount = hairAmmount;
-		System.out.println(ammount);
+	void getAmmount(String hairAmmountInput){
+		hairAmmount = hairAmmountInput;
+		System.out.println(hairAmmount);
 	}
 	void getHairColourDNA(String hairDNA){
 		if (BLACK_HAIR_DNA.contains(hairDNA)){
 			System.out.println("BLACK");
-			hairColor="BLACK";
+			hairColour="BLACK";
 		}
 		else if (BROWN_HAIR_DNA.contains(hairDNA)){
 			System.out.println("BROWN");
-			hairColor="BROWN";
+			hairColour="BROWN";
 		}
 		else if (BLONDE_HAIR_DNA.contains(hairDNA)){
 			System.out.println("BLONDE");
-			hairColor="BLONDE";
+			hairColour="BLONDE";
 		}
 		else if (RED_HAIR_DNA.contains(hairDNA)){
 			System.out.println("RED");
-			hairColor="RED";
+			hairColour="RED";
 		}
 	}
-	
-	void getHairAmmountDNA(String hair)
-	
+	//void getHairAmmountDNA(String hair)
 }
