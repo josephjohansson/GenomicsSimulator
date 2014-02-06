@@ -8,6 +8,5 @@ public class tester{
 		h.getHairColourDNA("GG");
 		h.getHairColour("brown");
 		h.getAmmount("large");
-
 	}
 }
