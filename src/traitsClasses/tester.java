@@ -9,6 +9,14 @@ public class tester{
 			System.out.print("What eyes colour?");
 			String eyeColourInput = keyboard.next();
 			d.getUserInputOnTraits(eyeColourInput);
+			System.out.print("happy?");
+			String happyWithChoiceS = keyboard.nexbbt();
+			if (happyWithChoiceS.equals("y")){
+				happyWithChoice = true;
+			}
+			else{
+				happyWithChoice = false;
+			}
 		}
 	}
 }
