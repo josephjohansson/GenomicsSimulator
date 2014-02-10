@@ -1,13 +1,14 @@
 package traitsClasses;
+import java.util.Scanner;
 public class tester{
 	public static void main(String[]args){
-		Eyes e = new Eyes();
-		e.getColour("brown");
-		e.getEyeColourDNA("GG");
-		e.getSize("large");
-		Hair h = new Hair();
-		h.getHairColourDNA("GG");
-		h.getHairColour("brown");
-		h.getAmmount("lrge");
+		Person d = new Person();
+		boolean happyWithChoice = false;
+		Scanner keyboard = new Scanner(System.in);
+		while(happyWithChoice == false){
+			System.out.print("What eyes colour?");
+			String eyeColourInput = keyboard.next();
+			d.getUserInputOnTraits(eyeColourInput);
+		}
 	}
 }
