@@ -1,5 +1,6 @@
-package traitsClasses;
+package Main;
 import java.util.Scanner;
+import traitsClasses.Person;
 public class tester{
 	public static void main(String[]args){
 		Person d = new Person();
