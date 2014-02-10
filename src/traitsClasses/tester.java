@@ -13,6 +13,7 @@ public class tester{
 			String happyWithChoiceS = keyboard.next();
 			if (happyWithChoiceS.equals("y")){
 				happyWithChoice = true;
+				hello
 			}
 			else{
 				happyWithChoice = false;
