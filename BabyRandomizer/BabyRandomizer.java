@@ -6,15 +6,10 @@ public Class Randomizer{
 		int chance=generator.nextInt(1;(mothersTraitChance+fathersTraitChance));
 		if (chance >= mothersTraitChance){
 			String passingTrait = "mother";
+		}
 		else {
 			passingTrait = "father";
 		}
 		return passingTrait;
-		
 	}
-	
-	
-	
-	
-
 }
