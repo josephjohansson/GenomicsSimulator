@@ -10,7 +10,7 @@ public class tester{
 			String eyeColourInput = keyboard.next();
 			d.getUserInputOnTraits(eyeColourInput);
 			System.out.print("happy?");
-			String happyWithChoiceS = keyboard.nexbbt();
+			String happyWithChoiceS = keyboard.next();
 			if (happyWithChoiceS.equals("y")){
 				happyWithChoice = true;
 			}
