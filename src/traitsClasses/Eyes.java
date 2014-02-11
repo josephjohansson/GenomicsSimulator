@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 public class Eyes {
-	String size;
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
@@ -27,7 +26,7 @@ public class Eyes {
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given eye colour	
-	public void getColour(String eyesColour){
+	public void getEyeColour(String eyesColour){
 		if (eyesColour.equals("brown")){
 			currentEyeColourDNA = BROWN_EYES_DNA;
 		}
@@ -50,14 +49,13 @@ public class Eyes {
 	
 	// Determines DNA code from given eye size -- to be randomized 
 	void getSize(String eyesSize){
-		size = eyesSize;
-		if (size == "small"){
+		if (eyesSize.equals("small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
 		}
-		else if (size == "medium"){
+		else if (eyesSize.equals("medium")){
 			currentEyeSizeDNA = MEDIUM_EYES_DNA;
 		} 
-		else if (size == "large"){
+		else if (eyesSize.equals("large")){
 			currentEyeSizeDNA = LARGE_EYES_DNA;
 		}		
 	}
@@ -91,13 +89,13 @@ public class Eyes {
 	}
 	void printOutEyeSize(String eyeSizeDNA){
 		if (SMALL_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("BROWN");
+			System.out.println("SMALL");
 		}
 		else if (MEDIUM_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("BLUE");
+			System.out.println("MEDIUM");
 		}
 		else if (LARGE_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("GREEN");
+			System.out.println("LARGE");
 		}
 	}
 

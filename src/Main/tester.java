@@ -9,7 +9,9 @@ public class tester{
 		while(happyWithChoice == false){
 			System.out.print("What eyes colour?");
 			String eyeColourInput = keyboard.next();
-			d.getUserInputOnTraits(eyeColourInput);
+			System.out.print("What hair colour?");
+			String hairColourInput = keyboard.next();
+			d.getUserInputOnTraits(eyeColourInput, hairColourInput);
 			System.out.print("happy?");
 			String happyWithChoiceS = keyboard.next();
 			if (happyWithChoiceS.equals("y")){
