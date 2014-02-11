@@ -19,7 +19,7 @@ public class Hair{
 //-----------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE OR GENE LIST
 	//Determines DNA come from given hair colour
-	public void getEyeColour(String hairColour){
+	public void getHairColour(String hairColour){
 		if (hairColour.equals("brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
 		}
