@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class Eyes {
+public class Gender {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
