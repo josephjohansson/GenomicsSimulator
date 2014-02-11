@@ -20,7 +20,7 @@ public class Gender {
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given gender	
-	public void getEyeColour(String gender){
+	public void getGender(String gender){
 		if (gender.equals("male")){
 			currentGenderDNA = MALE_DNA;
 		}
