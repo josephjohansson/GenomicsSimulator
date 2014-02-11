@@ -8,8 +8,7 @@ public class Gender {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
-	List<String> currentEyeColourDNA = new ArrayList<String>();
-	List<String> currentEyeSizeDNA = new ArrayList<String>();
+	List<String> currentGenderDNA = new ArrayList<String>();
 	List<String> MALE_DNA= Arrays.asList("AA", "AG", "AC", "AG", "GA", "GC", "GT");
 	List<String> FEMALE_DNA = Arrays.asList("CA", "CT", "CG", "TT", "TC", "TG", "TA");
 	List<String> HERMAPHRODITE_DNA = Arrays.asList("GG","CC");
@@ -21,7 +20,7 @@ public class Gender {
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given gender	
-	public void getEyeColour(String eyesColour){
+	public void getEyeColour(String gender){
 		if (gender.equals("male")){
 			currentGenderDNA = MALE_DNA;
 		}
