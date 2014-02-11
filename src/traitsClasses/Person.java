@@ -8,5 +8,6 @@ public class Person {
 		System.out.println(e.currentEyeColourDNA);
 		e.getRandomGene(e.currentEyeColourDNA);
 		System.out.println(e.currentGene);
+		hello
 	}	
 }
