@@ -7,30 +7,43 @@ public class Hair{
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
+	int hairColourChance;
+	int hairAmountChance;
 	List<String> currentHairColourDNA = new ArrayList<String>();
-	List<String> currentAmmountOfHairDNA = new ArrayList<String>();
+	List<String> currentAmountOfHairDNA = new ArrayList<String>();
 	List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
+	int BLACK_HAIR_CHANCE = 8;
 	List<String> BROWN_HAIR_DNA = Arrays.asList("CA","CT","CC","GA","GC");
+	int BROWN_HAIR_CHANCE = 8;
 	List<String> BLONDE_HAIR_DNA = Arrays.asList("GG","GT","TT");
+	int BLONDE_HAIR_CHANCE= 5;
 	List<String> RED_HAIR_DNA = Arrays.asList("CG");
+	int RED_HAIR_CHANCE = 3;
 	List<String> HAIRY_HAIR_DNA = Arrays.asList("A");
+	int HAIRY_HAIR_CHANCE= 5;
 	List<String> AVERAGE_HAIR_DNA = Arrays.asList("T","C");
+	int AVERAGE_HAIR_CHANCE = 7;
 	List<String> SMOOTH_HAIR_DNA = Arrays.asList("G");
+	int SMOOTH_HAIR_CHANCE= 5;
 //-----------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE OR GENE LIST
 	//Determines DNA come from given hair colour
 	public void getHairColour(String hairColour){
 		if (hairColour.equals("brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
+			hairColourChance = BROWN_HAIR_CHANCE;
 		}
 		else if (hairColour.equals("black")){
 			currentHairColourDNA = BLACK_HAIR_DNA;
+			hairColourChance= BLACK_HAIR_CHANCE;
 		}
 		else if (hairColour.equals("blonde")){
 			currentHairColourDNA = BLONDE_HAIR_DNA;
+			hairColourChance= BLONDE_HAIR_CHANCE;
 		}
 		else if (hairColour.equals("red")){
 			currentHairColourDNA = RED_HAIR_DNA;
+			hairColourChance= RED_HAIR_CHANCE;
 		}
 	}
 	
@@ -38,12 +51,15 @@ public class Hair{
 	void getSize(String ammountHair){
 		if (ammountHair.equals("smooth")){
 			currentAmmountOfHairDNA = SMOOTH_HAIR_DNA;
+			hairAmountChance = SMOOTH_HAIR_CHANCE;
 		}
 		else if (ammountHair.equals("average")){
 			currentAmmountOfHairDNA = AVERAGE_HAIR_DNA;
+			hairAmountChance = AVERAGE_HAIR_CHANCE;
 		} 
 		else if (ammountHair.equals("hairy")){
 			currentAmmountOfHairDNA = HAIRY_HAIR_DNA;
+			hairAmountChance = HAIRY_HAIR_CHANCE;
 		}		
 	}
 
