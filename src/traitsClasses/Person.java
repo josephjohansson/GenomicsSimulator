@@ -8,7 +8,7 @@ public class Person {
 		System.out.println(e.currentEyeColourDNA);
 		e.getRandomGene(e.currentEyeColourDNA);
 		System.out.println(e.currentGene);
-		h.getEyeColour(userInputHair);
+		h.getHairColour(userInputHair);
 		System.out.println(h.currentHairColourDNA);
 		h.getRandomGene(h.currentHairColourDNA);
 		System.out.println(h.currentGene);

@@ -48,17 +48,17 @@ public class Hair{
 	}
 	
 	// Determines DNA code from given eye size -- to be randomized 
-	void getSize(String ammountHair){
-		if (ammountHair.equals("smooth")){
-			currentAmmountOfHairDNA = SMOOTH_HAIR_DNA;
+	void getSize(String amountHair){
+		if (amountHair.equals("smooth")){
+			currentAmountOfHairDNA = SMOOTH_HAIR_DNA;
 			hairAmountChance = SMOOTH_HAIR_CHANCE;
 		}
-		else if (ammountHair.equals("average")){
-			currentAmmountOfHairDNA = AVERAGE_HAIR_DNA;
+		else if (amountHair.equals("average")){
+			currentAmountOfHairDNA = AVERAGE_HAIR_DNA;
 			hairAmountChance = AVERAGE_HAIR_CHANCE;
 		} 
-		else if (ammountHair.equals("hairy")){
-			currentAmmountOfHairDNA = HAIRY_HAIR_DNA;
+		else if (amountHair.equals("hairy")){
+			currentAmountOfHairDNA = HAIRY_HAIR_DNA;
 			hairAmountChance = HAIRY_HAIR_CHANCE;
 		}		
 	}
@@ -85,14 +85,14 @@ public class Hair{
 		}
 	}
 	//Determines hair ammount phenotype from given hair ammout gene
-	void printOutEyeSize(String ammountHairDNA){
-		if (SMOOTH_HAIR_DNA.contains(ammountHairDNA)){
+	void printOutEyeSize(String amountHairDNA){
+		if (SMOOTH_HAIR_DNA.contains(amountHairDNA)){
 			System.out.println("SMOOTH");
 		}
-		else if (AVERAGE_HAIR_DNA.contains(ammountHairDNA)){
+		else if (AVERAGE_HAIR_DNA.contains(amountHairDNA)){
 			System.out.println("AVERAGE");
 		}
-		else if (HAIRY_HAIR_DNA.contains(ammountHairDNA)){
+		else if (HAIRY_HAIR_DNA.contains(amountHairDNA)){
 			System.out.println("HAIRY");
 		}
 	}
