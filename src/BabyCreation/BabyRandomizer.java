@@ -1,5 +1,6 @@
-import java.util.Random;
 package BabyCreation;
+import java.util.Random;
+
 public class BabyRandomizer{
 	//this is assuming that the baby, mother, and father "Person"s have been made
 	public String generateChildsDNA(int mothersTraitChance, int fathersTraitChance){
