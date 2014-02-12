@@ -12,19 +12,19 @@ public class Hair{
 	List<String> currentHairColourDNA = new ArrayList<String>();
 	List<String> currentAmountOfHairDNA = new ArrayList<String>();
 	List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
-	int BLACK_HAIR_CHANCE = 8;
-	List<String> BROWN_HAIR_DNA = Arrays.asList("CA","CT","CC","GA","GC");
-	int BROWN_HAIR_CHANCE = 8;
-	List<String> BLONDE_HAIR_DNA = Arrays.asList("GG","GT","TT");
-	int BLONDE_HAIR_CHANCE= 5;
-	List<String> RED_HAIR_DNA = Arrays.asList("CG");
-	int RED_HAIR_CHANCE = 3;
-	List<String> HAIRY_HAIR_DNA = Arrays.asList("A");
-	int HAIRY_HAIR_CHANCE= 5;
-	List<String> AVERAGE_HAIR_DNA = Arrays.asList("T","C");
-	int AVERAGE_HAIR_CHANCE = 7;
-	List<String> SMOOTH_HAIR_DNA = Arrays.asList("G");
-	int SMOOTH_HAIR_CHANCE= 5;
+	final int BLACK_HAIR_CHANCE = 8;
+	final List<String> BROWN_HAIR_DNA = Arrays.asList("CA","CT","CC","GA","GC");
+	final int BROWN_HAIR_CHANCE = 8;
+	final List<String> BLONDE_HAIR_DNA = Arrays.asList("GG","GT","TT");
+	final int BLONDE_HAIR_CHANCE= 5;
+	final List<String> RED_HAIR_DNA = Arrays.asList("CG");
+	final int RED_HAIR_CHANCE = 3;
+	final List<String> HAIRY_HAIR_DNA = Arrays.asList("A");
+	final int HAIRY_HAIR_CHANCE= 5;
+	final List<String> AVERAGE_HAIR_DNA = Arrays.asList("T","C");
+	final int AVERAGE_HAIR_CHANCE = 7;
+	final List<String> SMOOTH_HAIR_DNA = Arrays.asList("G");
+	final int SMOOTH_HAIR_CHANCE= 5;
 //-----------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE OR GENE LIST
 	//Determines DNA come from given hair colour
