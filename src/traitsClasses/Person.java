@@ -2,15 +2,15 @@ package traitsClasses;
 
 public class Person {
 	public void getUserInputOnTraits(String userInputEye, String userInputHair){
-		Eyes e = new Eyes();
-		Hair h = new Hair();
-		e.getEyeColour(userInputEye);
-		System.out.println(e.currentEyeColourDNA);
-		e.getRandomGene(e.currentEyeColourDNA);
-		System.out.println(e.currentGene);
-		h.getEyeColour(userInputHair);
-		System.out.println(h.currentHairColourDNA);
-		h.getRandomGene(h.currentHairColourDNA);
-		System.out.println(h.currentGene);
+		Eyes eyes = new Eyes();
+		Hair hair = new Hair();
+		eyes.getEyeColour(userInputEye);
+		System.out.println(eyes.currentEyeColourDNA);
+		eyes.getRandomGene(eyes.currentEyeColourDNA);
+		System.out.println(eyes.currentGene);
+		hair.getHairColour(userInputHair);
+		System.out.println(hair.currentHairColourDNA);
+		hair.getRandomGene(hair.currentHairColourDNA);
+		System.out.println(hair.currentGene);
 	}	
 }
