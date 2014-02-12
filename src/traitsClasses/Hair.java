@@ -11,7 +11,7 @@ public class Hair{
 	int hairAmountChance;
 	List<String> currentHairColourDNA = new ArrayList<String>();
 	List<String> currentAmountOfHairDNA = new ArrayList<String>();
-	List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
+	final List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
 	final int BLACK_HAIR_CHANCE = 8;
 	final List<String> BROWN_HAIR_DNA = Arrays.asList("CA","CT","CC","GA","GC");
 	final int BROWN_HAIR_CHANCE = 8;
