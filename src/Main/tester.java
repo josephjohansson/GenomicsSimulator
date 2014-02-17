@@ -21,7 +21,6 @@ public class tester{
 				happyWithChoice = false;
 			}
 		}
-		hello
 	}
 }
 

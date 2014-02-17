@@ -8,99 +8,146 @@ public class Body {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
-	List<String> currentEyeColourDNA = new ArrayList<String>();
-	List<String> currentEyeSizeDNA = new ArrayList<String>();
-	List<String> BROWN_EYES_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
-	List<String> BLUE_EYES_DNA = Arrays.asList("CA","CT","CC");
-	List<String> GREEN_EYES_DNA = Arrays.asList("GA","GC");
-	List<String> HAZEL_EYES_DNA = Arrays.asList("GG","GT");
-	List<String> GREY_EYES_DNA = Arrays.asList("TT");
-	List<String> PURPLE_EYES_DNA = Arrays.asList("CG");
-	List<String> SMALL_EYES_DNA = Arrays.asList("A");
-	List<String> MEDIUM_EYES_DNA = Arrays.asList("T","C");
-	List<String> LARGE_EYES_DNA = Arrays.asList("G");
-
-
-	
+	int heightChance;
+	int bodyTypeChance;
+	int skinColourChance;
+	List<String> currentHeightDNA = new ArrayList<String>();
+	List<String> currentBodyTypeDNA = new ArrayList<String>();
+	List<String> currentSkinColourDNA = new ArrayList<String>();
+	final List<String> TALL_HEIGHT_DNA = Arrays.asList("CA","CT","CC","GA");
+	final List<String> AVERAGE_HEIGHT_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC");
+	final List<String> SHORT_HEIGHT_DNA = Arrays.asList("GG","GT","TT","TG");
+	final List<String> DWARF_HEIGHT_DNA = Arrays.asList("GC");
+	final List<String> GIANT_HEIGHT_DNA = Arrays.asList("CG");
+	final List<String> SLIM_BODY_DNA = Arrays.asList("CA","CT","CC","GA");
+	final List<String> AVERAGE_BODY_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC");
+	final List<String> LARGE_BODY_DNA = Arrays.asList("GG","GT","TT","TG");
+	final List<String> OBESE_BODY_DNA = Arrays.asList("GC");
+	final List<String> ANOREXIC_BODY_DNA = Arrays.asList("CG");
+	final List<String> FAIR_SKIN_DNA = Arrays.asList("CT","CC","GA");
+	final List<String> DARK_SKIN_DNA = Arrays.asList("AA","AT","AC","AG","TA");
+	final List<String> YELLOW_SKIN_DNA = Arrays.asList("GG","GT","TT");
+	final List<String> BROWN_SKIN_DNA = Arrays.asList("GC","CA","TC","TG");
+	final List<String> ALBINO_SKIN_DNA = Arrays.asList("CG");
 	
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
-	// Determines DNA code from given eye colour	
-	public void getEyeColour(String eyesColour){
-		if (eyesColour.equals("brown")){
-			currentEyeColourDNA = BROWN_EYES_DNA;
+	// Determines DNA code from given height	
+	public void getHeight(String height){
+		if (height.equals("tall")){
+			currentHeightDNA = TALL_HEIGHT_DNA;
 		}
-		else if (eyesColour.equals("blue")){
-			currentEyeColourDNA = BLUE_EYES_DNA;
+		else if (height.equals("average")){
+			currentHeightDNA = AVERAGE_HEIGHT_DNA;
 		}
-		else if (eyesColour.equals("green")){
-			currentEyeColourDNA = GREEN_EYES_DNA;
+		else if (height.equals("short")){
+			currentHeightDNA = SHORT_HEIGHT_DNA;
 		}
-		else if (eyesColour.equals("hazel")){
-			currentEyeColourDNA = HAZEL_EYES_DNA;
+		else if (height.equals("dwarf")){
+			currentHeightDNA = DWARF_HEIGHT_DNA;
 		}
-		else if (eyesColour.equals("grey")){
-			currentEyeColourDNA = GREY_EYES_DNA;
+		else if (height.equals("giant")){
+			currentHeightDNA = GIANT_HEIGHT_DNA;
 		}
-		else if (eyesColour.equals("purple")){
-			currentEyeColourDNA = PURPLE_EYES_DNA;
-		}
+		heightChance = currentHeightDNA.size();
 	}
 	
-	// Determines DNA code from given eye size -- to be randomized 
-	void getSize(String eyesSize){
-		if (eyesSize.equals("small")){
-			currentEyeSizeDNA = SMALL_EYES_DNA;
+	// Determines DNA code from given body type 
+	void getBodyType(String bodyType){
+		if (bodyType.equals("slim")){
+			currentBodyTypeDNA = SLIM_BODY_DNA;
 		}
-		else if (eyesSize.equals("medium")){
-			currentEyeSizeDNA = MEDIUM_EYES_DNA;
+		else if (bodyType.equals("average")){
+			currentBodyTypeDNA = AVERAGE_BODY_DNA;
 		} 
-		else if (eyesSize.equals("large")){
-			currentEyeSizeDNA = LARGE_EYES_DNA;
-		}		
+		else if (bodyType.equals("large")){
+			currentBodyTypeDNA = LARGE_BODY_DNA;
+		}
+		else if (bodyType.equals("obese")){
+			currentBodyTypeDNA = OBESE_BODY_DNA;
+		}
+		else if (bodyType.equals("anorexic")){
+			currentBodyTypeDNA = ANOREXIC_BODY_DNA;
+		}
+		bodyTypeChance = currentBodyTypeDNA.size();
 	}
 
-	
-	
-	
+	// Determines DNA code from given skin colour	
+	public void getSkinColour(String skinColour){
+		if (skinColour.equals("fair")){
+			currentSkinColourDNA = FAIR_SKIN_DNA;
+		}
+		else if (skinColour.equals("dark")){
+			currentSkinColourDNA = DARK_SKIN_DNA;
+		}
+		else if (skinColour.equals("yellow")){
+			currentSkinColourDNA = YELLOW_SKIN_DNA;
+		}
+		else if (skinColour.equals("brown")){
+			currentSkinColourDNA = BROWN_SKIN_DNA;
+		}
+		else if (skinColour.equals("albino")){
+			currentSkinColourDNA = ALBINO_SKIN_DNA;
+		}
+		skinColourChance = currentSkinColourDNA.size();
+	}	
 	
 //-----------------------------------------------------------------------------------------------------
 //DNA INPUT PHENOTYPE OUTPUT
-	// Determines eye colour phenotype from given eye colour DNA gene	
-	void printOutEyeColour(String eyeColourDNA){
-		if (BROWN_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("BROWN");
+	// Determines height phenotype from given height DNA gene	
+	void printOutEyeColour(String heightDNA){
+		if (TALL_HEIGHT_DNA.contains(heightDNA)){
+			System.out.println("TALL");
 		}
-		else if (BLUE_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("BLUE");
+		else if (AVERAGE_HEIGHT_DNA.contains(heightDNA)){
+			System.out.println("AVERAGE");
 		}
-		else if (GREEN_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("GREEN");
+		else if (SHORT_HEIGHT_DNA.contains(heightDNA)){
+			System.out.println("SHORT");
 		}
-		else if (HAZEL_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("HAZEL");
+		else if (DWARF_HEIGHT_DNA.contains(heightDNA)){
+			System.out.println("DWARF");
 		}
-		else if (GREY_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("GREY");
-		}
-		else if (PURPLE_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("PURPLE");
+		else if (GIANT_HEIGHT_DNA.contains(heightDNA)){
+			System.out.println("GIANT");
 		}
 	}
-	void printOutEyeSize(String eyeSizeDNA){
-		if (SMALL_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("SMALL");
+	// Determines body type from given body type DNA gene
+	void printOutBodyType(String bodyTypeDNA){
+		if (SLIM_BODY_DNA.contains(bodyTypeDNA)){
+			System.out.println("SLIM");
 		}
-		else if (MEDIUM_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("MEDIUM");
+		else if (AVERAGE_BODY_DNA.contains(bodyTypeDNA)){
+			System.out.println("AVERAGE");
 		}
-		else if (LARGE_EYES_DNA.contains(eyeSizeDNA)){
+		else if (LARGE_BODY_DNA.contains(bodyTypeDNA)){
 			System.out.println("LARGE");
 		}
+		else if (OBESE_BODY_DNA.contains(bodyTypeDNA)){
+			System.out.println("OBESE");
+		}
+		else if (ANOREXIC_BODY_DNA.contains(bodyTypeDNA)){
+			System.out.println("ANOREXIC");
+		}
 	}
-
-	
-	
+	// Determines skin colour from given skin colour DNA gene
+	void printOutSkinColour(String skinColourDNA){
+		if (FAIR_SKIN_DNA.contains(skinColourDNA)){
+			System.out.println("FAIR");
+		}
+		else if (DARK_SKIN_DNA.contains(skinColourDNA)){
+			System.out.println("DARK");
+		}
+		else if (YELLOW_SKIN_DNA.contains(skinColourDNA)){
+			System.out.println("YELLOW");
+		}
+		else if (BROWN_SKIN_DNA.contains(skinColourDNA)){
+			System.out.println("BROWN");
+		}
+		else if (ALBINO_SKIN_DNA.contains(skinColourDNA)){
+			System.out.println("ALBINO");
+		}
+	}
 	
 	
 	

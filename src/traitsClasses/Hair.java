@@ -84,7 +84,7 @@ public class Hair{
 			System.out.println("RED");
 		}
 	}
-	//Determines hair ammount phenotype from given hair amount gene
+	//Determines hair amount phenotype from given hair amount gene
 	void printOutEyeSize(String amountHairDNA){
 		if (SMOOTH_HAIR_DNA.contains(amountHairDNA)){
 			System.out.println("SMOOTH");
