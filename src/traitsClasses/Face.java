@@ -8,13 +8,15 @@ public class Face {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
+	int noseSizeChance;
+	int earLobeChance;
 	List<String> currentNoseSizeDNA = new ArrayList<String>();
 	List<String> currentEarLobeDNA = new ArrayList<String>();
-	List<String> SMALL_NOSE_DNA = Arrays.asList("A");
-	List<String> MEDIUM_NOSE_DNA = Arrays.asList("G","C");
-	List<String> LARGE_NOSE_DNA = Arrays.asList("T");
-	List<String> ATTACHED_EAR_LOBE_DNA = Arrays.asList("A", "G");
-	List<String> DETACHED_EAR_LOBE_DNA = Arrays.asList("C", "T");
+	final List<String> SMALL_NOSE_DNA = Arrays.asList("A");
+	final List<String> MEDIUM_NOSE_DNA = Arrays.asList("G","C");
+	final List<String> LARGE_NOSE_DNA = Arrays.asList("T");
+	final List<String> ATTACHED_EAR_LOBE_DNA = Arrays.asList("A", "G");
+	final List<String> DETACHED_EAR_LOBE_DNA = Arrays.asList("C", "T");
 
 
 	
@@ -32,6 +34,7 @@ public class Face {
 		else if (noseSize.equals("large")){
 			currentNoseSizeDNA = LARGE_NOSE_DNA;
 		}
+		noseSizeChance = currentNoseSizeDNA.size();
 	}
 	
 	// Determines DNA code from given ear lobe 
@@ -42,6 +45,7 @@ public class Face {
 		else if (earLobe.equals("detached")){
 			currentEarLobeDNA = DETACHED_EAR_LOBE_DNA;
 		} 		
+		earLobeChance = currentEarLobeDNA.size();
 	}
 
 	

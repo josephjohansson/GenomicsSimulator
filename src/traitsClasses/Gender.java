@@ -8,10 +8,11 @@ public class Gender {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
+	int genderChance;
 	List<String> currentGenderDNA = new ArrayList<String>();
-	List<String> MALE_DNA= Arrays.asList("AA", "AG", "AC", "AG", "GA", "GC", "GT");
-	List<String> FEMALE_DNA = Arrays.asList("CA", "CT", "CG", "TT", "TC", "TG", "TA");
-	List<String> HERMAPHRODITE_DNA = Arrays.asList("GG","CC");
+	final List<String> MALE_DNA= Arrays.asList("AA", "AG", "AC", "AG", "GA", "GC", "GT");
+	final List<String> FEMALE_DNA = Arrays.asList("CA", "CT", "CG", "TT", "TC", "TG", "TA");
+	final List<String> HERMAPHRODITE_DNA = Arrays.asList("GG","CC");
 
 
 
@@ -30,6 +31,7 @@ public class Gender {
 		else if (gender.equals("hermaphrodite")){
 			currentGenderDNA = HERMAPHRODITE_DNA;
 		}
+		genderChance = currentGenderDNA.size();
 	}
 	
 //-----------------------------------------------------------------------------------------------------

@@ -8,56 +8,48 @@ public class Personality {
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
-	List<String> currentEyeColourDNA = new ArrayList<String>();
-	List<String> currentEyeSizeDNA = new ArrayList<String>();
-	List<String> BROWN_EYES_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
-	List<String> BLUE_EYES_DNA = Arrays.asList("CA","CT","CC");
-	List<String> GREEN_EYES_DNA = Arrays.asList("GA","GC");
-	List<String> HAZEL_EYES_DNA = Arrays.asList("GG","GT");
-	List<String> GREY_EYES_DNA = Arrays.asList("TT");
-	List<String> PURPLE_EYES_DNA = Arrays.asList("CG");
-	List<String> SMALL_EYES_DNA = Arrays.asList("A");
-	List<String> MEDIUM_EYES_DNA = Arrays.asList("T","C");
-	List<String> LARGE_EYES_DNA = Arrays.asList("G");
+	int outlookChance;
+	int intelligenceChance;
+	List<String> currentOutlookDNA = new ArrayList<String>();
+	List<String> currentIntelligenceDNA = new ArrayList<String>();
+	List<String> OPTIMISTIC_OUTLOOK_DNA = Arrays.asList("A");
+	List<String> PESSIMISTIC_OUTLOOK_DNA = Arrays.asList("G");
+	List<String> REALISTIC_OUTLOOK_DNA = Arrays.asList("T","C");
+	List<String> HIGH_INTEL_DNA = Arrays.asList("A");
+	List<String> AVERAGE_INTEL_DNA = Arrays.asList("G","C");
+	List<String> LOW_INTEL_DNA = Arrays.asList("T");
 
 
 	
 	
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
-	// Determines DNA code from given eye colour	
-	public void getEyeColour(String eyesColour){
-		if (eyesColour.equals("brown")){
-			currentEyeColourDNA = BROWN_EYES_DNA;
+	// Determines DNA code from given outlook	
+	public void getOutlook(String outlook){
+		if (outlook.equals("optimistic")){
+			currentOutlookDNA = OPTIMISTIC_OUTLOOK_DNA;
 		}
-		else if (eyesColour.equals("blue")){
-			currentEyeColourDNA = BLUE_EYES_DNA;
+		else if (outlook.equals("pessimistic")){
+			currentOutlookDNA = PESSIMISTIC_OUTLOOK_DNA;
 		}
-		else if (eyesColour.equals("green")){
-			currentEyeColourDNA = GREEN_EYES_DNA;
+		else if (outlook.equals("realistic")){
+			currentOutlookDNA = REALISTIC_OUTLOOK_DNA;
 		}
-		else if (eyesColour.equals("hazel")){
-			currentEyeColourDNA = HAZEL_EYES_DNA;
-		}
-		else if (eyesColour.equals("grey")){
-			currentEyeColourDNA = GREY_EYES_DNA;
-		}
-		else if (eyesColour.equals("purple")){
-			currentEyeColourDNA = PURPLE_EYES_DNA;
-		}
+		outlookChance = currentOutlookDNA.size();
 	}
 	
-	// Determines DNA code from given eye size -- to be randomized 
-	void getSize(String eyesSize){
-		if (eyesSize.equals("small")){
-			currentEyeSizeDNA = SMALL_EYES_DNA;
+	// Determines DNA code from given intelligence 
+	void getSize(String intelligence){
+		if (intelligence.equals("high")){
+			currentIntelligenceDNA = HIGH_INTEL_DNA;
 		}
-		else if (eyesSize.equals("medium")){
-			currentEyeSizeDNA = MEDIUM_EYES_DNA;
+		else if (intelligence.equals("average")){
+			currentIntelligenceDNA = AVERAGE_INTEL_DNA;
 		} 
-		else if (eyesSize.equals("large")){
-			currentEyeSizeDNA = LARGE_EYES_DNA;
-		}		
+		else if (intelligence.equals("low")){
+			currentIntelligenceDNA = LOW_INTEL_DNA;
+		}
+		intelligenceChance = currentIntelligenceDNA.size();
 	}
 
 	
@@ -67,35 +59,26 @@ public class Personality {
 //-----------------------------------------------------------------------------------------------------
 //DNA INPUT PHENOTYPE OUTPUT
 	// Determines eye colour phenotype from given eye colour DNA gene	
-	void printOutEyeColour(String eyeColourDNA){
-		if (BROWN_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("BROWN");
+	void printOutOutlook(String outlookDNA){
+		if (OPTIMISTIC_OUTLOOK_DNA.contains(outlookDNA)){
+			System.out.println("OPTIMISTIC");
 		}
-		else if (BLUE_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("BLUE");
+		else if (PESSIMISTIC_OUTLOOK_DNA.contains(outlookDNA)){
+			System.out.println("PESSIMISTIC");
 		}
-		else if (GREEN_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("GREEN");
-		}
-		else if (HAZEL_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("HAZEL");
-		}
-		else if (GREY_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("GREY");
-		}
-		else if (PURPLE_EYES_DNA.contains(eyeColourDNA)){
-			System.out.println("PURPLE");
+		else if (REALISTIC_OUTLOOK_DNA.contains(outlookDNA)){
+			System.out.println("REALISTIC");
 		}
 	}
-	void printOutEyeSize(String eyeSizeDNA){
-		if (SMALL_EYES_DNA.contains(eyeSizeDNA)){
+	void printOutIntelligenceLevel(String intelligenceDNA){
+		if (HIGH_INTEL_DNA.contains(intelligenceDNA)){
 			System.out.println("SMALL");
 		}
-		else if (MEDIUM_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("MEDIUM");
+		else if (AVERAGE_INTEL_DNA.contains(intelligenceDNA)){
+			System.out.println("AVERAGE");
 		}
-		else if (LARGE_EYES_DNA.contains(eyeSizeDNA)){
-			System.out.println("LARGE");
+		else if (LOW_INTEL_DNA.contains(intelligenceDNA)){
+			System.out.println("LOW");
 		}
 	}
 

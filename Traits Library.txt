@@ -69,9 +69,18 @@
         - ADHD(A)
         - autism(G)
 	// these should have MANY more random traits, so we can fill them with appropriate permutations
-  
+   
  MUTATIONS
-        -   
+        -
+        
+        
+ Other possible additions:
+ -blood type
+ -dimples
+ -freckles
+ -righthanded/lefthanded
+ -colorblindness
+ -hairline   
  
   
   
