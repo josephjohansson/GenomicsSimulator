@@ -6,10 +6,12 @@ import java.util.Random;
 
 public class Eyes {
 	String currentGene;
+	public String currentEyeColour;
+	public String currentEyeSize;
 	int currentDNALength;
 	int geneNumber;
-	int eyeColourChance;
-	int eyeSizeChance;
+	public int eyeColourChance;
+	public int eyeSizeChance;
 	List<String> currentEyeColourDNA = new ArrayList<String>();
 	List<String> currentEyeSizeDNA = new ArrayList<String>();
 	final List<String> BROWN_EYES_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
@@ -27,21 +29,27 @@ public class Eyes {
 	public void getEyeColour(String eyesColour){
 		if (eyesColour.equals("brown")){
 			currentEyeColourDNA = BROWN_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("blue")){
 			currentEyeColourDNA = BLUE_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("green")){
 			currentEyeColourDNA = GREEN_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("hazel")){
 			currentEyeColourDNA = HAZEL_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("grey")){
 			currentEyeColourDNA = GREY_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("purple")){
 			currentEyeColourDNA = PURPLE_EYES_DNA;
+			currentEyeColour = eyesColour;
 		}
 		eyeColourChance = currentEyeColourDNA.size(); 
 	}
@@ -50,12 +58,15 @@ public class Eyes {
 	void getSize(String eyesSize){
 		if (eyesSize.equals("small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
+			currentEyeSize = eyesSize;
 		}
 		else if (eyesSize.equals("medium")){
 			currentEyeSizeDNA = MEDIUM_EYES_DNA;
+			currentEyeSize = eyesSize;
 		} 
 		else if (eyesSize.equals("large")){
 			currentEyeSizeDNA = LARGE_EYES_DNA;
+			currentEyeSize = eyesSize;
 		}		
 		eyeSizeChance = currentEyeSizeDNA.size();
 	}

@@ -6,9 +6,10 @@ import java.util.Random;
 
 public class Gender {
 	String currentGene;
+	public String currentGender;
 	int currentDNALength;
 	int geneNumber;
-	int genderChance;
+	public int genderChance;
 	List<String> currentGenderDNA = new ArrayList<String>();
 	final List<String> MALE_DNA= Arrays.asList("AA", "AG", "AC", "AG", "GA", "GC", "GT");
 	final List<String> FEMALE_DNA = Arrays.asList("CA", "CT", "CG", "TT", "TC", "TG", "TA");
@@ -24,12 +25,15 @@ public class Gender {
 	public void getGender(String gender){
 		if (gender.equals("male")){
 			currentGenderDNA = MALE_DNA;
+			currentGender = gender;
 		}
 		else if (gender.equals("female")){
 			currentGenderDNA = FEMALE_DNA;
+			currentGender = gender;
 		}
 		else if (gender.equals("hermaphrodite")){
 			currentGenderDNA = HERMAPHRODITE_DNA;
+			currentGender = gender;
 		}
 		genderChance = currentGenderDNA.size();
 	}

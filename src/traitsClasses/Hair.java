@@ -5,62 +5,59 @@ import java.util.List;
 import java.util.Random;
 public class Hair{
 	String currentGene;
+	public String currentHairColour;
+	public String currentHairAmmount;
 	int currentDNALength;
 	int geneNumber;
-	int hairColourChance;
-	int hairAmountChance;
+	public int hairColourChance;
+	public int hairAmountChance;
 	List<String> currentHairColourDNA = new ArrayList<String>();
 	List<String> currentAmountOfHairDNA = new ArrayList<String>();
 	final List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
-	final int BLACK_HAIR_CHANCE = 8;
 	final List<String> BROWN_HAIR_DNA = Arrays.asList("CA","CT","CC","GA","GC");
-	final int BROWN_HAIR_CHANCE = 8;
 	final List<String> BLONDE_HAIR_DNA = Arrays.asList("GG","GT","TT");
-	final int BLONDE_HAIR_CHANCE= 5;
 	final List<String> RED_HAIR_DNA = Arrays.asList("CG");
-	final int RED_HAIR_CHANCE = 3;
 	final List<String> HAIRY_HAIR_DNA = Arrays.asList("A");
-	final int HAIRY_HAIR_CHANCE= 5;
 	final List<String> AVERAGE_HAIR_DNA = Arrays.asList("T","C");
-	final int AVERAGE_HAIR_CHANCE = 7;
 	final List<String> SMOOTH_HAIR_DNA = Arrays.asList("G");
-	final int SMOOTH_HAIR_CHANCE= 5;
 //-----------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE OR GENE LIST
 	//Determines DNA come from given hair colour
 	public void getHairColour(String hairColour){
 		if (hairColour.equals("brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
-			hairColourChance = BROWN_HAIR_CHANCE;
+			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("black")){
 			currentHairColourDNA = BLACK_HAIR_DNA;
-			hairColourChance= BLACK_HAIR_CHANCE;
+			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("blonde")){
 			currentHairColourDNA = BLONDE_HAIR_DNA;
-			hairColourChance= BLONDE_HAIR_CHANCE;
+			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("red")){
 			currentHairColourDNA = RED_HAIR_DNA;
-			hairColourChance= RED_HAIR_CHANCE;
+			currentHairColour = hairColour;
 		}
+		hairColourChance = currentHairColourDNA.size();
 	}
 	
 	// Determines DNA code from given eye size -- to be randomized 
 	void getSize(String amountHair){
 		if (amountHair.equals("smooth")){
 			currentAmountOfHairDNA = SMOOTH_HAIR_DNA;
-			hairAmountChance = SMOOTH_HAIR_CHANCE;
+			currentHairAmmount = amountHair;
 		}
 		else if (amountHair.equals("average")){
 			currentAmountOfHairDNA = AVERAGE_HAIR_DNA;
-			hairAmountChance = AVERAGE_HAIR_CHANCE;
+			currentHairAmmount = amountHair;
 		} 
 		else if (amountHair.equals("hairy")){
 			currentAmountOfHairDNA = HAIRY_HAIR_DNA;
-			hairAmountChance = HAIRY_HAIR_CHANCE;
-		}		
+			currentHairAmmount = amountHair;
+		}
+		hairAmountChance = currentHairColourDNA.size();
 	}
 
 	
