@@ -7,8 +7,9 @@ public class Hair{
 	String currentGene;
 	int currentDNALength;
 	int geneNumber;
-	int hairColourChance;
+	public int hairColourChance;
 	int hairAmountChance;
+	public String currentHairColour;
 	List<String> currentHairColourDNA = new ArrayList<String>();
 	List<String> currentAmountOfHairDNA = new ArrayList<String>();
 	final List<String> BLACK_HAIR_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
@@ -32,18 +33,22 @@ public class Hair{
 		if (hairColour.equals("brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
 			hairColourChance = BROWN_HAIR_CHANCE;
+			currentHairColour = "brown";
 		}
 		else if (hairColour.equals("black")){
 			currentHairColourDNA = BLACK_HAIR_DNA;
 			hairColourChance= BLACK_HAIR_CHANCE;
+			currentHairColour = "black";
 		}
 		else if (hairColour.equals("blonde")){
 			currentHairColourDNA = BLONDE_HAIR_DNA;
 			hairColourChance= BLONDE_HAIR_CHANCE;
+			currentHairColour = "blonde";
 		}
 		else if (hairColour.equals("red")){
 			currentHairColourDNA = RED_HAIR_DNA;
 			hairColourChance= RED_HAIR_CHANCE;
+			currentHairColour = "red";
 		}
 	}
 	
