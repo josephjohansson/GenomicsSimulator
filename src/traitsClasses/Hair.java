@@ -6,7 +6,7 @@ import java.util.Random;
 public class Hair{
 	String currentGene;
 	public String currentHairColour;
-	public String currentHairAmmount;
+	public String currentHairAmount;
 	int currentDNALength;
 	int geneNumber;
 	public int hairColourChance;
@@ -41,7 +41,7 @@ public class Hair{
 	}
 	
 	// Determines DNA code from given eye size 
-	void getSize(String amountHair){
+	void getHairAmount(String amountHair){
 		if (amountHair.equals("smooth")){
 			currentAmountOfHairDNA = SMOOTH_HAIR_DNA;
 		}
@@ -52,7 +52,7 @@ public class Hair{
 			currentAmountOfHairDNA = HAIRY_HAIR_DNA;
 		}
 		hairAmountChance = currentHairColourDNA.size();
-		currentHairAmmount = amountHair;
+		currentHairAmount = amountHair;
 	}
 
 	

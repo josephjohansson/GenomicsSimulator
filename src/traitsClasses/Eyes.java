@@ -50,7 +50,7 @@ public class Eyes {
 	}
 	
 	// Determines DNA code from given eye size 
-	void getSize(String eyesSize){
+	void getEyeSize(String eyesSize){
 		if (eyesSize.equals("small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
 		}

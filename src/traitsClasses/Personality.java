@@ -42,7 +42,7 @@ public class Personality {
 	}
 	
 	// Determines DNA code from given intelligence 
-	void getSize(String intelligence){
+	void getIntelligence(String intelligence){
 		if (intelligence.equals("high")){
 			currentIntelligenceDNA = HIGH_INTEL_DNA;
 		}
