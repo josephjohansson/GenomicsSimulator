@@ -26,38 +26,33 @@ public class Hair{
 	public void getHairColour(String hairColour){
 		if (hairColour.equals("brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
-			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("black")){
 			currentHairColourDNA = BLACK_HAIR_DNA;
-			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("blonde")){
 			currentHairColourDNA = BLONDE_HAIR_DNA;
-			currentHairColour = hairColour;
 		}
 		else if (hairColour.equals("red")){
 			currentHairColourDNA = RED_HAIR_DNA;
-			currentHairColour = hairColour;
 		}
 		hairColourChance = currentHairColourDNA.size();
+		currentHairColour = hairColour;
 	}
 	
-	// Determines DNA code from given eye size -- to be randomized 
+	// Determines DNA code from given eye size 
 	void getSize(String amountHair){
 		if (amountHair.equals("smooth")){
 			currentAmountOfHairDNA = SMOOTH_HAIR_DNA;
-			currentHairAmmount = amountHair;
 		}
 		else if (amountHair.equals("average")){
 			currentAmountOfHairDNA = AVERAGE_HAIR_DNA;
-			currentHairAmmount = amountHair;
 		} 
 		else if (amountHair.equals("hairy")){
 			currentAmountOfHairDNA = HAIRY_HAIR_DNA;
-			currentHairAmmount = amountHair;
 		}
 		hairAmountChance = currentHairColourDNA.size();
+		currentHairAmmount = amountHair;
 	}
 
 	

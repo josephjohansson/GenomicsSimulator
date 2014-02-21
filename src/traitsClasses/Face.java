@@ -29,30 +29,27 @@ public class Face {
 	public void getNoseSize(String noseSize){
 		if (noseSize.equals("small")){
 			currentNoseSizeDNA = SMALL_NOSE_DNA;
-			currentNoseSize = noseSize;
 		}
 		else if (noseSize.equals("medium")){
 			currentNoseSizeDNA = MEDIUM_NOSE_DNA;
-			currentNoseSize = noseSize;
 		}
 		else if (noseSize.equals("large")){
 			currentNoseSizeDNA = LARGE_NOSE_DNA;
-			currentNoseSize = noseSize;
 		}
 		noseSizeChance = currentNoseSizeDNA.size();
+		currentNoseSize = noseSize;
 	}
 	
 	// Determines DNA code from given ear lobe 
 	void getEarLobe(String earLobe){
 		if (earLobe.equals("attached")){
 			currentEarLobeDNA = ATTACHED_EAR_LOBE_DNA;
-			currentEarLobe = earLobe;
 		}
 		else if (earLobe.equals("detached")){
 			currentEarLobeDNA = DETACHED_EAR_LOBE_DNA;
-			currentEarLobe = earLobe;
 		} 		
 		earLobeChance = currentEarLobeDNA.size();
+		currentEarLobe = earLobe;
 	}
 
 	
