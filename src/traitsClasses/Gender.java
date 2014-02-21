@@ -25,17 +25,15 @@ public class Gender {
 	public void getGender(String gender){
 		if (gender.equals("male")){
 			currentGenderDNA = MALE_DNA;
-			currentGender = gender;
 		}
 		else if (gender.equals("female")){
 			currentGenderDNA = FEMALE_DNA;
-			currentGender = gender;
 		}
 		else if (gender.equals("hermaphrodite")){
 			currentGenderDNA = HERMAPHRODITE_DNA;
-			currentGender = gender;
 		}
 		genderChance = currentGenderDNA.size();
+		currentGender = gender;
 	}
 	
 //-----------------------------------------------------------------------------------------------------

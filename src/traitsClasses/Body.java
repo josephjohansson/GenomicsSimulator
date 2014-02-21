@@ -8,11 +8,12 @@ public class Body {
 	String currentGene;
 	public String currentHeight;
 	public String currentBodyType;
+	public String currentSkinColour;
 	int currentDNALength;
 	int geneNumber;
 	public int heightChance;
 	public int bodyTypeChance;
-	int skinColourChance;
+	public int skinColourChance;
 	List<String> currentHeightDNA = new ArrayList<String>();
 	List<String> currentBodyTypeDNA = new ArrayList<String>();
 	List<String> currentSkinColourDNA = new ArrayList<String>();
@@ -38,50 +39,42 @@ public class Body {
 	public void getHeight(String height){
 		if (height.equals("tall")){
 			currentHeightDNA = TALL_HEIGHT_DNA;
-			currentHeight = height;
 		}
 		else if (height.equals("average")){
 			currentHeightDNA = AVERAGE_HEIGHT_DNA;
-			currentHeight = height;
 		}
 		else if (height.equals("short")){
 			currentHeightDNA = SHORT_HEIGHT_DNA;
-			currentHeight = height;
 		}
 		else if (height.equals("dwarf")){
 			currentHeightDNA = DWARF_HEIGHT_DNA;
-			currentHeight = height;
 		}
 		else if (height.equals("giant")){
 			currentHeightDNA = GIANT_HEIGHT_DNA;
-			currentHeight = height;
 		}
 		heightChance = currentHeightDNA.size();
+		currentHeight = height; 
 	}
 	
 	// Determines DNA code from given body type 
 	void getBodyType(String bodyType){
 		if (bodyType.equals("slim")){
 			currentBodyTypeDNA = SLIM_BODY_DNA;
-			currentBodyType = bodyType;
 		}
 		else if (bodyType.equals("average")){
 			currentBodyTypeDNA = AVERAGE_BODY_DNA;
-			currentBodyType = bodyType;
 		} 
 		else if (bodyType.equals("large")){
 			currentBodyTypeDNA = LARGE_BODY_DNA;
-			currentBodyType = bodyType;
 		}
 		else if (bodyType.equals("obese")){
 			currentBodyTypeDNA = OBESE_BODY_DNA;
-			currentBodyType = bodyType;
 		}
 		else if (bodyType.equals("anorexic")){
 			currentBodyTypeDNA = ANOREXIC_BODY_DNA;
-			currentBodyType = bodyType;
 		}
 		bodyTypeChance = currentBodyTypeDNA.size();
+		currentBodyType = bodyType;
 	}
 
 	// Determines DNA code from given skin colour	
@@ -102,6 +95,7 @@ public class Body {
 			currentSkinColourDNA = ALBINO_SKIN_DNA;
 		}
 		skinColourChance = currentSkinColourDNA.size();
+		currentSkinColour = skinColour;
 	}	
 	
 //-----------------------------------------------------------------------------------------------------

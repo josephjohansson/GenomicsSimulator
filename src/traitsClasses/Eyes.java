@@ -29,46 +29,39 @@ public class Eyes {
 	public void getEyeColour(String eyesColour){
 		if (eyesColour.equals("brown")){
 			currentEyeColourDNA = BROWN_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("blue")){
 			currentEyeColourDNA = BLUE_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("green")){
 			currentEyeColourDNA = GREEN_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("hazel")){
 			currentEyeColourDNA = HAZEL_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("grey")){
 			currentEyeColourDNA = GREY_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
 		else if (eyesColour.equals("purple")){
 			currentEyeColourDNA = PURPLE_EYES_DNA;
-			currentEyeColour = eyesColour;
 		}
-		eyeColourChance = currentEyeColourDNA.size(); 
+		eyeColourChance = currentEyeColourDNA.size();
+		currentEyeColour = eyesColour;
 	}
 	
 	// Determines DNA code from given eye size 
 	void getSize(String eyesSize){
 		if (eyesSize.equals("small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
-			currentEyeSize = eyesSize;
 		}
 		else if (eyesSize.equals("medium")){
 			currentEyeSizeDNA = MEDIUM_EYES_DNA;
-			currentEyeSize = eyesSize;
 		} 
 		else if (eyesSize.equals("large")){
 			currentEyeSizeDNA = LARGE_EYES_DNA;
-			currentEyeSize = eyesSize;
 		}		
 		eyeSizeChance = currentEyeSizeDNA.size();
+		currentEyeSize = eyesSize;
 	}
 
 	

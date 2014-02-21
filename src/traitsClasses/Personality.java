@@ -6,10 +6,12 @@ import java.util.Random;
 
 public class Personality {
 	String currentGene;
+	public String currentOutlook;
+	public String currentIntelligence;
 	int currentDNALength;
 	int geneNumber;
-	int outlookChance;
-	int intelligenceChance;
+	public int outlookChance;
+	public int intelligenceChance;
 	List<String> currentOutlookDNA = new ArrayList<String>();
 	List<String> currentIntelligenceDNA = new ArrayList<String>();
 	List<String> OPTIMISTIC_OUTLOOK_DNA = Arrays.asList("A");
@@ -35,6 +37,7 @@ public class Personality {
 		else if (outlook.equals("realistic")){
 			currentOutlookDNA = REALISTIC_OUTLOOK_DNA;
 		}
+		currentOutlook = outlook;
 		outlookChance = currentOutlookDNA.size();
 	}
 	
@@ -49,6 +52,7 @@ public class Personality {
 		else if (intelligence.equals("low")){
 			currentIntelligenceDNA = LOW_INTEL_DNA;
 		}
+		currentIntelligence = intelligence;
 		intelligenceChance = currentIntelligenceDNA.size();
 	}
 
