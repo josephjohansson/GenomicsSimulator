@@ -1,5 +1,6 @@
 package Main;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import traitsClasses.Person;
 import BabyCreation.BabyRandomizer;
 public class tester {
@@ -30,53 +31,119 @@ public class tester {
 		String outlookInputM = null;
 		String intelligenceInputF = null;
 		String intelligenceInputM = null;
-		String genderInputF = "male";
-		String genderInputM = "female";
+		String genderInputF = "Male";
+		String genderInputM = "Female";
 		while(happyWithChoice == false) {
-			System.out.print("What hair colour for the father?");
-			hairColourInputF = keyboard.next();
-			System.out.print("What hair colour for the mother?");
-			hairColourInputM = keyboard.next();
-			System.out.print("What hair amount for the father?");
-			hairAmountInputF = keyboard.next();
-			System.out.print("What hair amount for the mother?");
-			hairAmountInputM = keyboard.next();
-			System.out.print("What eye colour for the father?");
-			eyeColourInputF = keyboard.next();
-			System.out.print("What eye colour for the mother?");
-			eyeColourInputM = keyboard.next();
-			System.out.print("What eye size for the father?");
-			eyeSizeInputF = keyboard.next();
-			System.out.print("What eye size for the mother?");
-			eyeSizeInputM = keyboard.next();
-			System.out.print("What nose size for the father?");
-			noseSizeInputF = keyboard.next();
-			System.out.print("What nose size for the mother?");
-			noseSizeInputM = keyboard.next();
-			System.out.print("What ear lobe for the father?");
-			earLobeInputF = keyboard.next();
-			System.out.print("What ear lobe for the mother?");
-			earLobeInputM = keyboard.next();
-			System.out.print("What height for the father?");
-			heightInputF = keyboard.next();
-			System.out.print("What height for the mother?");
-			heightInputM = keyboard.next();
-			System.out.print("What body type for the father?");
-			bodyTypeInputF = keyboard.next();
-			System.out.print("What body type for the mother?");
-			bodyTypeInputM = keyboard.next();
-			System.out.print("What skin colour for the father?");
-			skinColourInputF = keyboard.next();
-			System.out.print("What skin colour for the mother?");
-			skinColourInputM = keyboard.next();
-			System.out.print("What outlook for the father?");
-			outlookInputF = keyboard.next();
-			System.out.print("What outlook for the mother?");
-			outlookInputM = keyboard.next();
-			System.out.print("What intelligence for the father?");
-			intelligenceInputF = keyboard.next();
-			System.out.print("What intelligence for the mother?");
-			intelligenceInputM = keyboard.next();
+			// hair colour
+			Object[] possibleHairColour = {"Black","Brown","Blonde","Red"};
+			hairColourInputF = (String)JOptionPane.showInputDialog(null,
+					"What hair colour for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHairColour, possibleHairColour[0]);
+			hairColourInputM = (String)JOptionPane.showInputDialog(null,
+					"What hair colour for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHairColour, possibleHairColour[0]);
+			// hair amount
+			Object[] possibleHairAmount = {"Hairy","Average","Smooth"};
+			hairAmountInputF = (String)JOptionPane.showInputDialog(null,
+					"What hair amount for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHairAmount, possibleHairAmount[0]);
+			hairAmountInputM = (String)JOptionPane.showInputDialog(null,
+					"What hair amount for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHairAmount, possibleHairAmount[0]);
+			// eye colour
+			Object[] possibleEyeColour = {"Brown","Blue","Green","Hazel"};
+			eyeColourInputF = (String)JOptionPane.showInputDialog(null,
+					"What eye colour for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEyeColour, possibleEyeColour[0]);
+			eyeColourInputM = (String)JOptionPane.showInputDialog(null,
+					"What eye colour for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEyeColour, possibleEyeColour[0]);
+			// eye size
+			Object[] possibleEyeSize = {"Small","Medium","Large"};
+			eyeSizeInputF = (String)JOptionPane.showInputDialog(null,
+					"What eye size for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEyeSize, possibleEyeSize[0]);
+			eyeSizeInputM = (String)JOptionPane.showInputDialog(null,
+					"What eye size for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEyeSize, possibleEyeSize[0]);
+			// nose size
+			Object[] possibleNoseSize = {"Small","Medium","Large"};
+			noseSizeInputF = (String)JOptionPane.showInputDialog(null,
+					"What nose size for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleNoseSize, possibleNoseSize[0]);
+			noseSizeInputM = (String)JOptionPane.showInputDialog(null,
+					"What nose size for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleNoseSize, possibleNoseSize[0]);
+			// ear lobe
+			Object[] possibleEarLobe = {"Attached","Detached"};
+			earLobeInputF = (String)JOptionPane.showInputDialog(null,
+					"What ear lobe for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEarLobe, possibleEarLobe[0]);
+			earLobeInputM = (String)JOptionPane.showInputDialog(null,
+					"What ear lobe for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleEarLobe, possibleEarLobe[0]);
+			// height
+			Object[] possibleHeight = {"Tall","Average","Short"};
+			heightInputF = (String)JOptionPane.showInputDialog(null,
+					"What height for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHeight, possibleHeight[0]);
+			heightInputM = (String)JOptionPane.showInputDialog(null,
+					"What height for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleHeight, possibleHeight[0]);
+			// body type
+			Object[] possibleBodyType = {"Slim","Average","Large"};
+			bodyTypeInputF = (String)JOptionPane.showInputDialog(null,
+					"What body type for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleBodyType, possibleBodyType[0]);
+			bodyTypeInputM = (String)JOptionPane.showInputDialog(null,
+					"What body type for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleBodyType, possibleBodyType[0]);
+			// skin colour
+			Object[] possibleSkinColour = {"Fair","Dark","Brown","Yellow"};
+			skinColourInputF = (String)JOptionPane.showInputDialog(null,
+					"What skin colour for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleSkinColour, possibleSkinColour[0]);
+			skinColourInputM = (String)JOptionPane.showInputDialog(null,
+					"What skin colour for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleSkinColour, possibleSkinColour[0]);
+			// outlook
+			Object[] possibleOutlook = {"Optimistic","Pessimistic","Realistic"};
+			outlookInputF = (String)JOptionPane.showInputDialog(null,
+					"What outlook for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleOutlook, possibleOutlook[0]);
+			outlookInputM = (String)JOptionPane.showInputDialog(null,
+					"What outlook for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleOutlook, possibleOutlook[0]);
+			// intelligence
+			Object[] possibleIntelligence = {"High","Average","Low"};
+			intelligenceInputF = (String)JOptionPane.showInputDialog(null,
+					"What intelligence for the father?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleIntelligence, possibleIntelligence[0]);
+			intelligenceInputM = (String)JOptionPane.showInputDialog(null,
+					"What intelligence for the mother?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					possibleIntelligence, possibleIntelligence[0]);
 			System.out.print("happy?");
 			String happyWithChoiceS = keyboard.next();
 			if (happyWithChoiceS.equals("y")){

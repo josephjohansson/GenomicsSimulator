@@ -27,13 +27,13 @@ public class Face {
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given nose size	
 	public void getNoseSize(String noseSize){
-		if (noseSize.equals("small")){
+		if (noseSize.equals("Small")){
 			currentNoseSizeDNA = SMALL_NOSE_DNA;
 		}
-		else if (noseSize.equals("medium")){
+		else if (noseSize.equals("Medium")){
 			currentNoseSizeDNA = MEDIUM_NOSE_DNA;
 		}
-		else if (noseSize.equals("large")){
+		else if (noseSize.equals("Large")){
 			currentNoseSizeDNA = LARGE_NOSE_DNA;
 		}
 		noseSizeChance = currentNoseSizeDNA.size();
@@ -42,10 +42,10 @@ public class Face {
 	
 	// Determines DNA code from given ear lobe 
 	void getEarLobe(String earLobe){
-		if (earLobe.equals("attached")){
+		if (earLobe.equals("Attached")){
 			currentEarLobeDNA = ATTACHED_EAR_LOBE_DNA;
 		}
-		else if (earLobe.equals("detached")){
+		else if (earLobe.equals("Detached")){
 			currentEarLobeDNA = DETACHED_EAR_LOBE_DNA;
 		} 		
 		earLobeChance = currentEarLobeDNA.size();
