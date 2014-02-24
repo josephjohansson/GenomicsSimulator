@@ -28,13 +28,13 @@ public class Personality {
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given outlook	
 	public void getOutlook(String outlook){
-		if (outlook.equals("optimistic")){
+		if (outlook.equals("Optimistic")){
 			currentOutlookDNA = OPTIMISTIC_OUTLOOK_DNA;
 		}
-		else if (outlook.equals("pessimistic")){
+		else if (outlook.equals("Pessimistic")){
 			currentOutlookDNA = PESSIMISTIC_OUTLOOK_DNA;
 		}
-		else if (outlook.equals("realistic")){
+		else if (outlook.equals("Realistic")){
 			currentOutlookDNA = REALISTIC_OUTLOOK_DNA;
 		}
 		currentOutlook = outlook;
@@ -43,13 +43,13 @@ public class Personality {
 	
 	// Determines DNA code from given intelligence 
 	void getIntelligence(String intelligence){
-		if (intelligence.equals("high")){
+		if (intelligence.equals("High")){
 			currentIntelligenceDNA = HIGH_INTEL_DNA;
 		}
-		else if (intelligence.equals("average")){
+		else if (intelligence.equals("Average")){
 			currentIntelligenceDNA = AVERAGE_INTEL_DNA;
 		} 
-		else if (intelligence.equals("low")){
+		else if (intelligence.equals("Low")){
 			currentIntelligenceDNA = LOW_INTEL_DNA;
 		}
 		currentIntelligence = intelligence;

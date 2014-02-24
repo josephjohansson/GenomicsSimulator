@@ -27,22 +27,22 @@ public class Eyes {
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given eye colour	
 	public void getEyeColour(String eyesColour){
-		if (eyesColour.equals("brown")){
+		if (eyesColour.equals("Brown")){
 			currentEyeColourDNA = BROWN_EYES_DNA;
 		}
-		else if (eyesColour.equals("blue")){
+		else if (eyesColour.equals("Blue")){
 			currentEyeColourDNA = BLUE_EYES_DNA;
 		}
-		else if (eyesColour.equals("green")){
+		else if (eyesColour.equals("Green")){
 			currentEyeColourDNA = GREEN_EYES_DNA;
 		}
-		else if (eyesColour.equals("hazel")){
+		else if (eyesColour.equals("Hazel")){
 			currentEyeColourDNA = HAZEL_EYES_DNA;
 		}
-		else if (eyesColour.equals("grey")){
+		else if (eyesColour.equals("Grey")){
 			currentEyeColourDNA = GREY_EYES_DNA;
 		}
-		else if (eyesColour.equals("purple")){
+		else if (eyesColour.equals("Purple")){
 			currentEyeColourDNA = PURPLE_EYES_DNA;
 		}
 		eyeColourChance = currentEyeColourDNA.size();
@@ -51,13 +51,13 @@ public class Eyes {
 	
 	// Determines DNA code from given eye size 
 	void getEyeSize(String eyesSize){
-		if (eyesSize.equals("small")){
+		if (eyesSize.equals("Small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
 		}
-		else if (eyesSize.equals("medium")){
+		else if (eyesSize.equals("Medium")){
 			currentEyeSizeDNA = MEDIUM_EYES_DNA;
 		} 
-		else if (eyesSize.equals("large")){
+		else if (eyesSize.equals("Large")){
 			currentEyeSizeDNA = LARGE_EYES_DNA;
 		}		
 		eyeSizeChance = currentEyeSizeDNA.size();

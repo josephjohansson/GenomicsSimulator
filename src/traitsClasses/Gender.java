@@ -23,10 +23,10 @@ public class Gender {
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given gender	
 	public void getGender(String gender){
-		if (gender.equals("male")){
+		if (gender.equals("Male")){
 			currentGenderDNA = MALE_DNA;
 		}
-		else if (gender.equals("female")){
+		else if (gender.equals("Female")){
 			currentGenderDNA = FEMALE_DNA;
 		}
 		else if (gender.equals("hermaphrodite")){

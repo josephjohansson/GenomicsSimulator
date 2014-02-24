@@ -24,16 +24,16 @@ public class Hair{
 //PHENOTYPE INPUT GETS POSSIBLE GENE OR GENE LIST
 	//Determines DNA come from given hair colour
 	public void getHairColour(String hairColour){
-		if (hairColour.equals("brown")){
+		if (hairColour.equals("Brown")){
 			currentHairColourDNA = BROWN_HAIR_DNA;
 		}
-		else if (hairColour.equals("black")){
+		else if (hairColour.equals("Black")){
 			currentHairColourDNA = BLACK_HAIR_DNA;
 		}
-		else if (hairColour.equals("blonde")){
+		else if (hairColour.equals("Blonde")){
 			currentHairColourDNA = BLONDE_HAIR_DNA;
 		}
-		else if (hairColour.equals("red")){
+		else if (hairColour.equals("Red")){
 			currentHairColourDNA = RED_HAIR_DNA;
 		}
 		hairColourChance = currentHairColourDNA.size();
@@ -42,16 +42,16 @@ public class Hair{
 	
 	// Determines DNA code from given eye size 
 	void getHairAmount(String amountHair){
-		if (amountHair.equals("smooth")){
+		if (amountHair.equals("Smooth")){
 			currentAmountOfHairDNA = SMOOTH_HAIR_DNA;
 		}
-		else if (amountHair.equals("average")){
+		else if (amountHair.equals("Average")){
 			currentAmountOfHairDNA = AVERAGE_HAIR_DNA;
 		} 
-		else if (amountHair.equals("hairy")){
+		else if (amountHair.equals("Hairy")){
 			currentAmountOfHairDNA = HAIRY_HAIR_DNA;
 		}
-		hairAmountChance = currentHairColourDNA.size();
+		hairAmountChance = currentAmountOfHairDNA.size();
 		currentHairAmount = amountHair;
 	}
 

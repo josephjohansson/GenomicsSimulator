@@ -37,19 +37,19 @@ public class Body {
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given height	
 	public void getHeight(String height){
-		if (height.equals("tall")){
+		if (height.equals("Tall")){
 			currentHeightDNA = TALL_HEIGHT_DNA;
 		}
-		else if (height.equals("average")){
+		else if (height.equals("Average")){
 			currentHeightDNA = AVERAGE_HEIGHT_DNA;
 		}
-		else if (height.equals("short")){
+		else if (height.equals("Short")){
 			currentHeightDNA = SHORT_HEIGHT_DNA;
 		}
-		else if (height.equals("dwarf")){
+		else if (height.equals("Dwarf")){
 			currentHeightDNA = DWARF_HEIGHT_DNA;
 		}
-		else if (height.equals("giant")){
+		else if (height.equals("Giant")){
 			currentHeightDNA = GIANT_HEIGHT_DNA;
 		}
 		heightChance = currentHeightDNA.size();
@@ -58,19 +58,19 @@ public class Body {
 	
 	// Determines DNA code from given body type 
 	void getBodyType(String bodyType){
-		if (bodyType.equals("slim")){
+		if (bodyType.equals("Slim")){
 			currentBodyTypeDNA = SLIM_BODY_DNA;
 		}
-		else if (bodyType.equals("average")){
+		else if (bodyType.equals("Average")){
 			currentBodyTypeDNA = AVERAGE_BODY_DNA;
 		} 
-		else if (bodyType.equals("large")){
+		else if (bodyType.equals("Large")){
 			currentBodyTypeDNA = LARGE_BODY_DNA;
 		}
-		else if (bodyType.equals("obese")){
+		else if (bodyType.equals("Obese")){
 			currentBodyTypeDNA = OBESE_BODY_DNA;
 		}
-		else if (bodyType.equals("anorexic")){
+		else if (bodyType.equals("Anorexic")){
 			currentBodyTypeDNA = ANOREXIC_BODY_DNA;
 		}
 		bodyTypeChance = currentBodyTypeDNA.size();
@@ -79,19 +79,19 @@ public class Body {
 
 	// Determines DNA code from given skin colour	
 	public void getSkinColour(String skinColour){
-		if (skinColour.equals("fair")){
+		if (skinColour.equals("Fair")){
 			currentSkinColourDNA = FAIR_SKIN_DNA;
 		}
-		else if (skinColour.equals("dark")){
+		else if (skinColour.equals("Dark")){
 			currentSkinColourDNA = DARK_SKIN_DNA;
 		}
-		else if (skinColour.equals("yellow")){
+		else if (skinColour.equals("Yellow")){
 			currentSkinColourDNA = YELLOW_SKIN_DNA;
 		}
-		else if (skinColour.equals("brown")){
+		else if (skinColour.equals("Brown")){
 			currentSkinColourDNA = BROWN_SKIN_DNA;
 		}
-		else if (skinColour.equals("albino")){
+		else if (skinColour.equals("Albino")){
 			currentSkinColourDNA = ALBINO_SKIN_DNA;
 		}
 		skinColourChance = currentSkinColourDNA.size();
