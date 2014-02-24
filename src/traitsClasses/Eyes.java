@@ -109,9 +109,9 @@ public class Eyes {
 //-------------------------------------------------------------------------------------------------------
 //RANDOMISER
 	//Gets a DNA list and chooses a random gene
-	void getRandomGene(List<String> DNAInputList){
+	String getRandomGene(List<String> DNAInputList){
 		currentDNALength = DNAInputList.size();
 		geneNumber = new Random().nextInt(currentDNALength);
-		currentGene = DNAInputList.get(geneNumber);
+		return(DNAInputList.get(geneNumber));
 	}
 }

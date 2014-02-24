@@ -10,10 +10,8 @@ public class Person {
 	public Person(String hairColourInput, String hairAmountInput, String eyeColourInput, String eyeSizeInput, String noseSizeInput, String earLobeInput, String heightInput, String bodyTypeInput, String skinColourInput, String outlookInput, String intelligenceInput, String genderInput) {
 		hair.getHairColour(hairColourInput);
 		hair.getHairAmount(hairAmountInput);
-		//hair.getRandomGene(hair.currentHairColourDNA);
 		eyes.getEyeColour(eyeColourInput);
 		eyes.getEyeSize(eyeSizeInput);
-		//eyes.getRandomGene(eyes.currentEyeColourDNA);
 		face.getNoseSize(noseSizeInput);
 		face.getEarLobe(earLobeInput);
 		body.getHeight(heightInput);
@@ -22,5 +20,20 @@ public class Person {
 		personality.getOutlook(outlookInput);
 		personality.getIntelligence(intelligenceInput);
 		gender.getGender(genderInput);
-	}	
+	}
+	public String getGeneticMaterial(){
+		return (eyes.getRandomGene(eyes.currentEyeColourDNA)
+				+eyes.getRandomGene(eyes.currentEyeSizeDNA)
+				+hair.getRandomGene(hair.currentHairColourDNA)
+				+hair.getRandomGene(hair.currentAmountOfHairDNA)
+				+face.getRandomGene(face.currentNoseSizeDNA)
+				+face.getRandomGene(face.currentEarLobeDNA)
+				+body.getRandomGene(body.currentHeightDNA)
+				+body.getRandomGene(body.currentBodyTypeDNA)
+				+body.getRandomGene(body.currentSkinColourDNA)
+				+personality.getRandomGene(personality.currentOutlookDNA)
+				+personality.getRandomGene(personality.currentIntelligenceDNA)
+				+gender.getRandomGene(gender.currentGenderDNA)
+				);
+	}
 }
