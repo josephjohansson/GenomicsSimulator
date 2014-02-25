@@ -171,7 +171,7 @@ public class tester {
 				String babyOutlook = BabyRandomizer.generateChildsTrait(mom.personality.outlookChance, dad.personality.outlookChance, dad.personality.currentOutlook, mom.personality.currentOutlook);
 				String babyIntelligence = BabyRandomizer.generateChildsTrait(mom.personality.intelligenceChance, dad.personality.intelligenceChance, dad.personality.currentIntelligence, mom.personality.currentIntelligence);
 				String babyGender = BabyRandomizer.generateChildsTrait(mom.gender.genderChance, dad.gender.genderChance, dad.gender.currentGender, mom.gender.currentGender);						
-				Person baby = new Person("baby"babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
+				Person baby = new Person(babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
 				System.out.println("baby's hair colour is: "+baby.hair.currentHairColour);
 				System.out.println("baby's hair amount is: "+baby.hair.currentHairAmount);
 				System.out.println("baby's eye colour is: "+baby.eyes.currentEyeColour);

@@ -9,20 +9,20 @@ public class Eyes {
 	public String currentEyeColour;
 	public String currentEyeSize;
 	int currentDNALength;
-	int geneNumber;
+	public int geneNumber;
 	public int eyeColourChance;
 	public int eyeSizeChance;
 	List<String> currentEyeColourDNA = new ArrayList<String>();
 	List<String> currentEyeSizeDNA = new ArrayList<String>();
-	final List<String> BROWN_EYES_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
-	final List<String> BLUE_EYES_DNA = Arrays.asList("CA","CT","CC");
-	final List<String> GREEN_EYES_DNA = Arrays.asList("GA","GC");
-	final List<String> HAZEL_EYES_DNA = Arrays.asList("GG","GT");
-	final List<String> GREY_EYES_DNA = Arrays.asList("TT");
-	final List<String> PURPLE_EYES_DNA = Arrays.asList("CG");
-	final List<String> SMALL_EYES_DNA = Arrays.asList("A");
-	final List<String> MEDIUM_EYES_DNA = Arrays.asList("T","C");
-	final List<String> LARGE_EYES_DNA = Arrays.asList("G");
+	public final List<String> BROWN_EYES_DNA = Arrays.asList("AA","AT","AC","AG","TA","TC","TG");
+	public final List<String> BLUE_EYES_DNA = Arrays.asList("CA","CT","CC");
+	public final List<String> GREEN_EYES_DNA = Arrays.asList("GA","GC");
+	public final List<String> HAZEL_EYES_DNA = Arrays.asList("GG","GT");
+	public final List<String> GREY_EYES_DNA = Arrays.asList("TT");
+	public final List<String> PURPLE_EYES_DNA = Arrays.asList("CG");
+	public final List<String> SMALL_EYES_DNA = Arrays.asList("A");
+	public final List<String> MEDIUM_EYES_DNA = Arrays.asList("T","C");
+	public final List<String> LARGE_EYES_DNA = Arrays.asList("G");
 //----------------------------------------------------------------------------------------------------
 //PHENOTYPE INPUT GETS POSSIBLE GENE LIST
 	// Determines DNA code from given eye colour	
@@ -50,7 +50,7 @@ public class Eyes {
 	}
 	
 	// Determines DNA code from given eye size 
-	void getEyeSize(String eyesSize){
+	public void getEyeSize(String eyesSize){
 		if (eyesSize.equals("Small")){
 			currentEyeSizeDNA = SMALL_EYES_DNA;
 		}
@@ -109,7 +109,7 @@ public class Eyes {
 //-------------------------------------------------------------------------------------------------------
 //RANDOMISER
 	//Gets a DNA list and chooses a random gene
-	String getRandomGene(List<String> DNAInputList){
+	public String getRandomGene(List<String> DNAInputList){
 		currentDNALength = DNAInputList.size();
 		geneNumber = new Random().nextInt(currentDNALength);
 		return(DNAInputList.get(geneNumber));
