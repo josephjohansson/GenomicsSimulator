@@ -1,14 +1,11 @@
 package Main;
-import java.util.Scanner;
 import javax.swing.JOptionPane;
 import traitsClasses.Person;
 import BabyCreation.BabyRandomizer;
 public class tester {
-	private static Scanner keyboard;
 	public static void main(String[]args){
 		boolean happyWithChoice = false;
 		boolean makeAnotherBaby = true;
-		keyboard = new Scanner(System.in);
 		String hairColourInputF = null;
 		String hairColourInputM = null;
 		String hairAmountInputF = null;
@@ -144,9 +141,13 @@ public class tester {
 					"What intelligence for the mother?", "Input",
 					JOptionPane.INFORMATION_MESSAGE, null,
 					possibleIntelligence, possibleIntelligence[0]);
-			System.out.print("happy?");
-			String happyWithChoiceS = keyboard.next();
-			if (happyWithChoiceS.equals("y")){
+			// Check to see if user is happy with the input entered
+			Object[] happyWithChoiceAnswer = {"Yes","No"};
+			String happyWithChoiceS = (String)JOptionPane.showInputDialog(null,
+					"Are you happy with these choices?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					happyWithChoiceAnswer, happyWithChoiceAnswer[0]);
+			if (happyWithChoiceS.equals("Yes")){
 				happyWithChoice = true;
 			}
 			else{
@@ -156,9 +157,12 @@ public class tester {
 		Person dad = new Person(hairColourInputF, hairAmountInputF, eyeColourInputF, eyeSizeInputF, noseSizeInputF, earLobeInputF, heightInputF, bodyTypeInputF, skinColourInputF, outlookInputF, intelligenceInputF, genderInputF);
 		Person mom = new Person(hairColourInputM, hairAmountInputM, eyeColourInputM, eyeSizeInputM, noseSizeInputM, earLobeInputM, heightInputM, bodyTypeInputM, skinColourInputM, outlookInputM, intelligenceInputM, genderInputM);
 		while (makeAnotherBaby) {
-			System.out.print("Make baby?");
-			String makeBabyString = keyboard.next();
-			if (makeBabyString.equals("t")){
+			Object[] newBabyAnswer = {"Yes","No"};
+			String makeBabyString = (String)JOptionPane.showInputDialog(null,
+					"Make baby?", "Input",
+					JOptionPane.INFORMATION_MESSAGE, null,
+					newBabyAnswer, newBabyAnswer[0]);
+			if (makeBabyString.equals("Yes")){
 				String babyHairColour = BabyRandomizer.generateChildsTrait(mom.hair.hairColourChance, dad.hair.hairColourChance, dad.hair.currentHairColour, mom.hair.currentHairColour);
 				String babyEyeColour = BabyRandomizer.generateChildsTrait(mom.eyes.eyeColourChance, dad.eyes.eyeColourChance, dad.eyes.currentEyeColour, mom.eyes.currentEyeColour);
 				String babyHairAmount = BabyRandomizer.generateChildsTrait(mom.hair.hairAmountChance, dad.hair.hairAmountChance, dad.hair.currentHairAmount, mom.hair.currentHairAmount);
@@ -172,21 +176,10 @@ public class tester {
 				String babyIntelligence = BabyRandomizer.generateChildsTrait(mom.personality.intelligenceChance, dad.personality.intelligenceChance, dad.personality.currentIntelligence, mom.personality.currentIntelligence);
 				String babyGender = BabyRandomizer.generateChildsTrait(mom.gender.genderChance, dad.gender.genderChance, dad.gender.currentGender, mom.gender.currentGender);						
 				Person baby = new Person(babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
-				System.out.println("baby's hair colour is: "+baby.hair.currentHairColour);
-				System.out.println("baby's hair amount is: "+baby.hair.currentHairAmount);
-				System.out.println("baby's eye colour is: "+baby.eyes.currentEyeColour);
-				System.out.println("baby's eye size is: "+baby.eyes.currentEyeSize);
-				System.out.println("baby's nose size is: "+baby.face.currentNoseSize);
-				System.out.println("baby's ear lobe is: "+baby.face.currentEarLobe);
-				System.out.println("baby's height is: "+baby.body.currentHeight);
-				System.out.println("baby's body type is: "+baby.body.currentBodyType);
-				System.out.println("baby's skin colour is: "+baby.body.currentSkinColour);
-				System.out.println("baby's outlook is: "+baby.personality.currentOutlook);
-				System.out.println("baby's intelligence is: "+baby.personality.currentIntelligence);
-				System.out.println("baby's gender is: "+baby.gender.currentGender);
+				JOptionPane.showMessageDialog(null, "baby's hair colour is: "+baby.hair.currentHairColour+"\nbaby's hair amount is: "+baby.hair.currentHairAmount+"\nbaby's eye colour is: "+baby.eyes.currentEyeColour+"\nbaby's eye size is: "+baby.eyes.currentEyeSize+"\nbaby's nose size is: "+baby.face.currentNoseSize+"\nbaby's ear lobe is: "+baby.face.currentEarLobe+"\nbaby's height is: "+baby.body.currentHeight+"\nbaby's body type is: "+baby.body.currentBodyType+"\nbaby's skin colour is: "+baby.body.currentSkinColour+"\nbaby's outlook is: "+baby.personality.currentOutlook+"\nbaby's intelligence is: "+baby.personality.currentIntelligence+"\nbaby's gender is: "+baby.gender.currentGender);
 			}
 			else {
-				System.out.println("Done");
+				JOptionPane.showMessageDialog(null, "Done");
 				makeAnotherBaby = false;
 			}
 		}	
