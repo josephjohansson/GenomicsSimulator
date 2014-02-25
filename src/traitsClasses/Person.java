@@ -1,13 +1,15 @@
 package traitsClasses;
 
 public class Person {
+	public String name;
 	public Eyes eyes = new Eyes();
 	public Hair hair = new Hair();
 	public Face face = new Face();
 	public Body body = new Body();
 	public Personality personality = new Personality();
 	public Gender gender = new Gender();
-	public Person(String hairColourInput, String hairAmountInput, String eyeColourInput, String eyeSizeInput, String noseSizeInput, String earLobeInput, String heightInput, String bodyTypeInput, String skinColourInput, String outlookInput, String intelligenceInput, String genderInput) {
+	public Person(String inputName,String hairColourInput, String hairAmountInput, String eyeColourInput, String eyeSizeInput, String noseSizeInput, String earLobeInput, String heightInput, String bodyTypeInput, String skinColourInput, String outlookInput, String intelligenceInput, String genderInput) {
+		name = inputName;
 		hair.getHairColour(hairColourInput);
 		hair.getHairAmount(hairAmountInput);
 		eyes.getEyeColour(eyeColourInput);
