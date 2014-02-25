@@ -153,8 +153,8 @@ public class tester {
 				happyWithChoice = false;
 			}
 		}
-		Person dad = new Person(hairColourInputF, hairAmountInputF, eyeColourInputF, eyeSizeInputF, noseSizeInputF, earLobeInputF, heightInputF, bodyTypeInputF, skinColourInputF, outlookInputF, intelligenceInputF, genderInputF);
-		Person mom = new Person(hairColourInputM, hairAmountInputM, eyeColourInputM, eyeSizeInputM, noseSizeInputM, earLobeInputM, heightInputM, bodyTypeInputM, skinColourInputM, outlookInputM, intelligenceInputM, genderInputM);
+		Person dad = new Person("dad",hairColourInputF, hairAmountInputF, eyeColourInputF, eyeSizeInputF, noseSizeInputF, earLobeInputF, heightInputF, bodyTypeInputF, skinColourInputF, outlookInputF, intelligenceInputF, genderInputF);
+		Person mom = new Person("mom",hairColourInputM, hairAmountInputM, eyeColourInputM, eyeSizeInputM, noseSizeInputM, earLobeInputM, heightInputM, bodyTypeInputM, skinColourInputM, outlookInputM, intelligenceInputM, genderInputM);
 		while (makeAnotherBaby) {
 			System.out.print("Make baby?");
 			String makeBabyString = keyboard.next();
@@ -171,7 +171,7 @@ public class tester {
 				String babyOutlook = BabyRandomizer.generateChildsTrait(mom.personality.outlookChance, dad.personality.outlookChance, dad.personality.currentOutlook, mom.personality.currentOutlook);
 				String babyIntelligence = BabyRandomizer.generateChildsTrait(mom.personality.intelligenceChance, dad.personality.intelligenceChance, dad.personality.currentIntelligence, mom.personality.currentIntelligence);
 				String babyGender = BabyRandomizer.generateChildsTrait(mom.gender.genderChance, dad.gender.genderChance, dad.gender.currentGender, mom.gender.currentGender);						
-				Person baby = new Person(babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
+				Person baby = new Person("baby"babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
 				System.out.println("baby's hair colour is: "+baby.hair.currentHairColour);
 				System.out.println("baby's hair amount is: "+baby.hair.currentHairAmount);
 				System.out.println("baby's eye colour is: "+baby.eyes.currentEyeColour);
@@ -189,7 +189,28 @@ public class tester {
 				System.out.println("Done");
 				makeAnotherBaby = false;
 			}
-		}	
+		}
+			System.out.print("Would you like to make a text file?");
+	String makeFile = keyboard.next();
+	System.out.print("For the mom or dad?");
+	String textName = keyboard.next();
+	
+	if (makeFile.equals("y")){
+		if (textName.equals("mom")){
+			TextFile.Create(mom);
+			TextFile.Append(mom);
+			TextFile.Reader(mom);
+		}
+		
+		else if (textName.equals("dad")){
+			TextFile.Create(dad);
+			TextFile.Append(dad);
+			TextFile.Reader(dad);
+		}
+		else{
+			System.out.print("done");
+		}
+	}
 	}
 }
 
