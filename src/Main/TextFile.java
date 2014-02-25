@@ -1,12 +1,11 @@
 package Main;
-import java.io.File;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
+
+import traitsClasses.Person;
 	
 public class TextFile {
-	public boolean Check(String fileName){
+	public static boolean Check(String fileName){
 		boolean fileExists = false;
 	    File fileObject = new File(fileName);
 	    
@@ -21,9 +20,10 @@ public class TextFile {
 	    return fileExists;
 	}
 	    
-	public void Create(String name){
+	public static void Create(Person human){
 	    PrintWriter outputStream = null;
-	    String fileName = name+ ".txt";
+	    
+	    String fileName = human.name+ ".txt";
 	            
 	    boolean validFile= Check(fileName);
 	    if (!validFile){
@@ -35,7 +35,7 @@ public class TextFile {
 	            System.exit(0);
 	        }
 	           
-	        outputStream.println(name +"'s DNA Sequence: ");
+	        outputStream.println(human.name +"'s DNA Sequence: ");
 	        
 	        outputStream.close();
 	        System.out.println(fileName +" was created");
@@ -46,10 +46,10 @@ public class TextFile {
 	}
 	    
 	    
-	public void Reader(String name){
+	public static void Reader(Person human){
 	    Scanner inputStream = null;
 
-	    String fileName = name+ ".txt";
+	    String fileName = human.name+ ".txt";
 	        
 	    boolean validFile= Check(fileName);
 	    if (validFile){
@@ -70,10 +70,10 @@ public class TextFile {
 	    }
 	}
 
-	public void Append(String name, String Gene){
+	public static void Append(Person human){
 
 	    PrintWriter outputStream = null;
-	    String fileName = name +".txt";
+	    String fileName = human.name +".txt";
 	        
 	    boolean validFile= Check(fileName);
 	    if (validFile){
@@ -85,14 +85,11 @@ public class TextFile {
 	            System.exit(0);
 	        }
 	        
-	    	outputStream.print(Gene);
+	    	outputStream.print(human.getGeneticMaterial());
 	            
 	        outputStream.close();
-	        System.out.println("They were written to " +fileName);
-	    }
-	    else{
-	    	System.out.println("No such file exists");
+	        System.out.println("Writing to " +fileName +" is complete");
 	    }
 	}
-	
 }
+	
