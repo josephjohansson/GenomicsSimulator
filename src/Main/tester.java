@@ -154,8 +154,34 @@ public class tester {
 				happyWithChoice = false;
 			}
 		}
-		Person dad = new Person("dad",hairColourInputF, hairAmountInputF, eyeColourInputF, eyeSizeInputF, noseSizeInputF, earLobeInputF, heightInputF, bodyTypeInputF, skinColourInputF, outlookInputF, intelligenceInputF, genderInputF);
-		Person mom = new Person("mom",hairColourInputM, hairAmountInputM, eyeColourInputM, eyeSizeInputM, noseSizeInputM, earLobeInputM, heightInputM, bodyTypeInputM, skinColourInputM, outlookInputM, intelligenceInputM, genderInputM);
+		Person dad = new Person("dad",
+								hairColourInputF, 
+								hairAmountInputF, 
+								eyeColourInputF, 
+								eyeSizeInputF, 
+								noseSizeInputF, 
+								earLobeInputF, 
+								heightInputF, 
+								bodyTypeInputF, 
+								skinColourInputF, 
+								outlookInputF, 
+								intelligenceInputF, 
+								genderInputF
+								);
+		Person mom = new Person("mom",
+								hairColourInputM, 
+								hairAmountInputM, 
+								eyeColourInputM, 
+								eyeSizeInputM, 
+								noseSizeInputM, 
+								earLobeInputM, 
+								heightInputM, 
+								bodyTypeInputM, 
+								skinColourInputM, 
+								outlookInputM, 
+								intelligenceInputM, 
+								genderInputM
+								);
 		while (makeAnotherBaby) {
 			Object[] newBabyAnswer = {"Yes","No"};
 			String makeBabyString = (String)JOptionPane.showInputDialog(null,
@@ -163,47 +189,121 @@ public class tester {
 					JOptionPane.INFORMATION_MESSAGE, null,
 					newBabyAnswer, newBabyAnswer[0]);
 			if (makeBabyString.equals("Yes")){
-				String babyHairColour = BabyRandomizer.generateChildsTrait(mom.hair.hairColourChance, dad.hair.hairColourChance, dad.hair.currentHairColour, mom.hair.currentHairColour);
-				String babyEyeColour = BabyRandomizer.generateChildsTrait(mom.eyes.eyeColourChance, dad.eyes.eyeColourChance, dad.eyes.currentEyeColour, mom.eyes.currentEyeColour);
-				String babyHairAmount = BabyRandomizer.generateChildsTrait(mom.hair.hairAmountChance, dad.hair.hairAmountChance, dad.hair.currentHairAmount, mom.hair.currentHairAmount);
-				String babyEyeSize = BabyRandomizer.generateChildsTrait(mom.eyes.eyeSizeChance, dad.eyes.eyeSizeChance, dad.eyes.currentEyeSize, mom.eyes.currentEyeSize);
-				String babyNoseSize = BabyRandomizer.generateChildsTrait(mom.face.noseSizeChance, dad.face.noseSizeChance, dad.face.currentNoseSize, mom.face.currentNoseSize);
-				String babyEarLobe = BabyRandomizer.generateChildsTrait(mom.face.earLobeChance, dad.face.earLobeChance, dad.face.currentEarLobe, mom.face.currentEarLobe);
-				String babyHeight = BabyRandomizer.generateChildsTrait(mom.body.heightChance, dad.body.heightChance, dad.body.currentHeight, mom.body.currentHeight);
-				String babyBodyType = BabyRandomizer.generateChildsTrait(mom.body.bodyTypeChance, dad.body.bodyTypeChance, dad.body.currentBodyType, mom.body.currentBodyType);
-				String babySkinColour = BabyRandomizer.generateChildsTrait(mom.body.skinColourChance, dad.body.skinColourChance, dad.body.currentSkinColour, mom.body.currentSkinColour);
-				String babyOutlook = BabyRandomizer.generateChildsTrait(mom.personality.outlookChance, dad.personality.outlookChance, dad.personality.currentOutlook, mom.personality.currentOutlook);
-				String babyIntelligence = BabyRandomizer.generateChildsTrait(mom.personality.intelligenceChance, dad.personality.intelligenceChance, dad.personality.currentIntelligence, mom.personality.currentIntelligence);
-				String babyGender = BabyRandomizer.generateChildsTrait(mom.gender.genderChance, dad.gender.genderChance, dad.gender.currentGender, mom.gender.currentGender);						
-				Person baby = new Person(babyHairColour, babyHairAmount, babyEyeColour, babyEyeSize, babyNoseSize, babyEarLobe, babyHeight, babyBodyType, babySkinColour, babyOutlook, babyIntelligence, babyGender);
-				JOptionPane.showMessageDialog(null, "baby's hair colour is: "+baby.hair.currentHairColour+"\nbaby's hair amount is: "+baby.hair.currentHairAmount+"\nbaby's eye colour is: "+baby.eyes.currentEyeColour+"\nbaby's eye size is: "+baby.eyes.currentEyeSize+"\nbaby's nose size is: "+baby.face.currentNoseSize+"\nbaby's ear lobe is: "+baby.face.currentEarLobe+"\nbaby's height is: "+baby.body.currentHeight+"\nbaby's body type is: "+baby.body.currentBodyType+"\nbaby's skin colour is: "+baby.body.currentSkinColour+"\nbaby's outlook is: "+baby.personality.currentOutlook+"\nbaby's intelligence is: "+baby.personality.currentIntelligence+"\nbaby's gender is: "+baby.gender.currentGender);
+				String babyHairColour = BabyRandomizer.generateChildsTrait(mom.hair.hairColourChance, 
+																		   dad.hair.hairColourChance, 
+																		   dad.hair.currentHairColour, 
+																		   mom.hair.currentHairColour
+																		   );
+				String babyEyeColour = BabyRandomizer.generateChildsTrait(mom.eyes.eyeColourChance, 
+																		  dad.eyes.eyeColourChance, 
+																		  dad.eyes.currentEyeColour, 
+																		  mom.eyes.currentEyeColour
+																		  );
+				String babyHairAmount = BabyRandomizer.generateChildsTrait(mom.hair.hairAmountChance, 
+																		   dad.hair.hairAmountChance, 
+																		   dad.hair.currentHairAmount, 
+																		   mom.hair.currentHairAmount
+																		   );
+				String babyEyeSize = BabyRandomizer.generateChildsTrait(mom.eyes.eyeSizeChance, 
+																		dad.eyes.eyeSizeChance, 
+																		dad.eyes.currentEyeSize, 
+																		mom.eyes.currentEyeSize
+																		);
+				String babyNoseSize = BabyRandomizer.generateChildsTrait(mom.face.noseSizeChance, 
+																		 dad.face.noseSizeChance, 
+																		 dad.face.currentNoseSize, 
+																		 mom.face.currentNoseSize
+																		 );
+				String babyEarLobe = BabyRandomizer.generateChildsTrait(mom.face.earLobeChance, 
+																		dad.face.earLobeChance, 
+																		dad.face.currentEarLobe, 
+																		mom.face.currentEarLobe
+																		);
+				String babyHeight = BabyRandomizer.generateChildsTrait(mom.body.heightChance, 
+																	   dad.body.heightChance, 
+																	   dad.body.currentHeight, 
+																	   mom.body.currentHeight
+																	   );
+				String babyBodyType = BabyRandomizer.generateChildsTrait(mom.body.bodyTypeChance, 
+																		 dad.body.bodyTypeChance, 
+																		 dad.body.currentBodyType, 
+																		 mom.body.currentBodyType
+																		 );
+				String babySkinColour = BabyRandomizer.generateChildsTrait(mom.body.skinColourChance, 
+																		   dad.body.skinColourChance, 
+																		   dad.body.currentSkinColour, 
+																		   mom.body.currentSkinColour
+																		   );
+				String babyOutlook = BabyRandomizer.generateChildsTrait(mom.personality.outlookChance, 
+																		dad.personality.outlookChance, 
+																		dad.personality.currentOutlook, 
+																		mom.personality.currentOutlook
+																		);
+				String babyIntelligence = BabyRandomizer.generateChildsTrait(mom.personality.intelligenceChance, 
+																			 dad.personality.intelligenceChance, 
+																			 dad.personality.currentIntelligence, 
+																			 mom.personality.currentIntelligence
+																			 );
+				String babyGender = BabyRandomizer.generateChildsTrait(mom.gender.genderChance, 
+																	   dad.gender.genderChance, 
+																	   dad.gender.currentGender, 
+																	   mom.gender.currentGender
+																	   );						
+				Person baby = new Person("baby",
+										 babyHairColour, 
+										 babyHairAmount, 
+										 babyEyeColour, 
+										 babyEyeSize, 
+										 babyNoseSize, 
+										 babyEarLobe, 
+										 babyHeight, 
+										 babyBodyType, 
+										 babySkinColour, 
+										 babyOutlook, 
+										 babyIntelligence, 
+										 babyGender
+										 );
+				JOptionPane.showMessageDialog(null, "baby's hair colour is: "+baby.hair.currentHairColour+
+											  "\nbaby's hair amount is: "+baby.hair.currentHairAmount+
+											  "\nbaby's eye colour is: "+baby.eyes.currentEyeColour+
+											  "\nbaby's eye size is: "+baby.eyes.currentEyeSize+
+											  "\nbaby's nose size is: "+baby.face.currentNoseSize+
+											  "\nbaby's ear lobe is: "+baby.face.currentEarLobe+
+											  "\nbaby's height is: "+baby.body.currentHeight+
+											  "\nbaby's body type is: "+baby.body.currentBodyType+
+											  "\nbaby's skin colour is: "+baby.body.currentSkinColour+
+											  "\nbaby's outlook is: "+baby.personality.currentOutlook+
+											  "\nbaby's intelligence is: "+baby.personality.currentIntelligence+
+											  "\nbaby's gender is: "+baby.gender.currentGender
+											  );
 			}
 			else {
 				JOptionPane.showMessageDialog(null, "Done");
 				makeAnotherBaby = false;
 			}
 		}
-			System.out.print("Would you like to make a text file?");
-	String makeFile = keyboard.next();
-	System.out.print("For the mom or dad?");
-	String textName = keyboard.next();
+	//System.out.print("Would you like to make a text file?");
 	
-	if (makeFile.equals("y")){
-		if (textName.equals("mom")){
-			TextFile.Create(mom);
-			TextFile.Append(mom);
-			TextFile.Reader(mom);
-		}
+	//String makeFile = keyboard.next();
+	//System.out.print("For the mom or dad?");
+	//String textName = keyboard.next();
+	
+	//if (makeFile.equals("y")){
+		//if (textName.equals("mom")){
+			//TextFile.Create(mom);
+			//TextFile.Append(mom);
+			//TextFile.Reader(mom);
+		//}
 		
-		else if (textName.equals("dad")){
-			TextFile.Create(dad);
-			TextFile.Append(dad);
-			TextFile.Reader(dad);
-		}
-		else{
-			System.out.print("done");
-		}
-	}
+		//else if (textName.equals("dad")){
+			//TextFile.Create(dad);
+			//TextFile.Append(dad);
+			//TextFile.Reader(dad);
+		//}
+		//else{
+			//System.out.print("done");
+		//}
+	//}
 	}
 }
 
