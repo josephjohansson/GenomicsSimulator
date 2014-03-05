@@ -7,7 +7,6 @@ import org.junit.Test;
 import traitsClasses.Eyes;
 
 import java.util.List;
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class traitsTest {
@@ -20,7 +19,7 @@ public class traitsTest {
 			String expectedTrait = listOfTraits.get(currentTrait);
 			Eyes testEyes = new Eyes();
 			testEyes.getEyeColour(expectedTrait);
-			assertEquals("Eyes not brown", expectedTrait, testEyes.currentEyeColour);
+			assertEquals("Eyes not "+expectedTrait, expectedTrait, testEyes.currentEyeColour);
 		}
 	}
 
