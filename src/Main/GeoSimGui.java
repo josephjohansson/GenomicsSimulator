@@ -1,8 +1,13 @@
+package Main;
+
 import javax.swing.*;
 	import java.awt.*;
 	import java.awt.event.*;
-
-// basic GUI layout, no ActonListeners implemented
+	
+/**basic GUI layout, no ActonListeners implemented
+ *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
+ * @author Jessica
+ */
 public class GeoSimGui extends JFrame{
 	    
 	JLabel northLabel;
@@ -12,17 +17,18 @@ public class GeoSimGui extends JFrame{
 	int WINDOW_WIDTH = 800;
 	int WINDOW_HEIGHT = 500;
 	    
-	String[] hairC = {"Black","Brown","Blonde","Red"};
-	String[] hairA = {"Hairy","Average","Smooth"};
-	String[] eyeC = {"Brown","Blue","Green","Hazel"};
-	String[] eyeS = {"Small","Medium","Large"};
-	String[] noseS = {"Small","Medium","Large"};
-	String[] earL = {"Attached","Detached"};
-	String[] heightS = {"Tall","Average","Short"};
-	String[] bodyT = {"Slim","Average","Large"};
-	String[] skinC = {"Fair","Dark","Brown","Yellow"};
-	String[] outlookS = {"Optimistic","Pessimistic","Realistic"};
-	String[] IQA = {"High","Average","Low"};
+// options made for dropdowns- place holders as not integrated with rest of program yet
+	String[] hairC = {"Hair Colour","Black","Brown","Blonde","Red"};
+	String[] hairA = {"Hair Amount","Hairy","Average","Smooth"};
+	String[] eyeC = {"Eye Colour","Brown","Blue","Green","Hazel"};
+	String[] eyeS = {"Eye Size", "Small","Medium","Large"};
+	String[] noseS = {"Nose Size", "Small","Medium","Large"};
+	String[] earL = {"Ear Lobe","Attached","Detached"};
+	String[] heightS = {"Height","Tall","Average","Short"};
+	String[] bodyT = {"Body Type","Slim","Average","Large"};
+	String[] skinC = {"Skin Colour","Fair","Dark","Brown","Yellow"};
+	String[] outlookS = {"Outlook", "Optimistic","Pessimistic","Realistic"};
+	String[] IQA = {"Intellegence","High","Average","Low"};
 	
 	//Mother traits
 	JComboBox hairColourM = new JComboBox(hairC);
@@ -52,39 +58,58 @@ public class GeoSimGui extends JFrame{
 	private Container container;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
-	    
+	 
+	
 	public GeoSimGui(){
-	    
+/** @param container = general window 
+ *  @param layout = basic layout used (GridBag)
+ * 	@param constraints = parameters that give component's placement and size
+ */
 		container = getContentPane();
 	    layout = new GridBagLayout();
 	    container.setLayout(layout);
 	    
 	    constraints = new GridBagConstraints();
 	    
-	//North Panel
-	    JPanel north = new JPanel();    
+/** North section holds title lable
+ * other descriptors can be added if necessary later
+ * calls addComponent and sends in constraints 
+ 	*(northlabel,0,0,3,1) = (component, gridx, gridy, gridwidth, gridheight)
+ 	*-----------refer to addComponent method for further description----------- 	    
+ */
 	    northLabel = new JLabel("Geonomic Simulator");
-	    north.add(northLabel);
+	    addComponent(northLabel, 0, 0, 3, 1);
 	    
-	    addComponent(north, 0, 0, 3, 1);
-	//West Panel
-	    JPanel west = new JPanel();
+/** West and East sections hold actions for Father and Mother respectively
+ * 	buttons added, but do nothing (yet!)
+ * images will be placed in (0,2,1,1) and (2,2,1,1,) respectively
+ */
+	//West 
 	    westLabel = new JLabel("Father image");
-	    west.add(westLabel);
-	    addComponent(west, 0,1,1,1);
-	       
 	    JButton randomDad = new JButton("Randomize");
 	    JButton genDad = new JButton("Generate DNA");
-	        
+	    
+	    addComponent(westLabel, 0,1,1,1);    
 	    addComponent(randomDad, 0,3,1,1);
 	    addComponent(genDad, 0, 4, 1,1);
+	    
+	//East 
+	    eastLabel = new JLabel("Mother image");
+	    JButton randomMom = new JButton("Randomize");        
+	    JButton genMom = new JButton("Generate DNA");
 	        
-	//Center Panel
-	    JPanel center = new JPanel();
+	    addComponent(eastLabel, 2, 1, 1, 1);
+	    addComponent(randomMom, 2, 3, 1,1);
+	    addComponent(genMom, 2,4, 1, 1);
+	    
+/** Center section holds trait selection options
+ * 	trait panel holds parent panels(traitMom and traitDad) for centralized selection
+ * 	parent panels hold trait selection for their respective person 
+ * ---labels start with descriptor, but will be on default trait when actually implemented---     
+ */
 	    centerLabel = new JLabel("Trait Selection");
-	    center.add(centerLabel);
-	        
-	    addComponent(center,1,1,1,1);
+	    JButton babyMake = new JButton("Make a baby");
+	    
 	    JPanel traits = new JPanel(new GridLayout(1,2,40,5));
 	        
 	    JPanel traitsMom = new JPanel(new GridLayout(13, 1, 5, 2));
@@ -118,30 +143,29 @@ public class GeoSimGui extends JFrame{
 	    traitsDad.add(outlookF);
 	    traitsDad.add(IQF);
 	    traits.add(traitsDad);
-	                
+	    
+	    addComponent(centerLabel,1,1,1,1);
 	    addComponent(traits, 1, 2, 1,1);
-
-	    JButton babyMake = new JButton("Make a baby");
-	        
 	    addComponent(babyMake, 1,4,1,1);
 
-	//East Panel
-	    JPanel east = new JPanel();
-	    eastLabel = new JLabel("Mother image");
-	        
-	    JButton randomMom = new JButton("Randomize");        
-	    JButton genMom = new JButton("Generate DNA");
-	        
-	    addComponent(eastLabel, 2, 1, 1, 1);
-	    addComponent(randomMom, 2, 3, 1,1);
-	    addComponent(genMom, 2,4, 1, 1);
-	        
-	        // sets up size and ability to be visible
-	        //also allows program to close when exited
+/** sets up default size of window
+ * 	components aren't anchored or padded to adjust for resizing (yet!)
+ * 	allows window to be visible, and close when exited        
+ */
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
 	    setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
 	    setVisible(true);
 	    }    
+	
+/** method places the components appropriately in grid depending on constraints entered 
+ * Grid created is implicitly made and sized depending on components entered (5x3)	
+ * constraint are the parameters used to placed the object
+ * @param thing component being placed in the grid; each have their own set of constraints
+ * @param column (gridx)- column top left corner of component is placed in grid
+ * @param row (gridy) - row top left corner of component is placed in grid
+ * @param width (gridwidth) - how many columns the component expands
+ * @param height (gridheight) - how many rows the component expands
+ */
 	private void addComponent(Component thing, int column, int row, int width, int height){
 	      // set gridx and gridy 
 	      constraints.gridx = column;
@@ -151,12 +175,12 @@ public class GeoSimGui extends JFrame{
 	      constraints.gridwidth = width;   
 	      constraints.gridheight = height;
 
-	      // set constraints
+	      // places component depending on constraints
 	      layout.setConstraints(thing, constraints);  
 	      container.add(thing);      // add component 
     }
 	    
-	    //main method that inititalizes the gui
+//main method that inititalizes the gui
 	public static void main(String[]args){
 	    GeoSimGui test = new GeoSimGui();
 	}
