@@ -1,6 +1,8 @@
+package Main;
+
 import javax.swing.*;
-	import java.awt.*;
-	import java.awt.event.*;
+import java.awt.*;
+import java.awt.event.*;
 
 // basic GUI layout, no ActonListeners implemented
 public class GeoSimGui extends JFrame{
@@ -157,7 +159,5 @@ public class GeoSimGui extends JFrame{
     }
 	    
 	    //main method that inititalizes the gui
-	public static void main(String[]args){
-	    GeoSimGui test = new GeoSimGui();
-	}
+
 }

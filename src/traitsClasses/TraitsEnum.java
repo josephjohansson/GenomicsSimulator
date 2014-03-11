@@ -82,8 +82,10 @@ public enum TraitsEnum {
 	
 	public List<List<String>> getDNASet() {
 		return DNASet;
-	} 
-	
+	}
+	public String getCurrentTrait(){
+		return currentTrait;
+	}
 	public void setCurrentTrait(String traitInput){
 		currentTrait = traitInput;
 	}
