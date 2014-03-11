@@ -28,7 +28,7 @@ public class GeoSimGui extends JFrame{
 	String[] bodyT = {"Body Type","Slim","Average","Large"};
 	String[] skinC = {"Skin Colour","Fair","Dark","Brown","Yellow"};
 	String[] outlookS = {"Outlook", "Optimistic","Pessimistic","Realistic"};
-	String[] IQA = {"Intellegence","High","Average","Low"};
+	String[] IQA = {"Intelligence","High","Average","Low"};
 	
 	//Mother traits
 	JComboBox hairColourM = new JComboBox(hairC);
@@ -77,7 +77,7 @@ public class GeoSimGui extends JFrame{
  	*(northlabel,0,0,3,1) = (component, gridx, gridy, gridwidth, gridheight)
  	*-----------refer to addComponent method for further description----------- 	    
  */
-	    northLabel = new JLabel("Geonomic Simulator");
+	    northLabel = new JLabel("Genoomic Simulator");
 	    addComponent(northLabel, 0, 0, 3, 1);
 	    
 /** West and East sections hold actions for Father and Mother respectively
