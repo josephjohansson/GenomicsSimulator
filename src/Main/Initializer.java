@@ -12,7 +12,6 @@ import BabyCreation.BabyRandomizer;
 
 public class Initializer {
 	public static void main(String[]args){
-		GeoSimGui gui = new GeoSimGui();
 		//makes two arrays of 13 elements one for each one of 
 		String[] fatherTraits = new String[13];
 		String[] motherTraits = new String[13];
@@ -118,7 +117,8 @@ public class Initializer {
 				makeAnotherBaby = false;
 			}
 		// End of while loop	
-		}	
+		}
+		GeoSimGui gui = new GeoSimGui();
 		
 		
 	/*System.out.print("Would you like to make a text file?");
