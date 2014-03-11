@@ -77,7 +77,7 @@ public class GeoSimGui extends JFrame{
  	*(northlabel,0,0,3,1) = (component, gridx, gridy, gridwidth, gridheight)
  	*-----------refer to addComponent method for further description----------- 	    
  */
-	    northLabel = new JLabel("Genoomic Simulator");
+	    northLabel = new JLabel("Genomic Simulator");
 	    addComponent(northLabel, 0, 0, 3, 1);
 	    
 /** West and East sections hold actions for Father and Mother respectively
