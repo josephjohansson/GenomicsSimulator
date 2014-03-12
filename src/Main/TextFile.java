@@ -23,7 +23,7 @@ public class TextFile {
 	public static void Create(Person human){
 	    PrintWriter outputStream = null;
 	    
-	    String fileName = human.name+ ".txt";
+	    String fileName = human.getName()+ ".txt";
 	            
 	    boolean validFile= Check(fileName);
 	    if (!validFile){
@@ -35,7 +35,7 @@ public class TextFile {
 	            System.exit(0);
 	        }
 	           
-	        outputStream.println(human.name +"'s DNA Sequence: ");
+	        outputStream.println(human.getName() +"'s DNA Sequence: ");
 	        
 	        outputStream.close();
 	        System.out.println(fileName +" was created");
@@ -49,11 +49,11 @@ public class TextFile {
 	public static void Reader(Person human){
 	    Scanner inputStream = null;
 
-	    String fileName = human.name+ ".txt";
+	    String fileName = human.getName()+ ".txt";
 	        
 	    boolean validFile= Check(fileName);
 	    if (validFile){
-	        try{
+	        try {
 	        	inputStream = new Scanner(new File(fileName));
 	        }
 	            
@@ -73,7 +73,7 @@ public class TextFile {
 	public static void Append(Person human){
 
 	    PrintWriter outputStream = null;
-	    String fileName = human.name +".txt";
+	    String fileName = human.getName() +".txt";
 	        
 	    boolean validFile= Check(fileName);
 	    if (validFile){

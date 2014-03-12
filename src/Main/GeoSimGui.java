@@ -106,7 +106,8 @@ public class GeoSimGui extends JFrame{
  * 	trait panel holds parent panels(traitMom and traitDad) for centralized selection
  * 	parent panels hold trait selection for their respective person 
  * ---labels start with descriptor, but will be on default trait when actually implemented---     
- */
+	GridLayout(1,2,40,5) = (number of row, number of column, horizontal spacing, vertical spacing  
+*/
 	    centerLabel = new JLabel("Trait Selection");
 	    JButton babyMake = new JButton("Make a baby");
 	    
@@ -145,7 +146,7 @@ public class GeoSimGui extends JFrame{
 	    traits.add(traitsDad);
 	    
 	    addComponent(centerLabel,1,1,1,1);
-	    addComponent(traits, 1, 2, 1,1);
+	    addComponent(traits, 1, 2,1,1);
 	    addComponent(babyMake, 1,4,1,1);
 
 /** sets up default size of window
