@@ -56,6 +56,10 @@ public class Person {
 			allTraits[12] = intelligence;
 	}
 	
+	public String getName(){
+		return name;
+	}
+	
 	public TraitsEnum[] getAllTraits(){
 		return allTraits;
 	}
