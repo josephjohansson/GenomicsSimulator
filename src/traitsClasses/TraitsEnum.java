@@ -22,7 +22,7 @@ public enum TraitsEnum {
 						Arrays.asList("Short","GG","GT","TT","TG"),
 						Arrays.asList("Dwarf","GC"),
 						Arrays.asList("Giant","CG"))),
-	BODY_TYPE(Arrays.asList("Slim","Average","Large"),
+	BODY_TYPE(Arrays.asList("Small","Average","Large"),
 			Arrays.asList(Arrays.asList("Slim","CA","CT","CC","GA"),
 						Arrays.asList("Average","AA","AT","AC","AG","TA","TC"),
 						Arrays.asList("Large","GG","GT","TT","TG"),
