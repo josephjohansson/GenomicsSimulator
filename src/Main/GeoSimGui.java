@@ -1,19 +1,18 @@
 package Main;
 
 import javax.swing.*;
-	import java.awt.*;
-	import java.awt.event.*;
+
+import traitsClasses.TraitsEnum;
+
+import java.awt.*;
+import java.awt.event.*;
 	
 /**basic GUI layout, no ActonListeners implemented
  *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
  * @author Jessica
  */
 public class GeoSimGui extends JFrame{
-	    
-	JLabel northLabel;
-	JLabel centerLabel;
-	JLabel eastLabel;
-	JLabel westLabel;
+
 	int WINDOW_WIDTH = 800;
 	int WINDOW_HEIGHT = 500;
 	    
@@ -77,30 +76,34 @@ public class GeoSimGui extends JFrame{
  	*(northlabel,0,0,3,1) = (component, gridx, gridy, gridwidth, gridheight)
  	*-----------refer to addComponent method for further description----------- 	    
  */
-	    northLabel = new JLabel("Genomic Simulator");
-	    addComponent(northLabel, 0, 0, 3, 1);
+	    JLabel title = new JLabel("Genomic Simulator");
+	    addComponent(title, 0, 0, 3, 1);
 	    
 /** West and East sections hold actions for Father and Mother respectively
  * 	buttons added, but do nothing (yet!)
  * images will be placed in (0,2,1,1) and (2,2,1,1,) respectively
  */
 	//West 
-	    westLabel = new JLabel("Father image");
+	    JLabel fatherLabel = new JLabel("Father");
 	    JButton randomDad = new JButton("Randomize");
 	    JButton genDad = new JButton("Generate DNA");
+	    JLabel fatherImage = new JLabel ("This is where Dad will go");
 	    
-	    addComponent(westLabel, 0,1,1,1);    
-	    addComponent(randomDad, 0,3,1,1);
-	    addComponent(genDad, 0, 4, 1,1);
+	    addComponent(fatherLabel, 0,1,1,1);  
+	    addComponent(fatherImage, 0,2,1,1);
+	    addComponent(randomDad, 0,4,1,1);
+	    addComponent(genDad, 0, 5, 1,1);
 	    
 	//East 
-	    eastLabel = new JLabel("Mother image");
+	    JLabel motherLabel = new JLabel("Mother");
+	    JLabel motherImage = new JLabel("This is where Mom will go");
 	    JButton randomMom = new JButton("Randomize");        
 	    JButton genMom = new JButton("Generate DNA");
 	        
-	    addComponent(eastLabel, 2, 1, 1, 1);
-	    addComponent(randomMom, 2, 3, 1,1);
-	    addComponent(genMom, 2,4, 1, 1);
+	    addComponent(motherLabel, 2, 1, 1, 1);
+	    addComponent(motherImage,2,2,1,1);
+	    addComponent(randomMom, 2, 4, 1,1);
+	    addComponent(genMom, 2,5, 1, 1);
 	    
 /** Center section holds trait selection options
  * 	trait panel holds parent panels(traitMom and traitDad) for centralized selection
@@ -108,27 +111,10 @@ public class GeoSimGui extends JFrame{
  * ---labels start with descriptor, but will be on default trait when actually implemented---     
 	GridLayout(1,2,40,5) = (number of row, number of column, horizontal spacing, vertical spacing  
 */
-	    centerLabel = new JLabel("Trait Selection");
 	    JButton babyMake = new JButton("Make a baby");
 	    
-	    JPanel traits = new JPanel(new GridLayout(1,2,40,5));
-	        
-	    JPanel traitsMom = new JPanel(new GridLayout(13, 1, 5, 2));
-	    JLabel labelMom = new JLabel("Mother's Traits:");
-	    traitsMom.add(labelMom);
-	    traitsMom.add(hairColourM);
-	    traitsMom.add(hairAmountM);
-	    traitsMom.add(eyeColourM);
-	    traitsMom.add(eyeSizeM);
-	    traitsMom.add(noseSizeM);
-	    traitsMom.add(earLobeM);
-	    traitsMom.add(heightM);
-	    traitsMom.add(bodyTypeM);
-	    traitsMom.add(skinColourM);
-	    traitsMom.add(outlookM);
-	    traitsMom.add(IQM);
-	    traits.add(traitsMom);
-	        
+	    JPanel traits = new JPanel(new GridLayout(1,3,40,5));
+	    
 	    JPanel traitsDad = new JPanel(new GridLayout(13,1,5,2));
 	    JLabel labelDad = new JLabel("Father's Traits:");
 	    traitsDad.add(labelDad);
@@ -144,8 +130,50 @@ public class GeoSimGui extends JFrame{
 	    traitsDad.add(outlookF);
 	    traitsDad.add(IQF);
 	    traits.add(traitsDad);
+	        
 	    
-	    addComponent(centerLabel,1,1,1,1);
+	    JPanel traitLabels = new JPanel (new GridLayout(13,1,5,2));
+	    JLabel traitSelect = new JLabel("Trait Selection");
+	    JLabel hairColour = new JLabel("-Hair Colour-");
+	    JLabel hairAmount = new JLabel("-Hair Amount-");
+	    JLabel eyeColour = new JLabel("-Eye Colour-");
+	    JLabel eyeSize = new JLabel("-Eye Size-");
+	    JLabel noseSize = new JLabel("-Nose Size-");
+	    JLabel earLobe = new JLabel("-Ear Lobe-");
+	    JLabel height = new JLabel("-Height-");
+	    JLabel bodyType = new JLabel("-Body Type-");
+	    JLabel skinColour = new JLabel("-Skin Colour-");
+	    JLabel outlook = new JLabel("-Outlook-");
+	    JLabel IQ = new JLabel("-Intellegence-");
+	    traitLabels.add(traitSelect);
+	    traitLabels.add(hairColour);
+	    traitLabels.add(hairAmount);
+	    traitLabels.add(eyeColour);
+	    traitLabels.add(eyeSize);
+	    traitLabels.add(noseSize);
+	    traitLabels.add(earLobe);
+	    traitLabels.add(height);
+	    traitLabels.add(bodyType);
+	    traitLabels.add(skinColour);
+	    traitLabels.add(outlook);
+	    traitLabels.add(IQ);
+	    traits.add(traitLabels);
+	    
+	    JPanel traitsMom = new JPanel(new GridLayout(13, 1, 5, 2));
+	    JLabel labelMom = new JLabel("Mother's Traits:");
+	    traitsMom.add(labelMom);
+	    traitsMom.add(hairColourM);
+	    traitsMom.add(hairAmountM);
+	    traitsMom.add(eyeColourM);
+	    traitsMom.add(eyeSizeM);
+	    traitsMom.add(noseSizeM);
+	    traitsMom.add(earLobeM);
+	    traitsMom.add(heightM);
+	    traitsMom.add(bodyTypeM);
+	    traitsMom.add(skinColourM);
+	    traitsMom.add(outlookM);
+	    traitsMom.add(IQM);
+	    traits.add(traitsMom);
 	    addComponent(traits, 1, 2,1,1);
 	    addComponent(babyMake, 1,4,1,1);
 
@@ -154,6 +182,7 @@ public class GeoSimGui extends JFrame{
  * 	allows window to be visible, and close when exited        
  */
 	    setDefaultCloseOperation(EXIT_ON_CLOSE);
+	    //pack();
 	    setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
 	    setVisible(true);
 	    }    
