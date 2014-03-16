@@ -23,7 +23,7 @@ public enum TraitsEnum {
 						Arrays.asList("Dwarf","GC"),
 						Arrays.asList("Giant","CG"))),
 	BODY_TYPE(Arrays.asList("Small","Average","Large"),
-			Arrays.asList(Arrays.asList("Slim","CA","CT","CC","GA"),
+			Arrays.asList(Arrays.asList("Small","CA","CT","CC","GA"),
 						Arrays.asList("Average","AA","AT","AC","AG","TA","TC"),
 						Arrays.asList("Large","GG","GT","TT","TG"),
 						Arrays.asList("Obese","GC"),
@@ -67,7 +67,7 @@ public enum TraitsEnum {
 	private List<List<String>> DNASet = null; // The set of DNA lists for the current category
 	private String currentTrait; // Name of trait, ex. "Brown"
 	private List<String> currentDNA; // DNA list corresponding to trait, ex. ("AG", "AT", "AA")
-	private int currentDNALength; // Length of DNA list
+	//private int currentDNALength; // Length of DNA list
 	private String currentGene; // An element of DNA list, ex. "AA"
 	private int geneNumber; // The index of currentGene on currentDNA
 	
@@ -108,12 +108,12 @@ public enum TraitsEnum {
 				currentDNA = DNA;
 			}
 		}
-		currentDNALength = currentDNA.size();
+		//currentDNALength = currentDNA.size();
 		return currentDNA;
 	}
 
 	public String chooseRandomGene() {
-		geneNumber = new Random().nextInt(currentDNALength-1);
+		//geneNumber = new Random().nextInt(currentDNALength-1);
 		currentGene = currentDNA.get(geneNumber+1);
 		return currentGene;
 	}
