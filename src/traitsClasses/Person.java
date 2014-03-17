@@ -1,7 +1,6 @@
 package traitsClasses;
 
 public class Person {
-	TraitsEnum[] allTraits = new TraitsEnum[13];
 	String name;
 	TraitsEnum gender = TraitsEnum.GENDER;
 	TraitsEnum eyeColour = TraitsEnum.EYE_COLOUR;
@@ -15,6 +14,23 @@ public class Person {
 	TraitsEnum hairAmount = TraitsEnum.HAIR_AMOUNT;
 	TraitsEnum outlook = TraitsEnum.OUTLOOK;
 	TraitsEnum intelligence = TraitsEnum.INTEL;
+	TraitsEnum[] allTraits = {null,
+				gender,
+				eyeColour,
+				eyeSize,
+				height,
+				bodyType,
+				skinColour,
+				noseSize,
+				earlobe,
+				hairColour,
+				hairAmount,
+				outlook,
+				intelligence};
+	public Person(String newName){
+		name = newName;
+	}
+	
 	public Person(String[] allTraitsAsStrings)  {
 		// Set name
 			name = allTraitsAsStrings[0];

@@ -3,63 +3,103 @@ package Main;
 import javax.swing.*;
 
 import traitsClasses.TraitsEnum;
+import traitsClasses.Person;
+import BabyCreation.BabyRandomizer;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.util.List;
 	
 /**basic GUI layout, no ActonListeners implemented
  *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
  * @author Jessica
  */
-public class GeoSimGui extends JFrame{
-
+public class GeoSimGui extends JFrame implements ActionListener{
+	
+	TraitsEnum[] allTraits;
+	
+	JButton babyMake;
+	
 	int WINDOW_WIDTH = 800;
 	int WINDOW_HEIGHT = 500;
-	    
-// options made for dropdowns- place holders as not integrated with rest of program yet
-	String[] hairC = {"Hair Colour","Black","Brown","Blonde","Red"};
-	String[] hairA = {"Hair Amount","Hairy","Average","Smooth"};
-	String[] eyeC = {"Eye Colour","Brown","Blue","Green","Hazel"};
-	String[] eyeS = {"Eye Size", "Small","Medium","Large"};
-	String[] noseS = {"Nose Size", "Small","Medium","Large"};
-	String[] earL = {"Ear Lobe","Attached","Detached"};
-	String[] heightS = {"Height","Tall","Average","Short"};
-	String[] bodyT = {"Body Type","Slim","Average","Large"};
-	String[] skinC = {"Skin Colour","Fair","Dark","Brown","Yellow"};
-	String[] outlookS = {"Outlook", "Optimistic","Pessimistic","Realistic"};
-	String[] IQA = {"Intelligence","High","Average","Low"};
 	
-	//Mother traits
-	JComboBox hairColourM = new JComboBox(hairC);
-	JComboBox hairAmountM = new JComboBox(hairA);
-	JComboBox eyeColourM = new JComboBox(eyeC);
-	JComboBox eyeSizeM = new JComboBox(eyeS);
-	JComboBox noseSizeM = new JComboBox(noseS);
-	JComboBox earLobeM = new JComboBox(earL);
-	JComboBox heightM = new JComboBox(heightS);
-	JComboBox bodyTypeM = new JComboBox(bodyT);
-	JComboBox skinColourM = new JComboBox(skinC);
-	JComboBox outlookM = new JComboBox(outlookS);
-	JComboBox IQM = new JComboBox(IQA);
-	//Father traits    
-	JComboBox hairColourF = new JComboBox(hairC);
-	JComboBox hairAmountF = new JComboBox(hairA);
-	JComboBox eyeColourF = new JComboBox(eyeC);
-	JComboBox eyeSizeF = new JComboBox(eyeS);
-	JComboBox noseSizeF = new JComboBox(noseS);
-	JComboBox earLobeF = new JComboBox(earL);
-	JComboBox heightF = new JComboBox(heightS);
-	JComboBox bodyTypeF = new JComboBox(bodyT);
-	JComboBox skinColourF = new JComboBox(skinC);
-	JComboBox outlookF = new JComboBox(outlookS);
-	JComboBox IQF = new JComboBox(IQA);
-	    
+	// Makes the comboBoxes for the father
+	JComboBox eyeColourF;
+	JComboBox eyeSizeF;
+	JComboBox heightF;
+	JComboBox bodyTypeF;
+	JComboBox skinColourF;
+	JComboBox noseSizeF;
+	JComboBox earLobeF;
+	JComboBox hairColourF;
+	JComboBox hairAmountF;
+	JComboBox outlookF;
+	JComboBox intelligenceF;
+
+	// Makes the comboBoxes for the mother
+	JComboBox eyeColourM;
+	JComboBox eyeSizeM;
+	JComboBox heightM;
+	JComboBox bodyTypeM;
+	JComboBox skinColourM;
+	JComboBox noseSizeM;
+	JComboBox earLobeM;
+	JComboBox hairColourM;
+	JComboBox hairAmountM;
+	JComboBox outlookM;
+	JComboBox intelligenceM;
+	
+	// Makes an array that will be filled in by the traits chosen by the user
+	String[] fatherTraits = new String[13];
+	String[] motherTraits = new String[13];
+	
 	private Container container;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
 	 
 	
-	public GeoSimGui(){
+	public GeoSimGui(Person defaultPerson){
+		allTraits = defaultPerson.getAllTraits();
+
+	// Option arrays made for comboBoxes
+		String[] eyeColourOptions = allTraits[2].getTraitSet().toArray(new String[allTraits[2].getTraitSet().size()]);
+		String[] eyeSizeOptions = allTraits[3].getTraitSet().toArray(new String[allTraits[3].getTraitSet().size()]);
+		String[] heightOptions = allTraits[4].getTraitSet().toArray(new String[allTraits[4].getTraitSet().size()]);
+		String[] bodyTypeOptions = allTraits[5].getTraitSet().toArray(new String[allTraits[5].getTraitSet().size()]);
+		String[] skinColourOptions = allTraits[6].getTraitSet().toArray(new String[allTraits[6].getTraitSet().size()]);
+		String[] noseSizeOptions = allTraits[7].getTraitSet().toArray(new String[allTraits[7].getTraitSet().size()]);
+		String[] earLobeOptions = allTraits[8].getTraitSet().toArray(new String[allTraits[8].getTraitSet().size()]);
+		String[] hairColourOptions = allTraits[9].getTraitSet().toArray(new String[allTraits[9].getTraitSet().size()]);
+		String[] hairAmountOptions = allTraits[10].getTraitSet().toArray(new String[allTraits[10].getTraitSet().size()]);
+		String[] outlookOptions = allTraits[11].getTraitSet().toArray(new String[allTraits[11].getTraitSet().size()]);
+		String[] intelligenceOptions = allTraits[12].getTraitSet().toArray(new String[allTraits[12].getTraitSet().size()]);
+		
+	// Fills in the comboBoxes for the father
+		eyeColourF = new JComboBox(eyeColourOptions);
+		eyeSizeF = new JComboBox(eyeSizeOptions);
+		heightF = new JComboBox(heightOptions);
+		bodyTypeF = new JComboBox(bodyTypeOptions);
+		skinColourF = new JComboBox(skinColourOptions);
+		noseSizeF = new JComboBox(noseSizeOptions);
+		earLobeF = new JComboBox(earLobeOptions);
+		hairColourF = new JComboBox(hairColourOptions);
+		hairAmountF = new JComboBox(hairAmountOptions);
+		outlookF = new JComboBox(outlookOptions);
+		intelligenceF = new JComboBox(intelligenceOptions);
+		
+	// Fills in the comboBoxes for the mother
+		eyeColourM = new JComboBox(eyeColourOptions);
+		eyeSizeM = new JComboBox(eyeSizeOptions);
+		heightM = new JComboBox(heightOptions);
+		bodyTypeM = new JComboBox(bodyTypeOptions);
+		skinColourM = new JComboBox(skinColourOptions);
+		noseSizeM = new JComboBox(noseSizeOptions);
+		earLobeM = new JComboBox(earLobeOptions);
+		hairColourM = new JComboBox(hairColourOptions);
+		hairAmountM = new JComboBox(hairAmountOptions);
+		outlookM = new JComboBox(outlookOptions);
+		intelligenceM = new JComboBox(intelligenceOptions);
+		
 /** @param container = general window 
  *  @param layout = basic layout used (GridBag)
  * 	@param constraints = parameters that give component's placement and size
@@ -77,11 +117,11 @@ public class GeoSimGui extends JFrame{
  	*-----------refer to addComponent method for further description----------- 	    
  */
 	    JLabel title = new JLabel("Genomic Simulator");
-	    addComponent(title, 0, 0, 3, 1);
+	    addComponent(title, 0,0,3,1);
 	    
 /** West and East sections hold actions for Father and Mother respectively
  * 	buttons added, but do nothing (yet!)
- * images will be placed in (0,2,1,1) and (2,2,1,1,) respectively
+ *  images will be placed in (0,2,1,1) and (2,2,1,1) respectively
  */
 	//West 
 	    JLabel fatherLabel = new JLabel("Father");
@@ -92,7 +132,7 @@ public class GeoSimGui extends JFrame{
 	    addComponent(fatherLabel, 0,1,1,1);  
 	    addComponent(fatherImage, 0,2,1,1);
 	    addComponent(randomDad, 0,4,1,1);
-	    addComponent(genDad, 0, 5, 1,1);
+	    addComponent(genDad, 0,5,1,1);
 	    
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
@@ -100,10 +140,10 @@ public class GeoSimGui extends JFrame{
 	    JButton randomMom = new JButton("Randomize");        
 	    JButton genMom = new JButton("Generate DNA");
 	        
-	    addComponent(motherLabel, 2, 1, 1, 1);
-	    addComponent(motherImage,2,2,1,1);
-	    addComponent(randomMom, 2, 4, 1,1);
-	    addComponent(genMom, 2,5, 1, 1);
+	    addComponent(motherLabel, 2,1,1,1);
+	    addComponent(motherImage, 2,2,1,1);
+	    addComponent(randomMom, 2,4,1,1);
+	    addComponent(genMom, 2,5,1,1);
 	    
 /** Center section holds trait selection options
  * 	trait panel holds parent panels(traitMom and traitDad) for centralized selection
@@ -111,70 +151,71 @@ public class GeoSimGui extends JFrame{
  * ---labels start with descriptor, but will be on default trait when actually implemented---     
 	GridLayout(1,2,40,5) = (number of row, number of column, horizontal spacing, vertical spacing  
 */
-	    JButton babyMake = new JButton("Make a baby");
+	    babyMake = new JButton("Make a baby");
+	    babyMake.addActionListener(this);
 	    
 	    JPanel traits = new JPanel(new GridLayout(1,3,40,5));
 	    
 	    JPanel traitsDad = new JPanel(new GridLayout(13,1,5,2));
 	    JLabel labelDad = new JLabel("Father's Traits:");
 	    traitsDad.add(labelDad);
-	    traitsDad.add(hairColourF);
-	    traitsDad.add(hairAmountF);
 	    traitsDad.add(eyeColourF);
 	    traitsDad.add(eyeSizeF);
-	    traitsDad.add(noseSizeF);
-	    traitsDad.add(earLobeF);
 	    traitsDad.add(heightF);
 	    traitsDad.add(bodyTypeF);
 	    traitsDad.add(skinColourF);
+	    traitsDad.add(noseSizeF);
+	    traitsDad.add(earLobeF);
+	    traitsDad.add(hairColourF);
+	    traitsDad.add(hairAmountF);
 	    traitsDad.add(outlookF);
-	    traitsDad.add(IQF);
+	    traitsDad.add(intelligenceF);
 	    traits.add(traitsDad);
 	        
 	    
 	    JPanel traitLabels = new JPanel (new GridLayout(13,1,5,2));
 	    JLabel traitSelect = new JLabel("Trait Selection");
-	    JLabel hairColour = new JLabel("-Hair Colour-");
-	    JLabel hairAmount = new JLabel("-Hair Amount-");
-	    JLabel eyeColour = new JLabel("-Eye Colour-");
-	    JLabel eyeSize = new JLabel("-Eye Size-");
-	    JLabel noseSize = new JLabel("-Nose Size-");
-	    JLabel earLobe = new JLabel("-Ear Lobe-");
-	    JLabel height = new JLabel("-Height-");
-	    JLabel bodyType = new JLabel("-Body Type-");
-	    JLabel skinColour = new JLabel("-Skin Colour-");
-	    JLabel outlook = new JLabel("-Outlook-");
-	    JLabel IQ = new JLabel("-Intellegence-");
+	    JLabel eyeColourLabel = new JLabel("-Eye Colour");
+	    JLabel eyeSizeLabel = new JLabel("-Eye Size-");
+	    JLabel heightLabel = new JLabel("-Height-");
+	    JLabel bodyTypeLabel = new JLabel("-Body Type-");
+	    JLabel skinColourLabel = new JLabel("-Skin Colour-");
+	    JLabel noseSizeLabel = new JLabel("-Nose Size-");
+	    JLabel earLobeLabel = new JLabel("-Ear Lobe-");
+	    JLabel hairColourLabel = new JLabel("-Hair Colour-");
+	    JLabel hairAmountLabel = new JLabel("-Hair Amount-");
+	    JLabel outlookLabel = new JLabel("-Outlook-");
+	    JLabel IQLabel = new JLabel("-Intellegence-");
 	    traitLabels.add(traitSelect);
-	    traitLabels.add(hairColour);
-	    traitLabels.add(hairAmount);
-	    traitLabels.add(eyeColour);
-	    traitLabels.add(eyeSize);
-	    traitLabels.add(noseSize);
-	    traitLabels.add(earLobe);
-	    traitLabels.add(height);
-	    traitLabels.add(bodyType);
-	    traitLabels.add(skinColour);
-	    traitLabels.add(outlook);
-	    traitLabels.add(IQ);
+	    traitLabels.add(eyeColourLabel);
+	    traitLabels.add(eyeSizeLabel);
+	    traitLabels.add(heightLabel);
+	    traitLabels.add(bodyTypeLabel);
+	    traitLabels.add(skinColourLabel);
+	    traitLabels.add(noseSizeLabel);
+	    traitLabels.add(earLobeLabel);
+	    traitLabels.add(hairColourLabel);
+	    traitLabels.add(hairAmountLabel);
+	    traitLabels.add(outlookLabel);
+	    traitLabels.add(IQLabel);
 	    traits.add(traitLabels);
 	    
 	    JPanel traitsMom = new JPanel(new GridLayout(13, 1, 5, 2));
 	    JLabel labelMom = new JLabel("Mother's Traits:");
 	    traitsMom.add(labelMom);
-	    traitsMom.add(hairColourM);
-	    traitsMom.add(hairAmountM);
 	    traitsMom.add(eyeColourM);
 	    traitsMom.add(eyeSizeM);
-	    traitsMom.add(noseSizeM);
-	    traitsMom.add(earLobeM);
 	    traitsMom.add(heightM);
 	    traitsMom.add(bodyTypeM);
 	    traitsMom.add(skinColourM);
+	    traitsMom.add(noseSizeM);
+	    traitsMom.add(earLobeM);
+	    traitsMom.add(hairColourM);
+	    traitsMom.add(hairAmountM);
 	    traitsMom.add(outlookM);
-	    traitsMom.add(IQM);
+	    traitsMom.add(intelligenceM);
 	    traits.add(traitsMom);
-	    addComponent(traits, 1, 2,1,1);
+	    addComponent(traits, 1,2,1,1);
 	    addComponent(babyMake, 1,4,1,1);
 
 /** sets up default size of window
@@ -185,6 +226,7 @@ public class GeoSimGui extends JFrame{
 	    //pack();
 	    setSize(WINDOW_WIDTH,WINDOW_HEIGHT);
 	    setVisible(true);
+			
 	    }    
 	
 /** method places the components appropriately in grid depending on constraints entered 
@@ -209,9 +251,88 @@ public class GeoSimGui extends JFrame{
 	      layout.setConstraints(thing, constraints);  
 	      container.add(thing);      // add component 
     }
+	
+	public void actionPerformed(ActionEvent e){
+		if (e.getSource() == babyMake) {	
+		
+		/* 
+		 * I think this code should be somewhere else so that the
+		 * logic is separated from the gui, but I havn't figured
+		 * that out yet so I'm just leaving it here for now 
+		 * -Areesha
+		*/   
+			
+		// Gets input from all comboBoxes and puts them into an array
+		// of all the father's traits	
+			fatherTraits[0] = "father";
+			fatherTraits[1] = "Male";
+			fatherTraits[2] = eyeColourF.getSelectedItem().toString();
+			fatherTraits[3] = eyeSizeF.getSelectedItem().toString();
+			fatherTraits[4] = heightF.getSelectedItem().toString();
+			fatherTraits[5] = bodyTypeF.getSelectedItem().toString();
+			fatherTraits[6] = skinColourF.getSelectedItem().toString();
+			fatherTraits[7] = noseSizeF.getSelectedItem().toString();
+			fatherTraits[8] = earLobeF.getSelectedItem().toString();
+			fatherTraits[9] = hairColourF.getSelectedItem().toString();
+			fatherTraits[10] = hairAmountF.getSelectedItem().toString();
+			fatherTraits[11] = outlookF.getSelectedItem().toString();
+			fatherTraits[12] = intelligenceF.getSelectedItem().toString();
+		// Gets input from all comboBoxes and puts them into an array
+		// of all the mother's traits	
+			motherTraits[0] = "Mother";
+			motherTraits[1] = "Female";
+			motherTraits[2] = eyeColourM.getSelectedItem().toString();	
+			motherTraits[3] = eyeSizeM.getSelectedItem().toString();
+			motherTraits[4] = heightM.getSelectedItem().toString();
+			motherTraits[5] = bodyTypeM.getSelectedItem().toString();
+			motherTraits[6] = skinColourM.getSelectedItem().toString();
+			motherTraits[7] = noseSizeM.getSelectedItem().toString();
+			motherTraits[8] = earLobeM.getSelectedItem().toString();
+			motherTraits[9] = hairColourM.getSelectedItem().toString();
+			motherTraits[10] = hairAmountM.getSelectedItem().toString();
+			motherTraits[11] = outlookM.getSelectedItem().toString();
+			motherTraits[12] = intelligenceM.getSelectedItem().toString();			
+		// Makes two new instances of person using the selected traits
+			Person father = new Person(fatherTraits);
+			Person mother = new Person(motherTraits);
+			String[] babyTraits = new String[13];
+			babyTraits[0] = "Baby";
+			for (int index = 1; index < 13; index++) {
+				String momTraitString = motherTraits[index];
+				String dadTraitString = fatherTraits[index];
+				TraitsEnum momTrait = mother.getAllTraits()[index];
+				TraitsEnum dadTrait = father.getAllTraits()[index];
+				String babyTrait = BabyRandomizer.generateChildsTrait(
+						momTrait.determineCurrentDNA(momTraitString).size(),
+						dadTrait.determineCurrentDNA(dadTraitString).size(),
+						momTraitString,
+						dadTraitString);
+				babyTraits[index] = babyTrait;
+				System.out.println(babyTrait);
+			}
+			System.out.println("new baby");
+		// Makes a new person from the randomly selected traits	
+			Person baby = new Person(babyTraits);	
+		// Displays these traits in a pop up window	
+			JOptionPane.showMessageDialog(null, 
+				"baby's gender is: "+babyTraits[1]+
+				"\nbaby's eye colour is: "+babyTraits[2]+
+				"\nbaby's eye size is: "+babyTraits[3]+
+				"\nbaby's height is: "+babyTraits[4]+
+				"\nbaby's body type is: "+babyTraits[5]+
+				"\nbaby's skin colour is: "+babyTraits[6]+
+				"\nbaby's nose size is: "+babyTraits[7]+
+				"\nbaby's ear lobe is: "+babyTraits[8]+
+				"\nbaby's hair colour type is: "+babyTraits[9]+
+				"\nbaby's hair amount is: "+babyTraits[10]+
+				"\nbaby's outlook is: "+babyTraits[11]+
+				"\nbaby's intelligence is: "+babyTraits[12]);
+			}
+		}	
 	    
-//main method that inititalizes the gui
+//main method that initializes the gui
 	public static void main(String[]args){
-	    GeoSimGui test = new GeoSimGui();
+	    Person defaultPerson = new Person("default");
+		GeoSimGui test = new GeoSimGui(defaultPerson);
 	}
 }
