@@ -1,5 +1,6 @@
-package Main;
+package gui;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import traitsClasses.TraitsEnum;
@@ -8,13 +9,23 @@ import BabyCreation.BabyRandomizer;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.List;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 	
 /**basic GUI layout, no ActonListeners implemented
  *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
  * @author Jessica
  */
 public class GeoSimGui extends JFrame implements ActionListener{
+	
+	private BufferedImage dadBody;
+	private BufferedImage dadHair;
+	private BufferedImage dadEyes;
+	private BufferedImage momHair;
+	private BufferedImage momEyes;
+	private BufferedImage momBody;
+	
 	
 	TraitsEnum[] allTraits;
 	
@@ -59,6 +70,18 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	 
 	
 	public GeoSimGui(Person defaultPerson){
+		try{
+			dadBody = ImageIO.read(new File("GenomicsImages/MaleAverageFairBody.gif"));
+			dadEyes = ImageIO.read(new File("GenomicsImages/MaleAverageBlueEyes.gif"));
+			dadHair = ImageIO.read(new File("GenomicsImages/MaleAverageBrownHair.gif"));
+			momHair = ImageIO.read(new File("GenomicsImages/FemaleAverageBlondeHair.gif"));
+			momBody = ImageIO.read(new File("GenomicsImages/FemaleAverageFairBody.gif"));
+			momEyes = ImageIO.read(new File("GenomicsImages/FemaleAverageBlueEyes.gif"));
+		}
+		catch (IOException ex){
+			System.out.println("file not found");
+		}
+			
 		allTraits = defaultPerson.getAllTraits();
 
 	// Option arrays made for comboBoxes
@@ -127,21 +150,29 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    JLabel fatherLabel = new JLabel("Father");
 	    JButton randomDad = new JButton("Randomize");
 	    JButton genDad = new JButton("Generate DNA");
-	    JLabel fatherImage = new JLabel ("This is where Dad will go");
+	    JLabel fatherBodyImage = new JLabel (new ImageIcon(dadBody));
+	    JLabel fatherEyesImage = new JLabel (new ImageIcon(dadEyes));
+	    JLabel fatherHairImage = new JLabel (new ImageIcon(dadHair));
 	    
 	    addComponent(fatherLabel, 0,1,1,1);  
-	    addComponent(fatherImage, 0,2,1,1);
+	    addComponent(fatherEyesImage, 0,2,1,1);
+	    addComponent(fatherHairImage, 0,2,1,1);
 	    addComponent(randomDad, 0,4,1,1);
+	    addComponent(fatherBodyImage, 0,2,1,1);
 	    addComponent(genDad, 0,5,1,1);
 	    
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
-	    JLabel motherImage = new JLabel("This is where Mom will go");
+	    JLabel motherBodyImage = new JLabel(new ImageIcon(momBody));
+	    JLabel motherEyesImage = new JLabel(new ImageIcon(momEyes));
+	    JLabel motherHairImage = new JLabel(new ImageIcon(momHair));
 	    JButton randomMom = new JButton("Randomize");        
 	    JButton genMom = new JButton("Generate DNA");
 	        
 	    addComponent(motherLabel, 2,1,1,1);
-	    addComponent(motherImage, 2,2,1,1);
+	    addComponent(motherEyesImage, 2,2,1,1);
+	    addComponent(motherHairImage, 2,2,1,1);
+	    addComponent(motherBodyImage, 2,2,1,1);
 	    addComponent(randomMom, 2,4,1,1);
 	    addComponent(genMom, 2,5,1,1);
 	    
@@ -295,6 +326,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		// Makes two new instances of person using the selected traits
 			Person father = new Person(fatherTraits);
 			Person mother = new Person(motherTraits);
+			System.out.println(ImageFinder.findBodyImageName(fatherTraits));
 			String[] babyTraits = new String[13];
 			babyTraits[0] = "Baby";
 			for (int index = 1; index < 13; index++) {
@@ -308,9 +340,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 						momTraitString,
 						dadTraitString);
 				babyTraits[index] = babyTrait;
-				System.out.println(babyTrait);
 			}
-			System.out.println("new baby");
 		// Makes a new person from the randomly selected traits	
 			Person baby = new Person(babyTraits);	
 		// Displays these traits in a pop up window	
@@ -328,11 +358,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
 			}
-		}	
-	    
-//main method that initializes the gui
-	public static void main(String[]args){
-	    Person defaultPerson = new Person("default");
-		GeoSimGui test = new GeoSimGui(defaultPerson);
-	}
+		}
+	//protected void updatePicture(String )
 }

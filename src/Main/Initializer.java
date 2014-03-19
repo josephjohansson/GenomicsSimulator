@@ -1,9 +1,6 @@
 package Main;
-import javax.swing.JOptionPane;
 import traitsClasses.Person;
-import traitsClasses.TraitsEnum;
-import BabyCreation.BabyRandomizer;
-
+import gui.GeoSimGui;
 /* MAIN CLASS: 
  * The following class takes input for the mother's and 
  * father's traits from the user and displays the traits
