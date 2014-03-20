@@ -3,8 +3,8 @@ package gui;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import traitsClasses.TraitsEnum;
-import traitsClasses.Person;
+import people.*;
+import traitsClasses.Traits;
 import BabyCreation.BabyRandomizer;
 
 import java.awt.*;
@@ -27,7 +27,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	private BufferedImage momBody;
 	
 	
-	TraitsEnum[] allTraits;
+	Traits[] allTraits;
 	
 	JButton babyMake;
 	
@@ -35,34 +35,30 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	int WINDOW_HEIGHT = 500;
 	
 	// Makes the comboBoxes for the father
-	JComboBox eyeColourF;
-	JComboBox eyeSizeF;
-	JComboBox heightF;
-	JComboBox bodyTypeF;
-	JComboBox skinColourF;
-	JComboBox noseSizeF;
-	JComboBox earLobeF;
-	JComboBox hairColourF;
-	JComboBox hairAmountF;
-	JComboBox outlookF;
-	JComboBox intelligenceF;
+	public static JComboBox eyeColourF;
+	public static JComboBox eyeSizeF;
+	public static JComboBox heightF;
+	public static JComboBox bodyTypeF;
+	public static JComboBox skinColourF;
+	public static JComboBox noseSizeF;
+	public static JComboBox earLobeF;
+	public static JComboBox hairColourF;
+	public static JComboBox hairAmountF;
+	public static JComboBox outlookF;
+	public static JComboBox intelligenceF;
 
 	// Makes the comboBoxes for the mother
-	JComboBox eyeColourM;
-	JComboBox eyeSizeM;
-	JComboBox heightM;
-	JComboBox bodyTypeM;
-	JComboBox skinColourM;
-	JComboBox noseSizeM;
-	JComboBox earLobeM;
-	JComboBox hairColourM;
-	JComboBox hairAmountM;
-	JComboBox outlookM;
-	JComboBox intelligenceM;
-	
-	// Makes an array that will be filled in by the traits chosen by the user
-	String[] fatherTraits = new String[13];
-	String[] motherTraits = new String[13];
+	public static JComboBox eyeColourM;
+	public static JComboBox eyeSizeM;
+	public static JComboBox heightM;
+	public static JComboBox bodyTypeM;
+	public static JComboBox skinColourM;
+	public static JComboBox noseSizeM;
+	public static JComboBox earLobeM;
+	public static JComboBox hairColourM;
+	public static JComboBox hairAmountM;
+	public static JComboBox outlookM;
+	public static JComboBox intelligenceM;
 	
 	private Container container;
 	private GridBagLayout layout;
@@ -110,6 +106,19 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		outlookF = new JComboBox(outlookOptions);
 		intelligenceF = new JComboBox(intelligenceOptions);
 		
+	// Adds action listeners to the comboBoxes for the father
+		eyeColourF.addActionListener(this);
+		eyeSizeF.addActionListener(this);
+		heightF.addActionListener(this);
+		bodyTypeF.addActionListener(this);
+		skinColourF.addActionListener(this);
+		noseSizeF.addActionListener(this);
+		earLobeF.addActionListener(this);
+		hairColourF.addActionListener(this);
+		hairAmountF.addActionListener(this);
+		outlookF.addActionListener(this);
+		intelligenceF.addActionListener(this);
+		
 	// Fills in the comboBoxes for the mother
 		eyeColourM = new JComboBox(eyeColourOptions);
 		eyeSizeM = new JComboBox(eyeSizeOptions);
@@ -122,6 +131,19 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		hairAmountM = new JComboBox(hairAmountOptions);
 		outlookM = new JComboBox(outlookOptions);
 		intelligenceM = new JComboBox(intelligenceOptions);
+
+	// Adds action listeners to the comboBoxes for the mother
+		eyeColourM.addActionListener(this);
+		eyeSizeM.addActionListener(this);
+		heightM.addActionListener(this);
+		bodyTypeM.addActionListener(this);
+		skinColourM.addActionListener(this);
+		noseSizeM.addActionListener(this);
+		earLobeM.addActionListener(this);
+		hairColourM.addActionListener(this);
+		hairAmountM.addActionListener(this);
+		outlookM.addActionListener(this);
+		intelligenceM.addActionListener(this);	
 		
 /** @param container = general window 
  *  @param layout = basic layout used (GridBag)
@@ -284,67 +306,38 @@ public class GeoSimGui extends JFrame implements ActionListener{
     }
 	
 	public void actionPerformed(ActionEvent e){
-		if (e.getSource() == babyMake) {	
-		
-		/* 
-		 * I think this code should be somewhere else so that the
-		 * logic is separated from the gui, but I havn't figured
-		 * that out yet so I'm just leaving it here for now 
-		 * -Areesha
-		*/   
+	// If any of the comboBoxes are clicked, update the String[] of traits
+	// for both mother and father
+		if ((e.getSource() == eyeColourF) || (e.getSource() == eyeSizeF) ||
+				(e.getSource() == heightF) || (e.getSource() == bodyTypeF) ||
+				(e.getSource() == skinColourF) || (e.getSource() == noseSizeF) ||
+				(e.getSource() == earLobeF) || (e.getSource() == hairColourF) ||
+				(e.getSource() == hairAmountF) || (e.getSource() == outlookF) ||
+				(e.getSource() == intelligenceF) || (e.getSource() == eyeColourM) || 
+				(e.getSource() == eyeSizeM) || (e.getSource() == heightM) ||
+				(e.getSource() == bodyTypeM) || (e.getSource() == skinColourM) ||
+				(e.getSource() == noseSizeM) || (e.getSource() == earLobeM) ||
+				(e.getSource() == hairColourM) || (e.getSource() == hairAmountM) ||
+				(e.getSource() == outlookM) || (e.getSource() == intelligenceM)) {
+		// Updating traits array	
+			Father.createStringTraitsArray();
+			Mother.createStringTraitsArray();
 			
-		// Gets input from all comboBoxes and puts them into an array
-		// of all the father's traits	
-			fatherTraits[0] = "father";
-			fatherTraits[1] = "Male";
-			fatherTraits[2] = eyeColourF.getSelectedItem().toString();
-			fatherTraits[3] = eyeSizeF.getSelectedItem().toString();
-			fatherTraits[4] = heightF.getSelectedItem().toString();
-			fatherTraits[5] = bodyTypeF.getSelectedItem().toString();
-			fatherTraits[6] = skinColourF.getSelectedItem().toString();
-			fatherTraits[7] = noseSizeF.getSelectedItem().toString();
-			fatherTraits[8] = earLobeF.getSelectedItem().toString();
-			fatherTraits[9] = hairColourF.getSelectedItem().toString();
-			fatherTraits[10] = hairAmountF.getSelectedItem().toString();
-			fatherTraits[11] = outlookF.getSelectedItem().toString();
-			fatherTraits[12] = intelligenceF.getSelectedItem().toString();
-		// Gets input from all comboBoxes and puts them into an array
-		// of all the mother's traits	
-			motherTraits[0] = "Mother";
-			motherTraits[1] = "Female";
-			motherTraits[2] = eyeColourM.getSelectedItem().toString();	
-			motherTraits[3] = eyeSizeM.getSelectedItem().toString();
-			motherTraits[4] = heightM.getSelectedItem().toString();
-			motherTraits[5] = bodyTypeM.getSelectedItem().toString();
-			motherTraits[6] = skinColourM.getSelectedItem().toString();
-			motherTraits[7] = noseSizeM.getSelectedItem().toString();
-			motherTraits[8] = earLobeM.getSelectedItem().toString();
-			motherTraits[9] = hairColourM.getSelectedItem().toString();
-			motherTraits[10] = hairAmountM.getSelectedItem().toString();
-			motherTraits[11] = outlookM.getSelectedItem().toString();
-			motherTraits[12] = intelligenceM.getSelectedItem().toString();			
-		// Makes two new instances of person using the selected traits
-			Person father = new Person(fatherTraits);
-			Person mother = new Person(motherTraits);
-			System.out.println(ImageFinder.findBodyImageName(fatherTraits));
-			String[] babyTraits = new String[13];
-			babyTraits[0] = "Baby";
-			for (int index = 1; index < 13; index++) {
-				String momTraitString = motherTraits[index];
-				String dadTraitString = fatherTraits[index];
-				TraitsEnum momTrait = mother.getAllTraits()[index];
-				TraitsEnum dadTrait = father.getAllTraits()[index];
-				String babyTrait = BabyRandomizer.generateChildsTrait(
-						momTrait.determineCurrentDNA(momTraitString).size(),
-						dadTrait.determineCurrentDNA(dadTraitString).size(),
-						momTraitString,
-						dadTraitString);
-				babyTraits[index] = babyTrait;
-			}
-		// Makes a new person from the randomly selected traits	
-			Person baby = new Person(babyTraits);	
+		// THIS IS WHERE THE PANEL WITH THE IMAGES OF THE MOTHER AND FATHER SHOULD BE UPDATED	
+		
+		// Debugging 
+			//System.out.println(ImageFinder.findBodyImageName(Person.FATHER.createStringTraitsArrayF()));
+			//System.out.println(ImageFinder.findBodyImageName(Person.MOTHER.createStringTraitsArrayM()));
+		}
+	
+	// If user chose to make baby, send traits to baby randomizer and display results	
+		else if (e.getSource() == babyMake) {
+		// Initializes the baby randomizer
+			BabyRandomizer.makeBabyTraitStringArray();
+		// Gets the set of traits in string form from the person class	
+			String[] babyTraits = Baby.getBabyTraits();
 		// Displays these traits in a pop up window	
-			JOptionPane.showMessageDialog(null, 
+			JOptionPane.showMessageDialog(null, 	
 				"baby's gender is: "+babyTraits[1]+
 				"\nbaby's eye colour is: "+babyTraits[2]+
 				"\nbaby's eye size is: "+babyTraits[3]+
@@ -357,7 +350,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's hair amount is: "+babyTraits[10]+
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
-			}
 		}
+	}
 	//protected void updatePicture(String )
 }

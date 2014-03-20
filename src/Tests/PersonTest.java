@@ -7,23 +7,23 @@ import java.util.Random;
 
 import org.junit.Test;
 
-import traitsClasses.TraitsEnum;
-import traitsClasses.Person;
+import people.Person;
+import traitsClasses.Traits;
 
 public class PersonTest {
-	TraitsEnum[] allTraits = new TraitsEnum[13];
-	TraitsEnum eyeColour = TraitsEnum.EYE_COLOUR;
-	TraitsEnum eyeSize = TraitsEnum.EYE_SIZE;
-	TraitsEnum height = TraitsEnum.HEIGHT;
-	TraitsEnum bodyType = TraitsEnum.BODY_TYPE;
-	TraitsEnum skinColour = TraitsEnum.SKIN_COLOUR;
-	TraitsEnum noseSize = TraitsEnum.NOSE_SIZE;
-	TraitsEnum earlobe = TraitsEnum.EARLOBE;
-	TraitsEnum hairColour = TraitsEnum.HAIR_COLOUR;
-	TraitsEnum hairAmount = TraitsEnum.HAIR_AMOUNT;
-	TraitsEnum outlook = TraitsEnum.OUTLOOK;
-	TraitsEnum intel = TraitsEnum.INTEL;
-	TraitsEnum gender = TraitsEnum.GENDER;
+	Traits[] allTraits = new Traits[13];
+	Traits eyeColour = Traits.EYE_COLOUR;
+	Traits eyeSize = Traits.EYE_SIZE;
+	Traits height = Traits.HEIGHT;
+	Traits bodyType = Traits.BODY_TYPE;
+	Traits skinColour = Traits.SKIN_COLOUR;
+	Traits noseSize = Traits.NOSE_SIZE;
+	Traits earlobe = Traits.EARLOBE;
+	Traits hairColour = Traits.HAIR_COLOUR;
+	Traits hairAmount = Traits.HAIR_AMOUNT;
+	Traits outlook = Traits.OUTLOOK;
+	Traits intel = Traits.INTEL;
+	Traits gender = Traits.GENDER;
 	String[] taritsAsStrings = new String[12];
 	@Test
 	public void PersonTester() {
@@ -43,14 +43,15 @@ public class PersonTest {
 		String[] stringTraitList = new String[13];
 		stringTraitList[0] = "testName";
 		for (int index = 1; index<12; index++){
-			TraitsEnum currentTrait= allTraits[index];
+			Traits currentTrait= allTraits[index];
 			List<String> traitSet = currentTrait.getTraitSet();
 			int traitNumber = new Random().nextInt(traitSet.size()-1);
 			String currentTraitString = traitSet.get(traitNumber+1);
 			stringTraitList[index] = currentTraitString;
 		}
 		int index = 1;
-		Person testPerson = new Person(stringTraitList);
+		Person testPerson = new Person();
+		testPerson.convertStringsToTraits(stringTraitList);
 		
 		/*for(TraitsEnum traitunderTest: testPerson.getAllTraits()){
 			System.out.println(stringTraitList[index]);
