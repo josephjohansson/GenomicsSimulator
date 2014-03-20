@@ -2,7 +2,7 @@ package Main;
 import java.io.*;
 import java.util.Scanner;
 
-import traitsClasses.Person;
+import people.Person;
 	
 public class TextFile {
 	public static boolean Check(String fileName){

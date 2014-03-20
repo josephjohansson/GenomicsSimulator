@@ -4,23 +4,23 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import traitsClasses.TraitsEnum;
+import traitsClasses.Traits;
 import java.util.List;
 
 public class TraitsEnumTest {
-	TraitsEnum[] allTraits = new TraitsEnum[12];
-	TraitsEnum eyeColour = TraitsEnum.EYE_COLOUR;
-	TraitsEnum eyeSize = TraitsEnum.EYE_SIZE;
-	TraitsEnum height = TraitsEnum.HEIGHT;
-	TraitsEnum bodyType = TraitsEnum.BODY_TYPE;
-	TraitsEnum skinColour = TraitsEnum.SKIN_COLOUR;
-	TraitsEnum noseSize = TraitsEnum.NOSE_SIZE;
-	TraitsEnum earlobe = TraitsEnum.EARLOBE;
-	TraitsEnum hairColour = TraitsEnum.HAIR_COLOUR;
-	TraitsEnum hairAmount = TraitsEnum.HAIR_AMOUNT;
-	TraitsEnum outlook = TraitsEnum.OUTLOOK;
-	TraitsEnum intel = TraitsEnum.INTEL;
-	TraitsEnum gender = TraitsEnum.GENDER;
+	Traits[] allTraits = new Traits[12];
+	Traits eyeColour = Traits.EYE_COLOUR;
+	Traits eyeSize = Traits.EYE_SIZE;
+	Traits height = Traits.HEIGHT;
+	Traits bodyType = Traits.BODY_TYPE;
+	Traits skinColour = Traits.SKIN_COLOUR;
+	Traits noseSize = Traits.NOSE_SIZE;
+	Traits earlobe = Traits.EARLOBE;
+	Traits hairColour = Traits.HAIR_COLOUR;
+	Traits hairAmount = Traits.HAIR_AMOUNT;
+	Traits outlook = Traits.OUTLOOK;
+	Traits intel = Traits.INTEL;
+	Traits gender = Traits.GENDER;
 	
 	@Test
 	public void setCurrentTraitTest() {
@@ -36,7 +36,7 @@ public class TraitsEnumTest {
 		allTraits[9] = outlook;
 		allTraits[10] = intel;
 		allTraits[11] = gender;
-		for (TraitsEnum actualTrait: allTraits){
+		for (Traits actualTrait: allTraits){
 			List<String> listOfPossibleTraits = actualTrait.getTraitSet();
 			for(String possibleTrait: listOfPossibleTraits){
 				actualTrait.setCurrentTrait(possibleTrait);
@@ -58,7 +58,7 @@ public class TraitsEnumTest {
 		allTraits[9] = outlook;
 		allTraits[10] = intel;
 		allTraits[11] = gender;
-		for (TraitsEnum actualTrait: allTraits){
+		for (Traits actualTrait: allTraits){
 			List<String> listOfPossibleTraits = actualTrait.getTraitSet();
 			for(String possibleTrait: listOfPossibleTraits){
 				actualTrait.setCurrentTrait(possibleTrait);
@@ -81,7 +81,7 @@ public class TraitsEnumTest {
 		allTraits[9] = outlook;
 		allTraits[10] = intel;
 		allTraits[11] = gender;
-		for (TraitsEnum actualTrait: allTraits){
+		for (Traits actualTrait: allTraits){
 			List<String> listOfPossibleTraits = actualTrait.getTraitSet();
 			for(String possibleTrait: listOfPossibleTraits){
 				actualTrait.setCurrentTrait(possibleTrait);

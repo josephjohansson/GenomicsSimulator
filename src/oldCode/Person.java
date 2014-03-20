@@ -1,20 +1,22 @@
-package traitsClasses;
+package oldCode;
+
+import traitsClasses.Traits;
 
 public class Person {
 	String name;
-	TraitsEnum gender = TraitsEnum.GENDER;
-	TraitsEnum eyeColour = TraitsEnum.EYE_COLOUR;
-	TraitsEnum eyeSize = TraitsEnum.EYE_SIZE;
-	TraitsEnum height = TraitsEnum.HEIGHT;
-	TraitsEnum bodyType = TraitsEnum.BODY_TYPE;
-	TraitsEnum skinColour = TraitsEnum.SKIN_COLOUR;
-	TraitsEnum noseSize = TraitsEnum.NOSE_SIZE;
-	TraitsEnum earlobe = TraitsEnum.EARLOBE;
-	TraitsEnum hairColour = TraitsEnum.HAIR_COLOUR;
-	TraitsEnum hairAmount = TraitsEnum.HAIR_AMOUNT;
-	TraitsEnum outlook = TraitsEnum.OUTLOOK;
-	TraitsEnum intelligence = TraitsEnum.INTEL;
-	TraitsEnum[] allTraits = {null,
+	Traits gender = Traits.GENDER;
+	Traits eyeColour = Traits.EYE_COLOUR;
+	Traits eyeSize = Traits.EYE_SIZE;
+	Traits height = Traits.HEIGHT;
+	Traits bodyType = Traits.BODY_TYPE;
+	Traits skinColour = Traits.SKIN_COLOUR;
+	Traits noseSize = Traits.NOSE_SIZE;
+	Traits earlobe = Traits.EARLOBE;
+	Traits hairColour = Traits.HAIR_COLOUR;
+	Traits hairAmount = Traits.HAIR_AMOUNT;
+	Traits outlook = Traits.OUTLOOK;
+	Traits intelligence = Traits.INTEL;
+	Traits[] allTraits = {null,
 				gender,
 				eyeColour,
 				eyeSize,
@@ -30,7 +32,7 @@ public class Person {
 	public Person(String newName){
 		name = newName;
 	}
-	
+
 	public Person(String[] allTraitsAsStrings)  {
 		// Set name
 			name = allTraitsAsStrings[0];
@@ -76,7 +78,7 @@ public class Person {
 		return name;
 	}
 	
-	public TraitsEnum[] getAllTraits(){
+	public Traits[] getAllTraits(){
 		return allTraits;
 	}
 	
