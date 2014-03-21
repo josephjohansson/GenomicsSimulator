@@ -5,7 +5,7 @@ import gui.GeoSimGui;
 public class Father extends Person {
 	
 // Initialization of father's array of traits in string form
-	private static String[] fatherTraits = new String[13];
+	public static String[] fatherTraits = new String[13];
 	
 // Sets name for father (this is needed for the text file)	
 	public Father() {

@@ -16,7 +16,7 @@ public class Person {
 	private static Traits hairAmount = Traits.HAIR_AMOUNT;
 	private static Traits outlook = Traits.OUTLOOK;
 	private static Traits intelligence = Traits.INTEL;
-	private static Traits[] allTraits = {null,
+	private Traits[] allTraits = {null,
 				gender,
 				eyeColour,
 				eyeSize,
@@ -49,7 +49,7 @@ public class Person {
 // trait specified in the string list
 // For example: if allTraitsAsStrings[2] = "brown", this method will set allTraits[2]
 // to eyeColour and change currentTrait within eyeColour to "brown".
-	public static Traits[] convertStringsToTraits(String[] allTraitsAsStrings) {
+	public Traits[] convertStringsToTraits(String[] allTraitsAsStrings) {
 		// Set gender	
 			gender.setCurrentTrait(allTraitsAsStrings[1]);
 			allTraits[1] = gender;

@@ -26,6 +26,13 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	private BufferedImage momEyes;
 	private BufferedImage momBody;
 	
+    JLabel fatherBodyImage = new JLabel ();
+    JLabel fatherEyesImage = new JLabel ();
+    JLabel fatherHairImage = new JLabel ();
+    JLabel motherBodyImage = new JLabel ();
+    JLabel motherHairImage = new JLabel ();
+    JLabel motherEyesImage = new JLabel ();
+    
 	
 	Traits[] allTraits;
 	
@@ -66,17 +73,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	 
 	
 	public GeoSimGui(Person defaultPerson){
-		try{
-			dadBody = ImageIO.read(new File("GenomicsImages/MaleAverageFairBody.gif"));
-			dadEyes = ImageIO.read(new File("GenomicsImages/MaleAverageBlueEyes.gif"));
-			dadHair = ImageIO.read(new File("GenomicsImages/MaleAverageBrownHair.gif"));
-			momHair = ImageIO.read(new File("GenomicsImages/FemaleAverageBlondeHair.gif"));
-			momBody = ImageIO.read(new File("GenomicsImages/FemaleAverageFairBody.gif"));
-			momEyes = ImageIO.read(new File("GenomicsImages/FemaleAverageBlueEyes.gif"));
-		}
-		catch (IOException ex){
-			System.out.println("file not found");
-		}
+
 			
 		allTraits = defaultPerson.getAllTraits();
 
@@ -168,13 +165,22 @@ public class GeoSimGui extends JFrame implements ActionListener{
  * 	buttons added, but do nothing (yet!)
  *  images will be placed in (0,2,1,1) and (2,2,1,1) respectively
  */
+		try{
+			dadBody = ImageIO.read(new File("GenomicsImages/MaleAverageFairBody.gif"));
+			dadEyes = ImageIO.read(new File("GenomicsImages/MaleAverageBlueEyes.gif"));
+			dadHair = ImageIO.read(new File("GenomicsImages/MaleAverageBrownHair.gif"));
+			momHair = ImageIO.read(new File("GenomicsImages/FemaleAverageBlondeHair.gif"));
+			momBody = ImageIO.read(new File("GenomicsImages/FemaleAverageFairBody.gif"));
+			momEyes = ImageIO.read(new File("GenomicsImages/FemaleAverageBlueEyes.gif"));
+		}
+		catch (IOException ex){
+			System.out.println("file not found");
+		}
 	//West 
 	    JLabel fatherLabel = new JLabel("Father");
 	    JButton randomDad = new JButton("Randomize");
 	    JButton genDad = new JButton("Generate DNA");
-	    JLabel fatherBodyImage = new JLabel (new ImageIcon(dadBody));
-	    JLabel fatherEyesImage = new JLabel (new ImageIcon(dadEyes));
-	    JLabel fatherHairImage = new JLabel (new ImageIcon(dadHair));
+
 	    
 	    addComponent(fatherLabel, 0,1,1,1);  
 	    addComponent(fatherEyesImage, 0,2,1,1);
@@ -185,9 +191,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
-	    JLabel motherBodyImage = new JLabel(new ImageIcon(momBody));
-	    JLabel motherEyesImage = new JLabel(new ImageIcon(momEyes));
-	    JLabel motherHairImage = new JLabel(new ImageIcon(momHair));
+
 	    JButton randomMom = new JButton("Randomize");        
 	    JButton genMom = new JButton("Generate DNA");
 	        
@@ -224,8 +228,19 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    traitsDad.add(outlookF);
 	    traitsDad.add(intelligenceF);
 	    traits.add(traitsDad);
-	        
 	    
+		/**try{
+			dadBody = ImageIO.read(new File("GenomicsImages/MaleAverageFairBody.gif"));
+			dadEyes = ImageIO.read(new File("GenomicsImages/MaleAverageBlueEyes.gif"));
+			dadHair = ImageIO.read(new File("GenomicsImages/MaleAverageBrownHair.gif"));
+			momHair = ImageIO.read(new File("GenomicsImages/FemaleAverageBlondeHair.gif"));
+			momBody = ImageIO.read(new File("GenomicsImages/FemaleAverageFairBody.gif"));
+			momEyes = ImageIO.read(new File("GenomicsImages/FemaleAverageBlueEyes.gif"));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. Constructor");
+		}
+	    */
 	    JPanel traitLabels = new JPanel (new GridLayout(13,1,5,2));
 	    JLabel traitSelect = new JLabel("Trait Selection");
 	    JLabel eyeColourLabel = new JLabel("-Eye Colour");
@@ -322,6 +337,13 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		// Updating traits array	
 			Father.createStringTraitsArray();
 			Mother.createStringTraitsArray();
+			updateLabels(Father.fatherTraits, Mother.motherTraits);
+				
+				
+			
+			
+			
+			
 			
 		// THIS IS WHERE THE PANEL WITH THE IMAGES OF THE MOTHER AND FATHER SHOULD BE UPDATED	
 		
@@ -353,4 +375,40 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		}
 	}
 	//protected void updatePicture(String )
+	public void updateLabels(String[] fatherTraits, String[] motherTraits){
+		String fatherBodyURL = ImageFinder.findBodyImageName(fatherTraits);
+		System.out.println(fatherBodyURL);
+		String fatherEyesURL = ImageFinder.findEyesImageName(fatherTraits);
+		String fatherHairURL = ImageFinder.findHairImageName(fatherTraits);
+		String motherBodyURL = ImageFinder.findBodyImageName(motherTraits);
+		String motherEyesURL = ImageFinder.findEyesImageName(motherTraits);
+		String motherHairURL = ImageFinder.findHairImageName(motherTraits);
+		
+		try{
+		dadBody = ImageIO.read(new File(fatherBodyURL));
+		System.out.println(fatherBodyURL);
+		dadHair = ImageIO.read(new File(fatherHairURL));
+		dadEyes = ImageIO.read(new File(fatherEyesURL));
+		momBody = ImageIO.read(new File(motherBodyURL));
+		momHair = ImageIO.read(new File(motherHairURL));
+		momEyes = ImageIO.read(new File(motherEyesURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. updateLabels");
+		}
+		ImageIcon dadBodyIcon = new ImageIcon(dadBody);
+		ImageIcon dadHairIcon = new ImageIcon(dadHair);
+		ImageIcon dadEyesIcon = new ImageIcon(dadEyes);
+		ImageIcon momBodyIcon = new ImageIcon(momBody);
+		ImageIcon momHairIcon = new ImageIcon(momHair);
+		ImageIcon momEyesIcon = new ImageIcon(momEyes);
+		fatherBodyImage.setIcon(dadBodyIcon);
+		fatherHairImage.setIcon(dadHairIcon);
+		fatherEyesImage.setIcon(dadEyesIcon);
+		motherBodyImage.setIcon(momBodyIcon);
+		motherHairImage.setIcon(momHairIcon);
+		motherEyesImage.setIcon(momEyesIcon);
+		
+	}
 }
+

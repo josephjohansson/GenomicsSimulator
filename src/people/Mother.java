@@ -5,7 +5,7 @@ import gui.GeoSimGui;
 public class Mother extends Person {
 	
 // Initialization of mother's array of traits in string form
-	private static String[] motherTraits = new String[13];
+	public static String[] motherTraits = new String[13];
 	
 // Sets name for mother (this is needed for the text file)	
 	public Mother() {
