@@ -4,16 +4,19 @@ import gui.GeoSimGui;
 
 public class Mother extends Person {
 	
-// Initialization of mother's array of traits in string form
+/** @param motherTraits = mother's array of traits in string form */
 	public String[] motherTraits = new String[13];
 	
-// Sets name for mother (this is needed for the text file)	
+/** Default constructor that sets name for mother (this is needed for the text file)	
+ */
 	public Mother() {
 		name = "Mother";
 	}
 	
-// Gets input from all comboBoxes and puts them into an array
-// of all the mother's traits (initialized above)	
+/** Gets input from all comboBoxes and puts them into an array of all the mother's 
+ *  traits (initialized above)	
+ *  @return Mother's array of strings, where the first two elements are set by default
+ */
 	public String[] createStringTraitsArray(){
 		motherTraits[0] = "Mother";
 		motherTraits[1] = "Female";
@@ -32,3 +35,4 @@ public class Mother extends Person {
 	}
 
 }
+ 
