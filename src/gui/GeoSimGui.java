@@ -12,7 +12,8 @@ import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-	
+
+@SuppressWarnings({"rawtypes","serial"})	
 public class GeoSimGui extends JFrame implements ActionListener{
 	public Mother mother = new Mother();
 	public Father father = new Father();
@@ -66,7 +67,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	private Container container;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
-	
+	@SuppressWarnings({ "unchecked" })
 	public GeoSimGui(Person defaultPerson){
 		
 		allTraits = defaultPerson.getAllTraits();
