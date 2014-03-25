@@ -13,6 +13,5 @@ public class PersonTest {
 		Person testPerson = new Person();
 		assertEquals("the names don't match", "Person", testPerson.getName());
 	}
-	public void 
 
 }
