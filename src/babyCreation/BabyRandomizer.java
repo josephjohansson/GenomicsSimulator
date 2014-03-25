@@ -1,4 +1,4 @@
-package BabyCreation;
+package babyCreation;
 import java.util.Random;
 
 import people.*;
