@@ -3,9 +3,9 @@ package gui;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
-import BabyCreation.BabyRandomizer;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -17,6 +17,7 @@ import java.io.IOException;
  *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
  * @author Jessica
  */
+@SuppressWarnings({"rawtypes","serial"})
 public class GeoSimGui extends JFrame implements ActionListener{
 	public Mother mom = new Mother();
 	public Father dad = new Father();
@@ -73,6 +74,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	private GridBagConstraints constraints;
 	 
 	
+	@SuppressWarnings({ "unchecked" })
 	public GeoSimGui(Person defaultPerson){
 
 		
