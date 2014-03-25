@@ -1,4 +1,6 @@
-package gui;
+package oldCode;
+import gui.ImageFinder;
+
 import java.awt.*;
 import java.awt.image.*;
 import java.io.*;
