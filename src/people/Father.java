@@ -5,7 +5,7 @@ import gui.GeoSimGui;
 public class Father extends Person {
 	
 // Initialization of father's array of traits in string form
-	public static String[] fatherTraits = new String[13];
+	public String[] fatherTraits = new String[13];
 	
 // Sets name for father (this is needed for the text file)	
 	public Father() {
@@ -14,7 +14,7 @@ public class Father extends Person {
 	
 // Gets input from all comboBoxes and puts them into an array
 // of all the father's traits (initialized above)	
-	public static String[] createStringTraitsArray(){
+	public String[] createStringTraitsArray(){
 		fatherTraits[0] = "Father";
 		fatherTraits[1] = "Male";
 		fatherTraits[2] = GeoSimGui.eyeColourF.getSelectedItem().toString();
