@@ -3,9 +3,9 @@ package gui;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
-import BabyCreation.BabyRandomizer;
 
 import java.awt.*;
 import java.awt.event.*;
