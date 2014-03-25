@@ -5,6 +5,8 @@ import people.*;
 import traitsClasses.Traits;
 
 public class BabyRandomizer{
+	Mother mom = new Mother();
+	
 // This is assuming that the baby, mother, and father "Person"s have been made
 // This class is static because it is used as a process that is just executed over and over not
 // a process that changes an object inside our main class.
@@ -29,17 +31,17 @@ public class BabyRandomizer{
 	}
 	
 // Makes the string array of traits for the baby and passes them to the Baby class		
-	public static void makeBabyTraitStringArray(){
+	public static void makeBabyTraitStringArray(Father dad, Mother mom){
 		String[] babyTraits = new String[13];
 		babyTraits[0] = "Baby";
 	// For each possible category
 		for (int index = 1; index < 13; index++) {
 		// Gets mother's and father's trait for that category
-			String momTraitString = Mother.createStringTraitsArray()[index];
-			String dadTraitString = Father.createStringTraitsArray()[index];
+			String momTraitString = mom.createStringTraitsArray()[index];
+			String dadTraitString = dad.createStringTraitsArray()[index];
 		// Gets the length of the DNA list for those traits for use in the randomizer	
-			Traits momTrait = Mother.convertStringsToTraits(Mother.createStringTraitsArray())[index];
-			Traits dadTrait = Father.convertStringsToTraits(Father.createStringTraitsArray())[index];
+			Traits momTrait = mom.convertStringsToTraits(mom.createStringTraitsArray())[index];
+			Traits dadTrait = dad.convertStringsToTraits(dad.createStringTraitsArray())[index];
 		// Sends these to the randomizer	
 			String babyTrait = generateChildsTrait(
 					momTrait.determineCurrentDNA(momTraitString).size(),

@@ -4,18 +4,18 @@ import traitsClasses.Traits;
 
 public class Person { 
 	String name = "Person";
-	private static Traits gender = Traits.GENDER;
-	private static Traits eyeColour = Traits.EYE_COLOUR;
-	private static Traits eyeSize = Traits.EYE_SIZE;
-	private static Traits height = Traits.HEIGHT;
-	private static Traits bodyType = Traits.BODY_TYPE;
-	private static Traits skinColour = Traits.SKIN_COLOUR;
-	private static Traits noseSize = Traits.NOSE_SIZE;
-	private static Traits earlobe = Traits.EARLOBE;
-	private static Traits hairColour = Traits.HAIR_COLOUR;
-	private static Traits hairAmount = Traits.HAIR_AMOUNT;
-	private static Traits outlook = Traits.OUTLOOK;
-	private static Traits intelligence = Traits.INTEL;
+	private Traits gender = Traits.GENDER;
+	private Traits eyeColour = Traits.EYE_COLOUR;
+	private Traits eyeSize = Traits.EYE_SIZE;
+	private Traits height = Traits.HEIGHT;
+	private Traits bodyType = Traits.BODY_TYPE;
+	private Traits skinColour = Traits.SKIN_COLOUR;
+	private Traits noseSize = Traits.NOSE_SIZE;
+	private Traits earlobe = Traits.EARLOBE;
+	private Traits hairColour = Traits.HAIR_COLOUR;
+	private Traits hairAmount = Traits.HAIR_AMOUNT;
+	private Traits outlook = Traits.OUTLOOK;
+	private Traits intelligence = Traits.INTEL;
 	private Traits[] allTraits = {null,
 				gender,
 				eyeColour,

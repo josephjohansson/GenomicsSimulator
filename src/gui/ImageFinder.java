@@ -25,7 +25,7 @@ public class ImageFinder {
 		imageHair.append("GenomicsImages/");
 		imageHair.append(traits[1]);
 		imageHair.append(traits[5]);
-		imageHair.append(traits[6]);
+		imageHair.append(traits[9]);
 		imageHair.append("Hair");
 		imageHair.append(".gif");
 		

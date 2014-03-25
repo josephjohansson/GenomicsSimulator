@@ -18,7 +18,8 @@ import java.io.IOException;
  * @author Jessica
  */
 public class GeoSimGui extends JFrame implements ActionListener{
-	
+	public Mother mom = new Mother();
+	public Father dad = new Father();
 	private BufferedImage dadBody;
 	private BufferedImage dadHair;
 	private BufferedImage dadEyes;
@@ -74,7 +75,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	
 	public GeoSimGui(Person defaultPerson){
 
-			
+		
 		allTraits = defaultPerson.getAllTraits();
 
 	// Option arrays made for comboBoxes
@@ -335,9 +336,9 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				(e.getSource() == hairColourM) || (e.getSource() == hairAmountM) ||
 				(e.getSource() == outlookM) || (e.getSource() == intelligenceM)) {
 		// Updating traits array	
-			Father.createStringTraitsArray();
-			Mother.createStringTraitsArray();
-			updateLabels(Father.fatherTraits, Mother.motherTraits);
+			dad.createStringTraitsArray();
+			mom.createStringTraitsArray();
+			updateLabels(dad.fatherTraits, mom.motherTraits);
 				
 				
 			
@@ -347,7 +348,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			
 		// THIS IS WHERE THE PANEL WITH THE IMAGES OF THE MOTHER AND FATHER SHOULD BE UPDATED	
 		
-		// Debugging 
+		// Debugging s
 			//System.out.println(ImageFinder.findBodyImageName(Person.FATHER.createStringTraitsArrayF()));
 			//System.out.println(ImageFinder.findBodyImageName(Person.MOTHER.createStringTraitsArrayM()));
 		}
@@ -355,7 +356,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	// If user chose to make baby, send traits to baby randomizer and display results	
 		else if (e.getSource() == babyMake) {
 		// Initializes the baby randomizer
-			BabyRandomizer.makeBabyTraitStringArray();
+			BabyRandomizer.makeBabyTraitStringArray(dad, mom);
 		// Gets the set of traits in string form from the person class	
 			String[] babyTraits = Baby.getBabyTraits();
 		// Displays these traits in a pop up window	
@@ -377,21 +378,26 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//protected void updatePicture(String )
 	public void updateLabels(String[] fatherTraits, String[] motherTraits){
 		String fatherBodyURL = ImageFinder.findBodyImageName(fatherTraits);
-		System.out.println(fatherBodyURL);
 		String fatherEyesURL = ImageFinder.findEyesImageName(fatherTraits);
 		String fatherHairURL = ImageFinder.findHairImageName(fatherTraits);
 		String motherBodyURL = ImageFinder.findBodyImageName(motherTraits);
 		String motherEyesURL = ImageFinder.findEyesImageName(motherTraits);
 		String motherHairURL = ImageFinder.findHairImageName(motherTraits);
-		
+		System.out.println(motherBodyURL);
+		System.out.println(fatherHairURL);
 		try{
 		dadBody = ImageIO.read(new File(fatherBodyURL));
 		System.out.println(fatherBodyURL);
 		dadHair = ImageIO.read(new File(fatherHairURL));
+		
 		dadEyes = ImageIO.read(new File(fatherEyesURL));
+		System.out.println(fatherEyesURL);
 		momBody = ImageIO.read(new File(motherBodyURL));
+		
 		momHair = ImageIO.read(new File(motherHairURL));
+		System.out.println(motherHairURL);
 		momEyes = ImageIO.read(new File(motherEyesURL));
+		System.out.println(motherEyesURL);
 		}
 		catch (IOException ex){
 			System.out.println("file not found. updateLabels");
