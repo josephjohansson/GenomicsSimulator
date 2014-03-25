@@ -12,6 +12,7 @@ public class Initializer {
 	/** @param defaultPerson Makes a default person so that the Gui can access the traits list */
 		Person defaultPerson = new Person();
 	/** @param gui Creates a new (the only) instance of the gui */	
+		@SuppressWarnings("unused")
 		GeoSimGui gui = new GeoSimGui(defaultPerson);		
 	}
 }
