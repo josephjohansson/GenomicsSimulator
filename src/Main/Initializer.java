@@ -1,5 +1,4 @@
 package Main;
-import people.*;
 import gui.GeoSimGui;
 
 /**
@@ -8,13 +7,10 @@ import gui.GeoSimGui;
 
 public class Initializer {
 	
-	public static void main(String[]args) {
-	/** @param defaultPerson Makes a default person so that the Gui can access the traits list */
-		Person defaultPerson = new Person();
+	public static void main(String[]args){
 	/** @param gui Creates a new (the only) instance of the gui */	
 		@SuppressWarnings("unused")
-		GeoSimGui gui = new GeoSimGui(defaultPerson);		
+		GeoSimGui gui = new GeoSimGui();		
 	}
 }
-
 

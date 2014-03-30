@@ -3,17 +3,16 @@ package gui;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
+import babyCreation.BabyRandomizer;
 
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
-@SuppressWarnings({"rawtypes","serial"})	
+	
 public class GeoSimGui extends JFrame implements ActionListener{
 	public Mother mother = new Mother();
 	public Father father = new Father();
@@ -34,6 +33,10 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	Traits[] allTraits;
 	
 	JButton babyMake;
+	JButton randomFather;
+	JButton randomMother;
+	JButton genFather;
+	JButton genMother;
 	
 	int WINDOW_WIDTH = 800;
 	int WINDOW_HEIGHT = 500;
@@ -67,23 +70,21 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	private Container container;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
-	@SuppressWarnings({ "unchecked" })
-	public GeoSimGui(Person defaultPerson){
-		
-		allTraits = defaultPerson.getAllTraits();
+	
+	public GeoSimGui(){
 
 	// Option arrays made for comboBoxes
-		String[] eyeColourOptions = allTraits[2].getTraitSet().toArray(new String[allTraits[2].getTraitSet().size()]);
-		String[] eyeSizeOptions = allTraits[3].getTraitSet().toArray(new String[allTraits[3].getTraitSet().size()]);
-		String[] heightOptions = allTraits[4].getTraitSet().toArray(new String[allTraits[4].getTraitSet().size()]);
-		String[] bodyTypeOptions = allTraits[5].getTraitSet().toArray(new String[allTraits[5].getTraitSet().size()]);
-		String[] skinColourOptions = allTraits[6].getTraitSet().toArray(new String[allTraits[6].getTraitSet().size()]);
-		String[] noseSizeOptions = allTraits[7].getTraitSet().toArray(new String[allTraits[7].getTraitSet().size()]);
-		String[] earLobeOptions = allTraits[8].getTraitSet().toArray(new String[allTraits[8].getTraitSet().size()]);
-		String[] hairColourOptions = allTraits[9].getTraitSet().toArray(new String[allTraits[9].getTraitSet().size()]);
-		String[] hairAmountOptions = allTraits[10].getTraitSet().toArray(new String[allTraits[10].getTraitSet().size()]);
-		String[] outlookOptions = allTraits[11].getTraitSet().toArray(new String[allTraits[11].getTraitSet().size()]);
-		String[] intelligenceOptions = allTraits[12].getTraitSet().toArray(new String[allTraits[12].getTraitSet().size()]);
+		String[] eyeColourOptions = Traits.EYE_COLOUR.getTraitSet().toArray(new String[Traits.EYE_COLOUR.getTraitSet().size()]);
+		String[] eyeSizeOptions = Traits.EYE_SIZE.getTraitSet().toArray(new String[Traits.EYE_SIZE.getTraitSet().size()]);
+		String[] heightOptions = Traits.HEIGHT.getTraitSet().toArray(new String[Traits.HEIGHT.getTraitSet().size()]);
+		String[] bodyTypeOptions = Traits.BODY_TYPE.getTraitSet().toArray(new String[Traits.BODY_TYPE.getTraitSet().size()]);
+		String[] skinColourOptions = Traits.SKIN_COLOUR.getTraitSet().toArray(new String[Traits.SKIN_COLOUR.getTraitSet().size()]);
+		String[] noseSizeOptions = Traits.NOSE_SIZE.getTraitSet().toArray(new String[Traits.NOSE_SIZE.getTraitSet().size()]);
+		String[] earLobeOptions = Traits.EARLOBE.getTraitSet().toArray(new String[Traits.EARLOBE.getTraitSet().size()]);
+		String[] hairColourOptions = Traits.HAIR_COLOUR.getTraitSet().toArray(new String[Traits.HAIR_COLOUR.getTraitSet().size()]);
+		String[] hairAmountOptions = Traits.HAIR_AMOUNT.getTraitSet().toArray(new String[Traits.HAIR_AMOUNT.getTraitSet().size()]);
+		String[] outlookOptions = Traits.OUTLOOK.getTraitSet().toArray(new String[Traits.OUTLOOK.getTraitSet().size()]);
+		String[] intelligenceOptions = Traits.INTEL.getTraitSet().toArray(new String[Traits.INTEL.getTraitSet().size()]);
 		
 	// Fills in the comboBoxes for the father
 		eyeColourF = new JComboBox(eyeColourOptions);
@@ -161,8 +162,11 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//West 
 	    JLabel fatherLabel = new JLabel("Father");
 	  
-	    JButton randomFather = new JButton("Randomize");
-	    JButton genFather = new JButton("Generate DNA");
+	    randomFather = new JButton("Randomize");
+	    randomFather.addActionListener(this);
+	    
+	    genFather = new JButton("Generate DNA");
+	    genFather.addActionListener(this);
 	    
 	    addComponent(fatherLabel, 0,1,1,1);  
 	    addComponent(fatherEyesImage, 0,2,1,1);
@@ -174,9 +178,12 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
 
-	    JButton randomMother = new JButton("Randomize");        
-	    JButton genMother = new JButton("Generate DNA");
-	        
+	    randomMother = new JButton("Randomize");        
+	    randomMother.addActionListener(this);
+	    
+	    genMother = new JButton("Generate DNA");
+	    genMother.addActionListener(this);
+	    
 	    addComponent(motherLabel, 2,1,1,1);
 	    addComponent(motherEyesImage, 2,2,1,1);
 	    addComponent(motherHairImage, 2,2,1,1);
@@ -328,7 +335,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		}
 	
 	// If user chose to make baby, send traits to baby randomizer and display results	
-		else if (e.getSource() == babyMake) {
+		else if (e.getSource() == babyMake){
 		// Initializes the baby randomizer
 			BabyRandomizer.makeBabyTraitStringArray(father, mother);
 		// Gets the set of traits in string form from the person class	
@@ -347,6 +354,50 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's hair amount is: "+babyTraits[10]+
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
+		}
+		
+		else if (e.getSource() == randomFather){
+			String[] fatherTraits = father.randomizeStringTraitsArray();
+			eyeColourF.setSelectedItem(fatherTraits[2]);
+			eyeSizeF.setSelectedItem(fatherTraits[3]);
+			heightF.setSelectedItem(fatherTraits[4]);
+			bodyTypeF.setSelectedItem(fatherTraits[5]);
+			skinColourF.setSelectedItem(fatherTraits[6]);
+			noseSizeF.setSelectedItem(fatherTraits[7]);
+			earLobeF.setSelectedItem(fatherTraits[8]);
+			hairColourF.setSelectedItem(fatherTraits[9]);
+			hairAmountF.setSelectedItem(fatherTraits[10]);
+			outlookF.setSelectedItem(fatherTraits[11]);
+			intelligenceF.setSelectedItem(fatherTraits[12]);
+			for (String f: fatherTraits){
+				System.out.println(f);
+			}
+			updateLabels(father.fatherTraits, mother.motherTraits); 
+		}
+		
+		else if (e.getSource() == randomMother){
+			String[] motherTraits = mother.randomizeStringTraitsArray();
+			eyeColourM.setSelectedItem(motherTraits[2]);
+			eyeSizeM.setSelectedItem(motherTraits[3]);
+			heightM.setSelectedItem(motherTraits[4]);
+			bodyTypeM.setSelectedItem(motherTraits[5]);
+			skinColourM.setSelectedItem(motherTraits[6]);
+			noseSizeM.setSelectedItem(motherTraits[7]);
+			earLobeM.setSelectedItem(motherTraits[8]);
+			hairColourM.setSelectedItem(motherTraits[9]);
+			hairAmountM.setSelectedItem(motherTraits[10]);
+			outlookM.setSelectedItem(motherTraits[11]);
+			intelligenceM.setSelectedItem(motherTraits[12]);
+			System.out.print(motherTraits.toString());
+			updateLabels(father.fatherTraits, mother.motherTraits);
+		}
+		
+		else if (e.getSource() == genFather){
+			// make father's dna string file
+		}
+		
+		else if (e.getSource()== genMother){
+			// make mother's dna string file
 		}
 	}
 	//protected void updatePicture(String )

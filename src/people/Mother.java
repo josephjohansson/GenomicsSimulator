@@ -1,5 +1,6 @@
 package people;
 
+import traitsClasses.Traits;
 import gui.GeoSimGui;
 
 public class Mother extends Person {
@@ -34,5 +35,22 @@ public class Mother extends Person {
 		return motherTraits;
 	}
 
+	public String[] randomizeStringTraitsArray(){
+		motherTraits[0] = "Mother";
+		motherTraits[1] = "Female";
+		motherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
+		motherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
+		motherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
+		motherTraits[5] = Traits.BODY_TYPE.chooseRandomTrait();
+		motherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
+		motherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
+		motherTraits[8] = Traits.EARLOBE.chooseRandomTrait();
+		motherTraits[9] = Traits.HAIR_COLOUR.chooseRandomTrait();
+		motherTraits[10] = Traits.HAIR_AMOUNT.chooseRandomTrait();
+		motherTraits[11] = Traits.OUTLOOK.chooseRandomTrait();
+		motherTraits[12] = Traits.INTEL.chooseRandomTrait();
+		return motherTraits;
+	}
+	
 }
  

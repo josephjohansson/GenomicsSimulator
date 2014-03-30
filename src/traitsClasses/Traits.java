@@ -130,6 +130,12 @@ public enum Traits {
 		return currentTrait;
 	}
 	
+	public String chooseRandomTrait() {
+		int traitNumber = new Random().nextInt(traitsSet.size());
+		currentTrait = traitsSet.get(traitNumber);
+		return currentTrait;
+	}
+	
 /** Determines the DNA list that goes with the current trait (this will be an element of DNASet)	
  *  @return DNAList 
  */

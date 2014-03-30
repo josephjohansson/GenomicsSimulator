@@ -1,5 +1,6 @@
 package people;
 
+import traitsClasses.Traits;
 import gui.GeoSimGui;
 
 public class Father extends Person {
@@ -31,6 +32,26 @@ public class Father extends Person {
 		fatherTraits[10] = GeoSimGui.hairAmountF.getSelectedItem().toString();
 		fatherTraits[11] = GeoSimGui.outlookF.getSelectedItem().toString();
 		fatherTraits[12] = GeoSimGui.intelligenceF.getSelectedItem().toString();
+		return fatherTraits;
+	}
+	
+	public String[] randomizeStringTraitsArray(){
+		fatherTraits[0] = "Father";
+		fatherTraits[1] = "Male";
+		fatherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
+		fatherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
+		fatherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
+		fatherTraits[5] = Traits.BODY_TYPE.chooseRandomTrait();
+		fatherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
+		fatherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
+		fatherTraits[8] = Traits.EARLOBE.chooseRandomTrait();
+		fatherTraits[9] = Traits.HAIR_COLOUR.chooseRandomTrait();
+		fatherTraits[10] = Traits.HAIR_AMOUNT.chooseRandomTrait();
+		fatherTraits[11] = Traits.OUTLOOK.chooseRandomTrait();
+		fatherTraits[12] = Traits.INTEL.chooseRandomTrait();
+		//for (String f: fatherTraits){
+			//System.out.println(f);
+		//}
 		return fatherTraits;
 	}
 }
