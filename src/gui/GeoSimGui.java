@@ -317,16 +317,16 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	// If any of the comboBoxes are clicked, update the String[] of traits
 	// for both mother and father
 		if ((e.getSource() == eyeColourF) || (e.getSource() == eyeSizeF) ||
-				(e.getSource() == heightF) || (e.getSource() == bodyTypeF) ||
-				(e.getSource() == skinColourF) || (e.getSource() == noseSizeF) ||
-				(e.getSource() == earLobeF) || (e.getSource() == hairColourF) ||
-				(e.getSource() == hairAmountF) || (e.getSource() == outlookF) ||
-				(e.getSource() == intelligenceF) || (e.getSource() == eyeColourM) || 
-				(e.getSource() == eyeSizeM) || (e.getSource() == heightM) ||
-				(e.getSource() == bodyTypeM) || (e.getSource() == skinColourM) ||
-				(e.getSource() == noseSizeM) || (e.getSource() == earLobeM) ||
-				(e.getSource() == hairColourM) || (e.getSource() == hairAmountM) ||
-				(e.getSource() == outlookM) || (e.getSource() == intelligenceM)) {
+			(e.getSource() == heightF) || (e.getSource() == bodyTypeF) ||
+			(e.getSource() == skinColourF) || (e.getSource() == noseSizeF) ||
+			(e.getSource() == earLobeF) || (e.getSource() == hairColourF) ||
+			(e.getSource() == hairAmountF) || (e.getSource() == outlookF) ||
+			(e.getSource() == intelligenceF) || (e.getSource() == eyeColourM) || 
+			(e.getSource() == eyeSizeM) || (e.getSource() == heightM) ||
+			(e.getSource() == bodyTypeM) || (e.getSource() == skinColourM) ||
+			(e.getSource() == noseSizeM) || (e.getSource() == earLobeM) ||
+			(e.getSource() == hairColourM) || (e.getSource() == hairAmountM) ||
+			(e.getSource() == outlookM) || (e.getSource() == intelligenceM)) {
 		// Updating traits array	
 			father.createStringTraitsArray();
 			mother.createStringTraitsArray();
@@ -357,39 +357,35 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		}
 		
 		else if (e.getSource() == randomFather){
-			String[] fatherTraits = father.randomizeStringTraitsArray();
-			eyeColourF.setSelectedItem(fatherTraits[2]);
-			eyeSizeF.setSelectedItem(fatherTraits[3]);
-			heightF.setSelectedItem(fatherTraits[4]);
-			bodyTypeF.setSelectedItem(fatherTraits[5]);
-			skinColourF.setSelectedItem(fatherTraits[6]);
-			noseSizeF.setSelectedItem(fatherTraits[7]);
-			earLobeF.setSelectedItem(fatherTraits[8]);
-			hairColourF.setSelectedItem(fatherTraits[9]);
-			hairAmountF.setSelectedItem(fatherTraits[10]);
-			outlookF.setSelectedItem(fatherTraits[11]);
-			intelligenceF.setSelectedItem(fatherTraits[12]);
-			for (String f: fatherTraits){
-				System.out.println(f);
-			}
-			updateLabels(father.fatherTraits, mother.motherTraits); 
+			String[] randomFatherTraits = father.randomizeStringTraitsArray();
+			eyeColourF.setSelectedItem(randomFatherTraits[2]);
+			eyeSizeF.setSelectedItem(randomFatherTraits[3]);
+			heightF.setSelectedItem(randomFatherTraits[4]);
+			bodyTypeF.setSelectedItem(randomFatherTraits[5]);
+			skinColourF.setSelectedItem(randomFatherTraits[6]);
+			noseSizeF.setSelectedItem(randomFatherTraits[7]);
+			earLobeF.setSelectedItem(randomFatherTraits[8]);
+			hairColourF.setSelectedItem(randomFatherTraits[9]);
+			hairAmountF.setSelectedItem(randomFatherTraits[10]);
+			outlookF.setSelectedItem(randomFatherTraits[11]);
+			intelligenceF.setSelectedItem(randomFatherTraits[12]);
+			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
 		}
 		
 		else if (e.getSource() == randomMother){
-			String[] motherTraits = mother.randomizeStringTraitsArray();
-			eyeColourM.setSelectedItem(motherTraits[2]);
-			eyeSizeM.setSelectedItem(motherTraits[3]);
-			heightM.setSelectedItem(motherTraits[4]);
-			bodyTypeM.setSelectedItem(motherTraits[5]);
-			skinColourM.setSelectedItem(motherTraits[6]);
-			noseSizeM.setSelectedItem(motherTraits[7]);
-			earLobeM.setSelectedItem(motherTraits[8]);
-			hairColourM.setSelectedItem(motherTraits[9]);
-			hairAmountM.setSelectedItem(motherTraits[10]);
-			outlookM.setSelectedItem(motherTraits[11]);
-			intelligenceM.setSelectedItem(motherTraits[12]);
-			System.out.print(motherTraits.toString());
-			updateLabels(father.fatherTraits, mother.motherTraits);
+			String[] randomMotherTraits = mother.randomizeStringTraitsArray();
+			eyeColourM.setSelectedItem(randomMotherTraits[2]);
+			eyeSizeM.setSelectedItem(randomMotherTraits[3]);
+			heightM.setSelectedItem(randomMotherTraits[4]);
+			bodyTypeM.setSelectedItem(randomMotherTraits[5]);
+			skinColourM.setSelectedItem(randomMotherTraits[6]);
+			noseSizeM.setSelectedItem(randomMotherTraits[7]);
+			earLobeM.setSelectedItem(randomMotherTraits[8]);
+			hairColourM.setSelectedItem(randomMotherTraits[9]);
+			hairAmountM.setSelectedItem(randomMotherTraits[10]);
+			outlookM.setSelectedItem(randomMotherTraits[11]);
+			intelligenceM.setSelectedItem(randomMotherTraits[12]);
+			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
 		}
 		
 		else if (e.getSource() == genFather){

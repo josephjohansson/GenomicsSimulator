@@ -49,9 +49,6 @@ public class Father extends Person {
 		fatherTraits[10] = Traits.HAIR_AMOUNT.chooseRandomTrait();
 		fatherTraits[11] = Traits.OUTLOOK.chooseRandomTrait();
 		fatherTraits[12] = Traits.INTEL.chooseRandomTrait();
-		//for (String f: fatherTraits){
-			//System.out.println(f);
-		//}
 		return fatherTraits;
 	}
 }
