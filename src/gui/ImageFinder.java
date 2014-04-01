@@ -1,5 +1,11 @@
 package gui;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.lang.StringBuilder;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 
 
@@ -43,5 +49,47 @@ public class ImageFinder {
 
 		return imageEyes.toString();
 
+	}
+	public static ImageIcon getBodyIcon(String[] traits){
+		BufferedImage bodyImage = null;
+		String bodyURL = ImageFinder.findBodyImageName(traits);
+		try{
+			bodyImage = ImageIO.read(new File(bodyURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. getBodyIcon");
+		}
+		
+		ImageIcon bodyIcon = new ImageIcon(bodyImage);
+		
+		return bodyIcon;
+	}
+	public static ImageIcon getHairIcon(String[] traits){
+		BufferedImage hairImage = null;
+		String hairURL = ImageFinder.findHairImageName(traits);
+		try{
+			hairImage = ImageIO.read(new File(hairURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. getHairIcon");
+		}
+		
+		ImageIcon hairIcon = new ImageIcon(hairImage);
+		
+		return hairIcon;
+	}
+	public static ImageIcon getEyesIcon(String[] traits){
+		BufferedImage eyesImage = null;
+		String eyesURL = ImageFinder.findEyesImageName(traits);
+		try{
+			eyesImage = ImageIO.read(new File(eyesURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. getEyesIcon");
+		}
+		
+		ImageIcon eyesIcon = new ImageIcon(eyesImage);
+		
+		return eyesIcon;
 	}
 }

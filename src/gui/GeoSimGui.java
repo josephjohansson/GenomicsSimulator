@@ -379,43 +379,13 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	}
 	//protected void updatePicture(String )
 	public void updateLabels(String[] fatherTraits, String[] motherTraits){
-		String fatherBodyURL = ImageFinder.findBodyImageName(fatherTraits);
-		String fatherEyesURL = ImageFinder.findEyesImageName(fatherTraits);
-		String fatherHairURL = ImageFinder.findHairImageName(fatherTraits);
-		String motherBodyURL = ImageFinder.findBodyImageName(motherTraits);
-		String motherEyesURL = ImageFinder.findEyesImageName(motherTraits);
-		String motherHairURL = ImageFinder.findHairImageName(motherTraits);
-		System.out.println(motherBodyURL);
-		System.out.println(fatherHairURL);
-		try{
-		dadBody = ImageIO.read(new File(fatherBodyURL));
-		System.out.println(fatherBodyURL);
-		dadHair = ImageIO.read(new File(fatherHairURL));
-		
-		dadEyes = ImageIO.read(new File(fatherEyesURL));
-		System.out.println(fatherEyesURL);
-		momBody = ImageIO.read(new File(motherBodyURL));
-		
-		momHair = ImageIO.read(new File(motherHairURL));
-		System.out.println(motherHairURL);
-		momEyes = ImageIO.read(new File(motherEyesURL));
-		System.out.println(motherEyesURL);
-		}
-		catch (IOException ex){
-			System.out.println("file not found. updateLabels");
-		}
-		ImageIcon dadBodyIcon = new ImageIcon(dadBody);
-		ImageIcon dadHairIcon = new ImageIcon(dadHair);
-		ImageIcon dadEyesIcon = new ImageIcon(dadEyes);
-		ImageIcon momBodyIcon = new ImageIcon(momBody);
-		ImageIcon momHairIcon = new ImageIcon(momHair);
-		ImageIcon momEyesIcon = new ImageIcon(momEyes);
-		fatherBodyImage.setIcon(dadBodyIcon);
-		fatherHairImage.setIcon(dadHairIcon);
-		fatherEyesImage.setIcon(dadEyesIcon);
-		motherBodyImage.setIcon(momBodyIcon);
-		motherHairImage.setIcon(momHairIcon);
-		motherEyesImage.setIcon(momEyesIcon);
+
+		fatherBodyImage.setIcon(ImageFinder.getBodyIcon(fatherTraits));
+		fatherHairImage.setIcon(ImageFinder.getHairIcon(fatherTraits));
+		fatherEyesImage.setIcon(ImageFinder.getEyesIcon(fatherTraits));
+		motherBodyImage.setIcon(ImageFinder.getBodyIcon(motherTraits));
+		motherHairImage.setIcon(ImageFinder.getHairIcon(motherTraits));
+		motherEyesImage.setIcon(ImageFinder.getEyesIcon(motherTraits));
 		
 	}
 }
