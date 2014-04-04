@@ -3,6 +3,7 @@ package gui;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import Main.FileChooser;
 import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
@@ -156,7 +157,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
  	*-----------refer to addComponent method for further description----------- 	    
  */
 	    JLabel title = new JLabel("Genomic Simulator");
-	    addComponent(title, 0,0,3,1);
+	    addComponent(title,0,0,3,1,1,1,20,0,20,0);
 	    
 /** West and East sections hold actions for Father and Mother respectively
  * 	buttons added, but do nothing (yet!)
@@ -171,13 +172,12 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    JButton genFather = new JButton("Generate DNA");
 	    genFather.addActionListener(this);
 	    
-	    addComponent(fatherLabel, 0,1,1,1);  
-	    addComponent(fatherEyesImage, 0,2,1,1);
-	    addComponent(fatherHairImage, 0,2,1,1);
-	    addComponent(randomFather, 0,4,1,1);
-	    addComponent(fatherBodyImage, 0,2,1,1);
-	    addComponent(genFather, 0,5,1,1);
-	    
+	    addComponent(fatherLabel, 0,1,1,1,0.5,0.25,10,20,10,20);  
+	    addComponent(fatherEyesImage, 0,2,1,1,0,0,0,0,0,0);
+	    addComponent(fatherHairImage, 0,2,1,1,0,0,0,0,0,0);
+	    addComponent(fatherBodyImage, 0,2,1,1,0,0,0,0,0,0);
+	    addComponent(genFather, 0,5,1,1,0.5,0.25,10,10,5,10);
+	    addComponent(randomFather, 0,4,1,1,0.5,0.25,5,10,10,10);
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
 
@@ -187,12 +187,12 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    JButton genMother = new JButton("Generate DNA");
 	    genMother.addActionListener(this);
 	        
-	    addComponent(motherLabel, 2,1,1,1);
-	    addComponent(motherEyesImage, 2,2,1,1);
-	    addComponent(motherHairImage, 2,2,1,1);
-	    addComponent(motherBodyImage, 2,2,1,1);
-	    addComponent(randomMother, 2,4,1,1);
-	    addComponent(genMother, 2,5,1,1);
+	    addComponent(motherLabel, 2,1,1,1,0.5,0.25,10,20,10,20);
+	    addComponent(motherEyesImage, 2,2,1,1,0,0,0,0,0,0);
+	    addComponent(motherHairImage, 2,2,1,1,0,0,0,0,0,0);
+	    addComponent(motherBodyImage, 2,2,1,1,0,0,0,0,0,0);
+	    addComponent(randomMother, 2,4,1,1,0.5,025,5,10,10,10);
+	    addComponent(genMother, 2,5,1,1,0.5,0.25,10,10,5,10);
 	    
 /** Center section holds trait selection options
  * 	trait panel holds parent panels(traitmother and traitfather) for centralized selection
@@ -202,6 +202,9 @@ public class GeoSimGui extends JFrame implements ActionListener{
 */
 	    babyMake = new JButton("Make a baby");
 	    babyMake.addActionListener(this);
+	    
+	    JButton browser = new JButton("Import File");
+	    browser.addActionListener(this);
 	    
 	    JPanel traits = new JPanel(new GridLayout(1,3,40,5));
 	    
@@ -262,8 +265,9 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    traitsmother.add(outlookM);
 	    traitsmother.add(intelligenceM);
 	    traits.add(traitsmother);
-	    addComponent(traits, 1,2,1,1);
-	    addComponent(babyMake, 1,4,1,1);
+	    addComponent(traits, 1,2,1,1,0,0,10,10,10,10);
+	    addComponent(babyMake, 1,4,1,1,0.5,0.25,10,10,5,10);
+	    addComponent(browser, 1,5,1,1,0.5,0.25,5,10,10,10);
 	    
 	    father.createStringTraitsArray();
 	    mother.createStringTraitsArray();
@@ -288,8 +292,12 @@ public class GeoSimGui extends JFrame implements ActionListener{
  * @param row (gridy) - row top left corner of component is placed in grid
  * @param width (gridwidth) - how many columns the component expands
  * @param height (gridheight) - how many rows the component expands
+ * @param weightx (weightx) - resizing horizontal parameter
+ * @param weighty (weighty) - resizing vertical parameter
+ * @param top @param left @param bottom @param right - parameters to set the insets for the components
  */
-	private void addComponent(Component thing, int column, int row, int width, int height){
+	private void addComponent(Component thing, int column, int row, int width, int height,
+							double weightx, double weighty, int top, int left, int bottom, int right){
 	      // set gridx and gridy 
 	      constraints.gridx = column;
 	      constraints.gridy = row;
@@ -297,6 +305,13 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	      // set gridwidth and gridheight
 	      constraints.gridwidth = width;   
 	      constraints.gridheight = height;
+	      
+	      // sets weightx and y for resizing
+	      constraints.weightx = weightx;
+	      constraints.weighty = weighty;
+	      
+	      // sets insets
+	      constraints.insets = new Insets(top,left,bottom,right);
 
 	      // places component depending on constraints
 	      layout.setConstraints(thing, constraints);  
@@ -322,10 +337,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			mother.createStringTraitsArray();
 			updateLabels(father.fatherTraits, mother.motherTraits);
 				
-				
-			
-			
-			
 			
 			
 		// THIS IS WHERE THE PANEL WITH THE IMAGES OF THE MOTHER AND FATHER SHOULD BE UPDATED	
@@ -355,6 +366,14 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's hair amount is: "+babyTraits[10]+
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
+		}
+		
+		// browser button selected, opens FileChooser
+		else{
+			FileChooser window = new FileChooser();
+			window.setVisible(true);
+			
+		
 		}
 	}
 	//protected void updatePicture(String )
