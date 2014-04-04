@@ -63,44 +63,61 @@ public enum Traits {
 						Arrays.asList("Female","CA", "CT", "CG", "TT", "TC", "TG", "TA"),
 						Arrays.asList("GG","CC")));
 
-	private List<String> traitsSet = null; // The set of traits for current category
-	private List<List<String>> DNASet = null; // The set of DNA lists for the current category
-	private String currentTrait; // Name of trait, ex. "Brown"
-	private List<String> currentDNA; // DNA list corresponding to trait, ex. ("AG", "AT", "AA")
-	private int currentDNALength; // Length of DNA list
-	private String currentGene; // An element of DNA list, ex. "AA"
-	private int geneNumber; // The index of currentGene on currentDNA
+/** @param traitsSet = The set of traits for current category */
+	private List<String> traitsSet = null;
+/** @param DNASet = The set of DNA lists for the current category */
+	private List<List<String>> DNASet = null;
+/** @param currentTrait = Name of trait, ex. "Brown" */
+	private String currentTrait;
+/** @param currentDNA = DNA list corresponding to trait, ex. ("AG", "AT", "AA") */
+	private List<String> currentDNA;
+/** @param currentDNALength = Length of DNA list */
+	private int currentDNALength;
+/** @param currentGene = An element of DNA list, ex. "AA" */
+	private String currentGene; 
+/** @param geneNumber = The index of currentGene on currentDNA */
+	private int geneNumber; 
 	
-// Constructor that sets the appropriate lists to traitSet and DNASet
+/** Constructor that sets the appropriate lists to traitSet and DNASet
+ *  @param traitsSetInput = the set of possible traits for the current category
+ *  @param DNASetInput = the corresponding DNA to each trait
+ */
 	Traits(List<String> traitsSetInput, List<List<String>> DNASetInput) {
 		traitsSet = traitsSetInput;
 		DNASet = DNASetInput;
 	}
 
-// Returns the list of traits, for example ("Brown","Blue","Green","Hazel")
+/** @return the list of traits, for example ("Brown","Blue","Green","Hazel")
+ */
 	public List<String> getTraitSet() {
 		return traitsSet;
 	}
 	
-// Returns the list of DNA lists, for example (("Brown","AA","AT","AC","AG","TA","TC","TG"),
-// ("Blue","CA","CT","CC"), etc.)
+/** @return the list of DNA lists, for example (("Brown","AA","AT","AC","AG","TA","TC","TG"),
+ *  ("Blue","CA","CT","CC"), etc.)
+ */
 	public List<List<String>> getDNASet() {
 		return DNASet;
 	}
 	
-// Returns the current trait that has been chosen for this specific person
-// for example, "Brown".
+/** @returns the current trait that has been chosen for this specific person for example, "Brown".
+ */
 	public String getCurrentTrait(){
 		return currentTrait;
 	}
 	
-// Sets the current trait for this specific person	
+/** Sets the current trait for this specific person	
+ *  @param traitInput = a string to be set as the currentTrait (should be an element of traitsSet)
+ */
 	public void setCurrentTrait(String traitInput){
 		currentTrait = traitInput;
 	}
 	
-// Determines the current trait based on a given gene 
-// for example, if you give it "AA" it will return "brown". (If you are working with eye colour)
+/**
+ * Determines the current trait based on a given gene. For example, if you give it "AA" it will 
+ * return "brown". (If you are working with eye colour)
+ * @return currentTrait
+ */
 	public String determineCurrentTrait(List<String> geneInput) {
 		for (List<String> DNA: DNASet) {
 			for (String gene: DNA) {
@@ -113,8 +130,15 @@ public enum Traits {
 		return currentTrait;
 	}
 	
-// Determines the DNA list that goes with the current trait
-// (this will be an element of DNASet)	
+	public String chooseRandomTrait() {
+		int traitNumber = new Random().nextInt(traitsSet.size());
+		currentTrait = traitsSet.get(traitNumber);
+		return currentTrait;
+	}
+	
+/** Determines the DNA list that goes with the current trait (this will be an element of DNASet)	
+ *  @return DNAList 
+ */
 	public List<String> determineCurrentDNA(String TraitInput) {
 		for (List<String> DNA: DNASet) {
 			if (DNA.get(0).equals(TraitInput)){
@@ -125,7 +149,9 @@ public enum Traits {
 		return currentDNA;
 	}
 
-// Chooses a random gene from currentDNA (chosen previously)	
+/** Chooses a random gene from currentDNA (chosen previously)	
+ *  @return a randomly chosen element of currentDNA
+ */
 	public String chooseRandomGene() {
 		geneNumber = new Random().nextInt(currentDNALength-1);
 		currentGene = currentDNA.get(geneNumber+1);
