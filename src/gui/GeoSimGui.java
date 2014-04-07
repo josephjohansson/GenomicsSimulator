@@ -157,10 +157,10 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//West 
 	    JLabel fatherLabel = new JLabel("Father");
 	    
-	    JButton randomFather = new JButton("Randomize");
+	    randomFather = new JButton("Randomize");
 	    randomFather.addActionListener(this);
 	    
-	    JButton genFather = new JButton("Generate DNA");
+	    genFather = new JButton("Generate DNA");
 	    genFather.addActionListener(this);
 	    
 	    addComponent(fatherLabel, 0,1,1,1,0.5,0.25,10,20,10,20);  
@@ -172,10 +172,10 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
 
-	    JButton randomMother = new JButton("Randomize");
+	    randomMother = new JButton("Randomize");
 	    randomMother.addActionListener(this);
 	    
-	    JButton genMother = new JButton("Generate DNA");
+	    genMother = new JButton("Generate DNA");
 	    genMother.addActionListener(this);
 	        
 	    addComponent(motherLabel, 2,1,1,1,0.5,0.25,10,20,10,20);
@@ -356,6 +356,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			hairAmountF.setSelectedItem(randomFatherTraits[10]);
 			outlookF.setSelectedItem(randomFatherTraits[11]);
 			intelligenceF.setSelectedItem(randomFatherTraits[12]);
+			System.out.println("randdad");
 			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
 		} 
 		else if (e.getSource() == randomMother){ 
@@ -370,6 +371,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			hairAmountM.setSelectedItem(randomMotherTraits[10]); 
 			outlookM.setSelectedItem(randomMotherTraits[11]); 
 			intelligenceM.setSelectedItem(randomMotherTraits[12]);
+			System.out.println("randmom");
 			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
 		}	 
 
