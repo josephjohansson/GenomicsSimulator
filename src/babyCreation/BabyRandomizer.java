@@ -41,16 +41,21 @@ public class BabyRandomizer{
  *  and traitChance
  */
 	public static void makeBabyTraitStringArray(Father father, Mother mother){
+		
 		String[] babyTraits = new String[13];
 		babyTraits[0] = "Baby";
 	// For each possible category
+		
 		for (int index = 1; index < 13; index++) {
 		// Gets mother's and father's trait for that category
 			String motherTraitString = mother.createStringTraitsArray()[index];
+			System.out.println("hello");
 			String fatherTraitString = father.createStringTraitsArray()[index];
 		// Gets the length of the DNA list for those traits for use in the randomizer	
 			Traits motherTrait = mother.convertStringsToTraits(mother.createStringTraitsArray())[index];
+			System.out.println("hello");
 			Traits fatherTrait = father.convertStringsToTraits(father.createStringTraitsArray())[index];
+			System.out.println("hello");
 		// Sends these to the randomizer	
 			String babyTrait = generateChildsTrait(
 					motherTrait.determineCurrentDNA(motherTraitString).size(),

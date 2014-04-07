@@ -328,6 +328,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		// Initializes the baby randomizer
 			System.out.println("errorCheck1");
 			BabyRandomizer.makeBabyTraitStringArray(father, mother);
+		/*
 		// Gets the set of traits in string form from the person class
 			System.out.println("errorCheck2");
 			String[] babyTraits = Baby.getBabyTraits();
@@ -344,7 +345,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's hair colour type is: "+babyTraits[9]+
 				"\nbaby's hair amount is: "+babyTraits[10]+
 				"\nbaby's outlook is: "+babyTraits[11]+
-				"\nbaby's intelligence is: "+babyTraits[12]);
+				"\nbaby's intelligence is: "+babyTraits[12]);*/
 		}
 		else if (e.getSource() == randomFather){ 
 			String[] randomFatherTraits = father.randomizeStringTraitsArray(); 

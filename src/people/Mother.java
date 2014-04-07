@@ -24,6 +24,7 @@ public class Mother extends Person {
 		motherTraits[2] = GeoSimGui.eyeColourM.getSelectedItem().toString();	
 		motherTraits[3] = GeoSimGui.eyeSizeM.getSelectedItem().toString();
 		motherTraits[4] = GeoSimGui.heightM.getSelectedItem().toString();
+		motherTraits[5] = "";
 		motherTraits[6] = GeoSimGui.skinColourM.getSelectedItem().toString();
 		motherTraits[7] = GeoSimGui.noseSizeM.getSelectedItem().toString();
 		motherTraits[8] = GeoSimGui.earLobeM.getSelectedItem().toString();
@@ -40,6 +41,7 @@ public class Mother extends Person {
 		motherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
 		motherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
 		motherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
+		motherTraits[5] = "";
 		motherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
 		motherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
 		motherTraits[8] = Traits.EARLOBE.chooseRandomTrait();

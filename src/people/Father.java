@@ -24,6 +24,7 @@ public class Father extends Person {
 		fatherTraits[2] = GeoSimGui.eyeColourF.getSelectedItem().toString();
 		fatherTraits[3] = GeoSimGui.eyeSizeF.getSelectedItem().toString();
 		fatherTraits[4] = GeoSimGui.heightF.getSelectedItem().toString();
+		fatherTraits[5] = "";
 		fatherTraits[6] = GeoSimGui.skinColourF.getSelectedItem().toString();
 		fatherTraits[7] = GeoSimGui.noseSizeF.getSelectedItem().toString();
 		fatherTraits[8] = GeoSimGui.earLobeF.getSelectedItem().toString();
@@ -40,6 +41,7 @@ public class Father extends Person {
 		fatherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
 		fatherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
 		fatherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
+		fatherTraits[5] = "";
 		fatherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
 		fatherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
 		fatherTraits[8] = Traits.EARLOBE.chooseRandomTrait();
