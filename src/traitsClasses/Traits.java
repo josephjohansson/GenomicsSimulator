@@ -17,10 +17,10 @@ public enum Traits {
 			Arrays.asList(Arrays.asList("Tall","CA","CT","CC","GA"),
 						Arrays.asList("Average","AA","AT","AC","AG","TA","TC"),
 						Arrays.asList("Short","GG","GT","TT","TG"))),
-	SKIN_COLOUR(Arrays.asList("Fair","Dark","Yellow","Brown"),
+	SKIN_COLOUR(Arrays.asList("Fair","Dark","Asian","Brown"),
 			Arrays.asList(Arrays.asList("Fair","CT","CC","GA"),
 						Arrays.asList("Dark","AA","AT","AC","AG","TA"),
-						Arrays.asList("Yellow","GG","GT","TT"),
+						Arrays.asList("Asian","GG","GT","TT"),
 						Arrays.asList("Brown","GC","CA","TC","TG"))),
 	NOSE_SIZE(Arrays.asList("Small","Medium","Large"),
 			Arrays.asList(Arrays.asList("Small","A"),
@@ -74,7 +74,7 @@ public enum Traits {
 		DNASet = DNASetInput;
 	}
 
-/** @return the list of traits, for example ("Brown","Blue","Green","Hazel")
+/** @return the list of traits, for example ("Brown","Blue","Green")
  */
 	public List<String> getTraitSet() {
 		return traitsSet;

@@ -7,7 +7,6 @@ public class Person {
 	TraitsEnum eyeColour = TraitsEnum.EYE_COLOUR;
 	TraitsEnum eyeSize = TraitsEnum.EYE_SIZE;
 	TraitsEnum height = TraitsEnum.HEIGHT;
-	TraitsEnum bodyType = TraitsEnum.BODY_TYPE;
 	TraitsEnum skinColour = TraitsEnum.SKIN_COLOUR;
 	TraitsEnum noseSize = TraitsEnum.NOSE_SIZE;
 	TraitsEnum earlobe = TraitsEnum.EARLOBE;
@@ -30,9 +29,6 @@ public class Person {
 		// Set height
 			height.setCurrentTrait(allTraitsAsStrings[4]);
 			allTraits[4] = height;
-		// Set bodyType	
-			bodyType.setCurrentTrait(allTraitsAsStrings[5]);
-			allTraits[5] = bodyType;
 		// Set skinColour	
 			skinColour.setCurrentTrait(allTraitsAsStrings[6]);
 			allTraits[6] = skinColour;
@@ -69,7 +65,6 @@ public class Person {
 				+eyeColour.chooseRandomGene()
 				+eyeSize.chooseRandomGene()
 				+height.chooseRandomGene()
-				+bodyType.chooseRandomGene()
 				+skinColour.chooseRandomGene()
 				+noseSize.chooseRandomGene()
 				+earlobe.chooseRandomGene()

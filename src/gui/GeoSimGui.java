@@ -326,16 +326,18 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	// If user chose to make baby, send traits to baby randomizer and display results	
 		else if (e.getSource() == babyMake) {
 		// Initializes the baby randomizer
+			System.out.println("errorCheck1");
 			BabyRandomizer.makeBabyTraitStringArray(father, mother);
-		// Gets the set of traits in string form from the person class	
+		// Gets the set of traits in string form from the person class
+			System.out.println("errorCheck2");
 			String[] babyTraits = Baby.getBabyTraits();
-		// Displays these traits in a pop up window	
+		// Displays these traits in a pop up window
+			System.out.println("errorCheck3");
 			JOptionPane.showMessageDialog(null, 	
 				"baby's gender is: "+babyTraits[1]+
 				"\nbaby's eye colour is: "+babyTraits[2]+
 				"\nbaby's eye size is: "+babyTraits[3]+
 				"\nbaby's height is: "+babyTraits[4]+
-				"\nbaby's body type is: "+babyTraits[5]+
 				"\nbaby's skin colour is: "+babyTraits[6]+
 				"\nbaby's nose size is: "+babyTraits[7]+
 				"\nbaby's ear lobe is: "+babyTraits[8]+
@@ -356,7 +358,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			hairAmountF.setSelectedItem(randomFatherTraits[10]);
 			outlookF.setSelectedItem(randomFatherTraits[11]);
 			intelligenceF.setSelectedItem(randomFatherTraits[12]);
-			System.out.println("randdad");
 			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
 		} 
 		else if (e.getSource() == randomMother){ 
@@ -371,7 +372,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 			hairAmountM.setSelectedItem(randomMotherTraits[10]); 
 			outlookM.setSelectedItem(randomMotherTraits[11]); 
 			intelligenceM.setSelectedItem(randomMotherTraits[12]);
-			System.out.println("randmom");
 			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
 		}	 
 
@@ -386,13 +386,11 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	//protected void updatePicture(String )
 	public void updateLabels(String[] fatherTraits, String[] motherTraits){
 		fatherBodyImage.setIcon(ImageFinder.getBodyIcon(fatherTraits));
-		System.out.println("ahie");
 		fatherHairImage.setIcon(ImageFinder.getHairIcon(fatherTraits));
 		fatherEyesImage.setIcon(ImageFinder.getEyesIcon(fatherTraits));
 		motherBodyImage.setIcon(ImageFinder.getBodyIcon(motherTraits));
 		motherHairImage.setIcon(ImageFinder.getHairIcon(motherTraits));
 		motherEyesImage.setIcon(ImageFinder.getEyesIcon(motherTraits));
-		
 	}
 }
 

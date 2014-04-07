@@ -50,6 +50,26 @@ public class ImageFinder {
 		return imageEyes.toString();
 
 	}
+	public static String findBabySkinColourName(String[] traits){
+		StringBuilder skinColour = new StringBuilder();
+		skinColour.append("GenomicsImages/");
+		skinColour.append(traits[1]);
+		skinColour.append(traits[6]);
+		skinColour.append("Skin");
+		skinColour.append(".gif");
+		
+		return skinColour.toString();
+	}
+	public static String findBabyHairColourName (String[] traits){
+		StringBuilder hairColour = new StringBuilder();
+		hairColour.append("GenomicsImages/");
+		hairColour.append(traits[1]);
+		hairColour.append(traits[9]);
+		hairColour.append("Hair");
+		hairColour.append(".gif");
+		
+		return hairColour.toString();
+	}
 	public static ImageIcon getBodyIcon(String[] traits){
 		BufferedImage bodyImage = null;
 		String bodyURL = ImageFinder.findBodyImageName(traits);
