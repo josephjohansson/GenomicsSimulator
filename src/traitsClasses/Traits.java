@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 public enum Traits {
-	EYE_COLOUR(Arrays.asList("Brown","Blue","Green","Hazel"),
+	EYE_COLOUR(Arrays.asList("Brown","Blue","Green"),
 			Arrays.asList(Arrays.asList("Brown","AA","AT","AC","AG","TA","TC","TG"),
 						Arrays.asList("Blue","CA","CT","CC"),
 						Arrays.asList("Green","GA","GC"),

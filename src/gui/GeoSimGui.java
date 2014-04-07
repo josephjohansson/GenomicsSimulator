@@ -356,11 +356,40 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
 		}
+		else if (e.getSource() == randomFather){
+			String[] randomFatherTraits = father.randomizeStringTraitsArray();
+			eyeColourF.setSelectedItem(randomFatherTraits[2]);
+			eyeSizeF.setSelectedItem(randomFatherTraits[3]);
+			heightF.setSelectedItem(randomFatherTraits[4]);
+			skinColourF.setSelectedItem(randomFatherTraits[6]);
+			noseSizeF.setSelectedItem(randomFatherTraits[7]);
+			earLobeF.setSelectedItem(randomFatherTraits[8]);
+			hairColourF.setSelectedItem(randomFatherTraits[9]);
+			hairAmountF.setSelectedItem(randomFatherTraits[10]);
+			outlookF.setSelectedItem(randomFatherTraits[11]);
+			intelligenceF.setSelectedItem(randomFatherTraits[12]);
+			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
+		}
+		
+		else if (e.getSource() == randomMother){
+			String[] randomMotherTraits = mother.randomizeStringTraitsArray();
+			eyeColourM.setSelectedItem(randomMotherTraits[2]);
+			eyeSizeM.setSelectedItem(randomMotherTraits[3]);
+			heightM.setSelectedItem(randomMotherTraits[4]);
+			skinColourM.setSelectedItem(randomMotherTraits[6]);
+			noseSizeM.setSelectedItem(randomMotherTraits[7]);
+			earLobeM.setSelectedItem(randomMotherTraits[8]);
+			hairColourM.setSelectedItem(randomMotherTraits[9]);
+			hairAmountM.setSelectedItem(randomMotherTraits[10]);
+			outlookM.setSelectedItem(randomMotherTraits[11]);
+			intelligenceM.setSelectedItem(randomMotherTraits[12]);
+			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
+		}
 	}
 	//protected void updatePicture(String )
 	public void updateLabels(String[] fatherTraits, String[] motherTraits){
-
 		fatherBodyImage.setIcon(ImageFinder.getBodyIcon(fatherTraits));
+		System.out.println("ahie");
 		fatherHairImage.setIcon(ImageFinder.getHairIcon(fatherTraits));
 		fatherEyesImage.setIcon(ImageFinder.getEyesIcon(fatherTraits));
 		motherBodyImage.setIcon(ImageFinder.getBodyIcon(motherTraits));

@@ -18,8 +18,7 @@ public class ImageFinder {
 		StringBuilder imageBody = new StringBuilder();
 		imageBody.append("GenomicsImages/");
 		imageBody.append(traits[1]);
-		imageBody.append(traits[5]);
-		imageBody.append(traits[6]);
+		imageBody.append(traits[4]);
 		imageBody.append("Body");
 		imageBody.append(".gif");
 		
@@ -30,7 +29,7 @@ public class ImageFinder {
 		StringBuilder imageHair = new StringBuilder();
 		imageHair.append("GenomicsImages/");
 		imageHair.append(traits[1]);
-		imageHair.append(traits[5]);
+		imageHair.append(traits[4]);
 		imageHair.append(traits[9]);
 		imageHair.append("Hair");
 		imageHair.append(".gif");
@@ -42,7 +41,7 @@ public class ImageFinder {
 		StringBuilder imageEyes = new StringBuilder();
 		imageEyes.append("GenomicsImages/");
 		imageEyes.append(traits[1]);
-		imageEyes.append(traits[5]);
+		imageEyes.append(traits[4]);
 		imageEyes.append(traits[2]);
 		imageEyes.append("Eyes");
 		imageEyes.append(".gif");
@@ -57,7 +56,7 @@ public class ImageFinder {
 			bodyImage = ImageIO.read(new File(bodyURL));
 		}
 		catch (IOException ex){
-			System.out.println("file not found. getBodyIcon");
+			System.out.println("file not found. getBodyIcon"+bodyURL);
 		}
 		
 		ImageIcon bodyIcon = new ImageIcon(bodyImage);
@@ -71,7 +70,7 @@ public class ImageFinder {
 			hairImage = ImageIO.read(new File(hairURL));
 		}
 		catch (IOException ex){
-			System.out.println("file not found. getHairIcon");
+			System.out.println("file not found. getHairIcon"+hairURL);
 		}
 		
 		ImageIcon hairIcon = new ImageIcon(hairImage);
@@ -85,7 +84,7 @@ public class ImageFinder {
 			eyesImage = ImageIO.read(new File(eyesURL));
 		}
 		catch (IOException ex){
-			System.out.println("file not found. getEyesIcon");
+			System.out.println("file not found. getEyesIcon"+eyesURL);
 		}
 		
 		ImageIcon eyesIcon = new ImageIcon(eyesImage);

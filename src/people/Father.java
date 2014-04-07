@@ -40,7 +40,6 @@ public class Father extends Person {
 		fatherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
 		fatherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
 		fatherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
-		fatherTraits[5] = Traits.BODY_TYPE.chooseRandomTrait();
 		fatherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
 		fatherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
 		fatherTraits[8] = Traits.EARLOBE.chooseRandomTrait();
