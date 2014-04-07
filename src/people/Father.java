@@ -35,13 +35,10 @@ public class Father extends Person implements GetTraits {
 		return fatherTraits;
 	}
 	
-<<<<<<< HEAD
 /** Gets input from all comboBoxes and puts them into an array of all the mother's 
  *  traits (initialized above)	
- *  @return Mother's array of traits, where the first two elements are set by default
+ *  @return Father's array of traits, where the first two elements are set by default
  */	
-=======
->>>>>>> branch 'Areesha' of https://github.com/rodrigjg/GenomicsSimulator.git
 	public String[] randomizeStringTraitsArray(){
 		fatherTraits[0] = "Father";
 		fatherTraits[1] = "Male";
