@@ -358,9 +358,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 		
 		else if (e.getSource() == randomFather){
 			String[] randomFatherTraits = father.randomizeStringTraitsArray();
-			for (String trait: randomFatherTraits){
-				System.out.println(trait);
-			} 
 			eyeColourF.setSelectedItem(randomFatherTraits[2]);
 			eyeSizeF.setSelectedItem(randomFatherTraits[3]);
 			heightF.setSelectedItem(randomFatherTraits[4]);

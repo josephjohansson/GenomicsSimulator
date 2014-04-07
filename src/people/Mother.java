@@ -16,7 +16,11 @@ public class Mother extends Person implements GetTraits {
 	
 /** Gets input from all comboBoxes and puts them into an array of all the mother's 
  *  traits (initialized above)	
+<<<<<<< HEAD
  *  @return Mother's array of traits, where the first two elements are set by default
+=======
+ *  @return Mother's array of strings, where the first two elements are set by default
+>>>>>>> branch 'Areesha' of https://github.com/rodrigjg/GenomicsSimulator.git
  */
 	public String[] createStringTraitsArray(){
 		motherTraits[0] = "Mother";
@@ -35,9 +39,12 @@ public class Mother extends Person implements GetTraits {
 		return motherTraits;
 	}
 
+<<<<<<< HEAD
 /** Randomly selects traits for the mother 
  *  @return Mother's array of traits, where the first two elements are set by default
  */
+=======
+>>>>>>> branch 'Areesha' of https://github.com/rodrigjg/GenomicsSimulator.git
 	public String[] randomizeStringTraitsArray(){
 		motherTraits[0] = "Mother";
 		motherTraits[1] = "Female";
