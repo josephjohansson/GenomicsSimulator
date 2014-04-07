@@ -2,8 +2,10 @@ package Main;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class FileChooser extends JFrame{
 	 public FileChooser(){
 	 super("File Chooser");

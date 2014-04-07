@@ -1,6 +1,5 @@
 package gui;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import Main.FileChooser;
@@ -10,9 +9,6 @@ import traitsClasses.Traits;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
 	
 /**basic GUI layout, no ActonListeners implemented
  *  buttons and dropdowns created, but not integrated with rest of program (they just look pretty)
@@ -22,12 +18,6 @@ import java.io.IOException;
 public class GeoSimGui extends JFrame implements ActionListener{
 	public Mother mother = new Mother();
 	public Father father = new Father();
-	private BufferedImage fatherBody;
-	private BufferedImage fatherHair;
-	private BufferedImage fatherEyes;
-	private BufferedImage motherHair;
-	private BufferedImage motherEyes;
-	private BufferedImage motherBody;
 	
     JLabel fatherBodyImage = new JLabel ();
     JLabel fatherEyesImage = new JLabel ();
@@ -44,6 +34,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	JButton randomMother;
 	JButton genFather;
 	JButton genMother;
+	JButton browser;
 	
 	int WINDOW_WIDTH = 800;
 	int WINDOW_HEIGHT = 500;
@@ -203,7 +194,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    babyMake = new JButton("Make a baby");
 	    babyMake.addActionListener(this);
 	    
-	    JButton browser = new JButton("Import File");
+	    browser = new JButton("Import File");
 	    browser.addActionListener(this);
 	    
 	    JPanel traits = new JPanel(new GridLayout(1,3,40,5));
@@ -229,7 +220,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    JLabel eyeColourLabel = new JLabel("-Eye Colour");
 	    JLabel eyeSizeLabel = new JLabel("-Eye Size-");
 	    JLabel heightLabel = new JLabel("-Height-");
-	    JLabel bodyTypeLabel = new JLabel("-Body Type-");
 	    JLabel skinColourLabel = new JLabel("-Skin Colour-");
 	    JLabel noseSizeLabel = new JLabel("-Nose Size-");
 	    JLabel earLobeLabel = new JLabel("-Ear Lobe-");
@@ -241,7 +231,6 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	    traitLabels.add(eyeColourLabel);
 	    traitLabels.add(eyeSizeLabel);
 	    traitLabels.add(heightLabel);
-	    traitLabels.add(bodyTypeLabel);
 	    traitLabels.add(skinColourLabel);
 	    traitLabels.add(noseSizeLabel);
 	    traitLabels.add(earLobeLabel);
@@ -321,21 +310,9 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	public void actionPerformed(ActionEvent e){
 	// If any of the comboBoxes are clicked, update the String[] of traits
 	// for both mother and father
-		if ((e.getSource() == eyeColourF) || (e.getSource() == eyeSizeF) ||
-				(e.getSource() == heightF) ||
-				(e.getSource() == skinColourF) || (e.getSource() == noseSizeF) ||
-				(e.getSource() == earLobeF) || (e.getSource() == hairColourF) ||
-				(e.getSource() == hairAmountF) || (e.getSource() == outlookF) ||
-				(e.getSource() == intelligenceF) || (e.getSource() == eyeColourM) || 
-				(e.getSource() == eyeSizeM) || (e.getSource() == heightM) ||
-				(e.getSource() == skinColourM) ||
-				(e.getSource() == noseSizeM) || (e.getSource() == earLobeM) ||
-				(e.getSource() == hairColourM) || (e.getSource() == hairAmountM) ||
-				(e.getSource() == outlookM) || (e.getSource() == intelligenceM)) {
-		// Updating traits array	
-			father.createStringTraitsArray();
-			mother.createStringTraitsArray();
-			updateLabels(father.fatherTraits, mother.motherTraits);
+		if (e.getSource() == browser){
+			FileChooser window = new FileChooser();
+			window.setVisible(true);
 				
 			
 			
@@ -367,13 +344,41 @@ public class GeoSimGui extends JFrame implements ActionListener{
 				"\nbaby's outlook is: "+babyTraits[11]+
 				"\nbaby's intelligence is: "+babyTraits[12]);
 		}
-		
+		else if (e.getSource() == randomFather){ 
+			String[] randomFatherTraits = father.randomizeStringTraitsArray(); 
+			eyeColourF.setSelectedItem(randomFatherTraits[2]);
+			eyeSizeF.setSelectedItem(randomFatherTraits[3]); 
+			heightF.setSelectedItem(randomFatherTraits[4]);
+			skinColourF.setSelectedItem(randomFatherTraits[6]);
+			noseSizeF.setSelectedItem(randomFatherTraits[7]); 
+			earLobeF.setSelectedItem(randomFatherTraits[8]); 
+			hairColourF.setSelectedItem(randomFatherTraits[9]); 
+			hairAmountF.setSelectedItem(randomFatherTraits[10]);
+			outlookF.setSelectedItem(randomFatherTraits[11]);
+			intelligenceF.setSelectedItem(randomFatherTraits[12]);
+			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
+		} 
+		else if (e.getSource() == randomMother){ 
+			String[] randomMotherTraits = mother.randomizeStringTraitsArray(); 
+			eyeColourM.setSelectedItem(randomMotherTraits[2]); 
+			eyeSizeM.setSelectedItem(randomMotherTraits[3]); 
+			heightM.setSelectedItem(randomMotherTraits[4]);
+			skinColourM.setSelectedItem(randomMotherTraits[6]); 
+			noseSizeM.setSelectedItem(randomMotherTraits[7]);
+			earLobeM.setSelectedItem(randomMotherTraits[8]); 
+			hairColourM.setSelectedItem(randomMotherTraits[9]); 
+			hairAmountM.setSelectedItem(randomMotherTraits[10]); 
+			outlookM.setSelectedItem(randomMotherTraits[11]); 
+			intelligenceM.setSelectedItem(randomMotherTraits[12]);
+			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
+		}	 
+
 		// browser button selected, opens FileChooser
 		else{
-			FileChooser window = new FileChooser();
-			window.setVisible(true);
-			
-			
+			// Updating traits array	
+			father.createStringTraitsArray();
+			mother.createStringTraitsArray();
+			updateLabels(father.fatherTraits, mother.motherTraits);
 		}
 	}
 	//protected void updatePicture(String )

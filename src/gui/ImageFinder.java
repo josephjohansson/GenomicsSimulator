@@ -19,6 +19,7 @@ public class ImageFinder {
 		imageBody.append("GenomicsImages/");
 		imageBody.append(traits[1]);
 		imageBody.append(traits[4]);
+		imageBody.append(traits[6]);
 		imageBody.append("Body");
 		imageBody.append(".gif");
 		
