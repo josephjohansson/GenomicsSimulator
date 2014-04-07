@@ -15,7 +15,7 @@ import java.awt.event.*;
  * @author Jessica
  */
 @SuppressWarnings({"rawtypes","serial"})
-public class GeoSimGui extends JFrame implements ActionListener{
+public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterface {
 	public Mother mother = new Mother();
 	public Father father = new Father();
 	
@@ -37,7 +37,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
 	JButton browser;
 	
 	int WINDOW_WIDTH = 800;
-	int WINDOW_HEIGHT = 500;
+	int WINDOW_HEIGHT = 650;
 	
 	// Makes the comboBoxes for the father
 	public static JComboBox eyeColourF;
@@ -285,7 +285,7 @@ public class GeoSimGui extends JFrame implements ActionListener{
  * @param weighty (weighty) - resizing vertical parameter
  * @param top @param left @param bottom @param right - parameters to set the insets for the components
  */
-	private void addComponent(Component thing, int column, int row, int width, int height,
+	public void addComponent(Component thing, int column, int row, int width, int height,
 							double weightx, double weighty, int top, int left, int bottom, int right){
 	      // set gridx and gridy 
 	      constraints.gridx = column;

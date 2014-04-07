@@ -105,7 +105,7 @@ public enum Traits {
  * return "brown". (If you are working with eye colour)
  * @return currentTrait
  */
-	public String determineCurrentTrait(List<String> geneInput) {
+	public String determineCurrentTrait(String geneInput) {
 		for (List<String> DNA: DNASet) {
 			for (String gene: DNA) {
 		    	if (gene.equals(geneInput)) {
