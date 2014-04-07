@@ -19,14 +19,10 @@ public class TextFile {
 	    }
 	    return fileExists;
 	}
-	/**
-	 * This method creates the text file containing the DNA code of a specific human that has already been created
-	 *     somewhere else in the program
-	 * @param human This person's DNA will be written to the text file created in this method
-	 */
+	    
 	public static void Create(Person human){
 	    PrintWriter outputStream = null;
-	    //File name is the Person's name .txt
+	    
 	    String fileName = human.getName()+ ".txt";
 	            
 	    boolean validFile= Check(fileName);

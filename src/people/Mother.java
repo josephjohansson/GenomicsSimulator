@@ -3,7 +3,7 @@ package people;
 import traitsClasses.Traits;
 import gui.GeoSimGui;
 
-public class Mother extends Person {
+public class Mother extends Person implements GetTraits {
 	
 /** @param motherTraits = mother's array of traits in string form */
 	public String[] motherTraits = new String[13];
@@ -16,7 +16,7 @@ public class Mother extends Person {
 	
 /** Gets input from all comboBoxes and puts them into an array of all the mother's 
  *  traits (initialized above)	
- *  @return Mother's array of strings, where the first two elements are set by default
+ *  @return Mother's array of traits, where the first two elements are set by default
  */
 	public String[] createStringTraitsArray(){
 		motherTraits[0] = "Mother";
@@ -24,6 +24,7 @@ public class Mother extends Person {
 		motherTraits[2] = GeoSimGui.eyeColourM.getSelectedItem().toString();	
 		motherTraits[3] = GeoSimGui.eyeSizeM.getSelectedItem().toString();
 		motherTraits[4] = GeoSimGui.heightM.getSelectedItem().toString();
+		motherTraits[5] = GeoSimGui.bodyTypeM.getSelectedItem().toString();
 		motherTraits[6] = GeoSimGui.skinColourM.getSelectedItem().toString();
 		motherTraits[7] = GeoSimGui.noseSizeM.getSelectedItem().toString();
 		motherTraits[8] = GeoSimGui.earLobeM.getSelectedItem().toString();
@@ -34,6 +35,9 @@ public class Mother extends Person {
 		return motherTraits;
 	}
 
+/** Randomly selects traits for the mother 
+ *  @return Mother's array of traits, where the first two elements are set by default
+ */
 	public String[] randomizeStringTraitsArray(){
 		motherTraits[0] = "Mother";
 		motherTraits[1] = "Female";

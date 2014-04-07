@@ -3,7 +3,7 @@ package people;
 import traitsClasses.Traits;
 import gui.GeoSimGui;
 
-public class Father extends Person {
+public class Father extends Person implements GetTraits {
 	
 /** @param fatherTraits = fathers array of traits in string form */
 	public String[] fatherTraits = new String[13];
@@ -24,6 +24,7 @@ public class Father extends Person {
 		fatherTraits[2] = GeoSimGui.eyeColourF.getSelectedItem().toString();
 		fatherTraits[3] = GeoSimGui.eyeSizeF.getSelectedItem().toString();
 		fatherTraits[4] = GeoSimGui.heightF.getSelectedItem().toString();
+		fatherTraits[5] = GeoSimGui.bodyTypeF.getSelectedItem().toString();
 		fatherTraits[6] = GeoSimGui.skinColourF.getSelectedItem().toString();
 		fatherTraits[7] = GeoSimGui.noseSizeF.getSelectedItem().toString();
 		fatherTraits[8] = GeoSimGui.earLobeF.getSelectedItem().toString();
@@ -34,6 +35,10 @@ public class Father extends Person {
 		return fatherTraits;
 	}
 	
+/** Gets input from all comboBoxes and puts them into an array of all the mother's 
+ *  traits (initialized above)	
+ *  @return Mother's array of traits, where the first two elements are set by default
+ */	
 	public String[] randomizeStringTraitsArray(){
 		fatherTraits[0] = "Father";
 		fatherTraits[1] = "Male";
