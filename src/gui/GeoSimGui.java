@@ -6,7 +6,7 @@ import Main.FileChooser;
 import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
-
+import Main.DNAUploader;
 import java.awt.*;
 import java.awt.event.*;
 	
@@ -311,13 +311,19 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	// If any of the comboBoxes are clicked, update the String[] of traits
 	// for both mother and father
 		if (e.getSource() == browser){
-			FileChooser window = new FileChooser();
-			window.setVisible(true);
+			//I commented this out so that I could try manually putting in a DNA set.
+			//What needs to happen, is we need to get a String of DNA from FileChooser and
+			//TextFile, and then just feed that string into the 1st parameter in DNAUploader.update()
+			
+			
+			
+			//FileChooser window = new FileChooser();
+			//window.setVisible(true);
 				
+			//This is for when the String of DNA is actually found. called importedDNA
+			DNAUploader.update("CCAAAAAAAAAAAAAAA", father, mother, this);
+			updateLabels(father.fatherTraits, mother.motherTraits);
 			
-			
-		// THIS IS WHERE THE PANEL WITH THE IMAGES OF THE MOTHER AND FATHER SHOULD BE UPDATED	
-		
 		// Debugging s
 			//System.out.println(ImageFinder.findBodyImageName(Person.FATHER.createStringTraitsArrayF()));
 			//System.out.println(ImageFinder.findBodyImageName(Person.MOTHER.createStringTraitsArrayM()));
