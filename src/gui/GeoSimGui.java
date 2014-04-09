@@ -3,6 +3,7 @@ package gui;
 import javax.swing.*;
 
 import Main.FileChooser;
+import Main.FileWriter;
 import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
@@ -285,6 +286,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 				outlookM,
 				intelligenceM);
 	    updateLabels(father.fatherTraits, mother.motherTraits);
+	    Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
+		Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 
 /** sets up default size of window
  * 	components aren't anchored or padded to adjust for resizing (yet!)
@@ -398,6 +401,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			father.randomizeStringTraitsArray(); 
 			intelligenceF.setSelectedItem(father.fatherTraits[12]);
 			updateLabels(father.fatherTraits, mother.motherTraits); 
+			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
+			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 		} 
 		else if (e.getSource() == randomMother){ 
 			mother.randomizeStringTraitsArray(); 
@@ -421,7 +426,26 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			mother.randomizeStringTraitsArray(); 
 			intelligenceM.setSelectedItem(mother.motherTraits[12]);
 			updateLabels(father.fatherTraits, mother.motherTraits);
-		}	 
+			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
+			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
+		}
+		else if (e.getSource() == genFather){
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			}
+			catch (Exception exeption) { // ignore exceptions and continue
+			}
+			FileWriter.writeFile(father);
+			
+		}
+		else if (e.getSource() == genMother){
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			}
+			catch (Exception exeption) { // ignore exceptions and continue
+			}
+			FileWriter.writeFile(mother);
+		}
 
 		// browser button selected, opens FileChooser
 		else{
@@ -447,6 +471,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 					outlookM,
 					intelligenceM);
 			updateLabels(father.fatherTraits, mother.motherTraits);
+			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
+			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 		}
 	}
 	//protected void updatePicture(String )
