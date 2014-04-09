@@ -1,5 +1,7 @@
 package people;
 
+import javax.swing.JComboBox;
+
 import traitsClasses.Traits;
 import gui.GeoSimGui;
 
@@ -18,24 +20,33 @@ public class Mother extends Person {
  *  traits (initialized above)	
  *  @return Mother's array of strings, where the first two elements are set by default
  */
-	public String[] createStringTraitsArray(){
+	public String[] createStringTraitsArray(JComboBox eyeColourM, 
+			JComboBox eyeSizeM,
+			JComboBox heightM,
+			JComboBox skinColourM,
+			JComboBox noseSizeM,
+			JComboBox earLobeM,
+			JComboBox hairColourM,
+			JComboBox hairAmountM,
+			JComboBox outlookM,
+			JComboBox intelligenceM){
 		motherTraits[0] = "Mother";
 		motherTraits[1] = "Female";
-		motherTraits[2] = GeoSimGui.eyeColourM.getSelectedItem().toString();	
-		motherTraits[3] = GeoSimGui.eyeSizeM.getSelectedItem().toString();
-		motherTraits[4] = GeoSimGui.heightM.getSelectedItem().toString();
+		motherTraits[2] = eyeColourM.getSelectedItem().toString();	
+		motherTraits[3] = eyeSizeM.getSelectedItem().toString();
+		motherTraits[4] = heightM.getSelectedItem().toString();
 		motherTraits[5] = "";
-		motherTraits[6] = GeoSimGui.skinColourM.getSelectedItem().toString();
-		motherTraits[7] = GeoSimGui.noseSizeM.getSelectedItem().toString();
-		motherTraits[8] = GeoSimGui.earLobeM.getSelectedItem().toString();
-		motherTraits[9] = GeoSimGui.hairColourM.getSelectedItem().toString();
-		motherTraits[10] = GeoSimGui.hairAmountM.getSelectedItem().toString();
-		motherTraits[11] = GeoSimGui.outlookM.getSelectedItem().toString();
-		motherTraits[12] = GeoSimGui.intelligenceM.getSelectedItem().toString();
+		motherTraits[6] = skinColourM.getSelectedItem().toString();
+		motherTraits[7] = noseSizeM.getSelectedItem().toString();
+		motherTraits[8] = earLobeM.getSelectedItem().toString();
+		motherTraits[9] = hairColourM.getSelectedItem().toString();
+		motherTraits[10] =hairAmountM.getSelectedItem().toString();
+		motherTraits[11] =outlookM.getSelectedItem().toString();
+		motherTraits[12] =intelligenceM.getSelectedItem().toString();
 		return motherTraits;
 	}
 
-	public String[] randomizeStringTraitsArray(){
+	public void randomizeStringTraitsArray(){
 		motherTraits[0] = "Mother";
 		motherTraits[1] = "Female";
 		motherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();	
@@ -49,7 +60,6 @@ public class Mother extends Person {
 		motherTraits[10] = Traits.HAIR_AMOUNT.chooseRandomTrait();
 		motherTraits[11] = Traits.OUTLOOK.chooseRandomTrait();
 		motherTraits[12] = Traits.INTEL.chooseRandomTrait();
-		return motherTraits;
 	}
 	
 }

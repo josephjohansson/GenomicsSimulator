@@ -7,6 +7,7 @@ import babyCreation.BabyRandomizer;
 import people.*;
 import traitsClasses.Traits;
 import Main.DNAUploader;
+
 import java.awt.*;
 import java.awt.event.*;
 	
@@ -40,60 +41,65 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	int WINDOW_HEIGHT = 650;
 	
 	// Makes the comboBoxes for the father
-	public static JComboBox eyeColourF;
-	public static JComboBox eyeSizeF;
-	public static JComboBox heightF;
-	public static JComboBox skinColourF;
-	public static JComboBox noseSizeF;
-	public static JComboBox earLobeF;
-	public static JComboBox hairColourF;
-	public static JComboBox hairAmountF;
-	public static JComboBox outlookF;
-	public static JComboBox intelligenceF;
+	
+	String[] eyeColourOptions = Traits.EYE_COLOUR.getTraitSet().toArray(new String[Traits.EYE_COLOUR.getTraitSet().size()]);
+	String[] eyeSizeOptions = Traits.EYE_SIZE.getTraitSet().toArray(new String[Traits.EYE_SIZE.getTraitSet().size()]);
+	String[] heightOptions = Traits.HEIGHT.getTraitSet().toArray(new String[Traits.HEIGHT.getTraitSet().size()]);
+	String[] skinColourOptions = Traits.SKIN_COLOUR.getTraitSet().toArray(new String[Traits.SKIN_COLOUR.getTraitSet().size()]);
+	String[] noseSizeOptions = Traits.NOSE_SIZE.getTraitSet().toArray(new String[Traits.NOSE_SIZE.getTraitSet().size()]);
+	String[] earLobeOptions = Traits.EARLOBE.getTraitSet().toArray(new String[Traits.EARLOBE.getTraitSet().size()]);
+	String[] hairColourOptions = Traits.HAIR_COLOUR.getTraitSet().toArray(new String[Traits.HAIR_COLOUR.getTraitSet().size()]);
+	String[] hairAmountOptions = Traits.HAIR_AMOUNT.getTraitSet().toArray(new String[Traits.HAIR_AMOUNT.getTraitSet().size()]);
+	String[] outlookOptions = Traits.OUTLOOK.getTraitSet().toArray(new String[Traits.OUTLOOK.getTraitSet().size()]);
+	String[] intelligenceOptions = Traits.INTEL.getTraitSet().toArray(new String[Traits.INTEL.getTraitSet().size()]);
+	
+	public JComboBox eyeColourF = new JComboBox(eyeColourOptions);
+	public JComboBox eyeSizeF = new JComboBox(eyeSizeOptions);
+	public JComboBox heightF = new JComboBox(heightOptions);
+	public JComboBox skinColourF = new JComboBox(skinColourOptions);
+	public JComboBox noseSizeF = new JComboBox(noseSizeOptions);
+	public JComboBox earLobeF = new JComboBox(earLobeOptions);
+	public JComboBox hairColourF = new JComboBox(hairColourOptions);
+	public JComboBox hairAmountF = new JComboBox(hairAmountOptions);
+	public JComboBox outlookF = new JComboBox(outlookOptions);
+	public JComboBox intelligenceF = new JComboBox(intelligenceOptions);
 
 	// Makes the comboBoxes for the mother
-	public static JComboBox eyeColourM;
-	public static JComboBox eyeSizeM;
-	public static JComboBox heightM;
-	public static JComboBox skinColourM;
-	public static JComboBox noseSizeM;
-	public static JComboBox earLobeM;
-	public static JComboBox hairColourM;
-	public static JComboBox hairAmountM;
-	public static JComboBox outlookM;
-	public static JComboBox intelligenceM;
+	public JComboBox eyeColourM;
+	public JComboBox eyeSizeM;
+	public JComboBox heightM;
+	public JComboBox skinColourM;
+	public JComboBox noseSizeM;
+	public JComboBox earLobeM;
+	public JComboBox hairColourM;
+	public JComboBox hairAmountM;
+	public JComboBox outlookM;
+	public JComboBox intelligenceM;
 	
 	private Container container;
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
-	 
+	
+	
+
 	
 	@SuppressWarnings({ "unchecked" })
 	public GeoSimGui(){
 
 		// Option arrays made for comboBoxes
-		String[] eyeColourOptions = Traits.EYE_COLOUR.getTraitSet().toArray(new String[Traits.EYE_COLOUR.getTraitSet().size()]);
-		String[] eyeSizeOptions = Traits.EYE_SIZE.getTraitSet().toArray(new String[Traits.EYE_SIZE.getTraitSet().size()]);
-		String[] heightOptions = Traits.HEIGHT.getTraitSet().toArray(new String[Traits.HEIGHT.getTraitSet().size()]);
-		String[] skinColourOptions = Traits.SKIN_COLOUR.getTraitSet().toArray(new String[Traits.SKIN_COLOUR.getTraitSet().size()]);
-		String[] noseSizeOptions = Traits.NOSE_SIZE.getTraitSet().toArray(new String[Traits.NOSE_SIZE.getTraitSet().size()]);
-		String[] earLobeOptions = Traits.EARLOBE.getTraitSet().toArray(new String[Traits.EARLOBE.getTraitSet().size()]);
-		String[] hairColourOptions = Traits.HAIR_COLOUR.getTraitSet().toArray(new String[Traits.HAIR_COLOUR.getTraitSet().size()]);
-		String[] hairAmountOptions = Traits.HAIR_AMOUNT.getTraitSet().toArray(new String[Traits.HAIR_AMOUNT.getTraitSet().size()]);
-		String[] outlookOptions = Traits.OUTLOOK.getTraitSet().toArray(new String[Traits.OUTLOOK.getTraitSet().size()]);
-		String[] intelligenceOptions = Traits.INTEL.getTraitSet().toArray(new String[Traits.INTEL.getTraitSet().size()]);
+		
 		
 	// Fills in the comboBoxes for the father
-		eyeColourF = new JComboBox(eyeColourOptions);
-		eyeSizeF = new JComboBox(eyeSizeOptions);
-		heightF = new JComboBox(heightOptions);
-		skinColourF = new JComboBox(skinColourOptions);
-		noseSizeF = new JComboBox(noseSizeOptions);
-		earLobeF = new JComboBox(earLobeOptions);
-		hairColourF = new JComboBox(hairColourOptions);
-		hairAmountF = new JComboBox(hairAmountOptions);
-		outlookF = new JComboBox(outlookOptions);
-		intelligenceF = new JComboBox(intelligenceOptions);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 	// Adds action listeners to the comboBoxes for the father
 		eyeColourF.addActionListener(this);
@@ -258,8 +264,26 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    addComponent(babyMake, 1,4,1,1,0.5,0.25,10,10,5,10);
 	    addComponent(browser, 1,5,1,1,0.5,0.25,5,10,10,10);
 	    
-	    father.createStringTraitsArray();
-	    mother.createStringTraitsArray();
+	    father.createStringTraitsArray(eyeColourF, 
+				eyeSizeF,
+				heightF,
+				skinColourF,
+				noseSizeF,
+				earLobeF,
+				hairColourF,
+				hairAmountF,
+				outlookF,
+				intelligenceF);
+	    mother.createStringTraitsArray(eyeColourM, 
+				eyeSizeM,
+				heightM,
+				skinColourM,
+				noseSizeM,
+				earLobeM,
+				hairColourM,
+				hairAmountM,
+				outlookM,
+				intelligenceM);
 	    updateLabels(father.fatherTraits, mother.motherTraits);
 
 /** sets up default size of window
@@ -354,39 +378,75 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 				"\nbaby's intelligence is: "+babyTraits[12]);*/
 		}
 		else if (e.getSource() == randomFather){ 
-			String[] randomFatherTraits = father.randomizeStringTraitsArray(); 
-			eyeColourF.setSelectedItem(randomFatherTraits[2]);
-			eyeSizeF.setSelectedItem(randomFatherTraits[3]); 
-			heightF.setSelectedItem(randomFatherTraits[4]);
-			skinColourF.setSelectedItem(randomFatherTraits[6]);
-			noseSizeF.setSelectedItem(randomFatherTraits[7]); 
-			earLobeF.setSelectedItem(randomFatherTraits[8]); 
-			hairColourF.setSelectedItem(randomFatherTraits[9]); 
-			hairAmountF.setSelectedItem(randomFatherTraits[10]);
-			outlookF.setSelectedItem(randomFatherTraits[11]);
-			intelligenceF.setSelectedItem(randomFatherTraits[12]);
-			updateLabels(father.randomizeStringTraitsArray(), mother.motherTraits); 
+			father.randomizeStringTraitsArray(); 
+			eyeColourF.setSelectedItem(father.fatherTraits[2]);
+			father.randomizeStringTraitsArray(); 
+			eyeSizeF.setSelectedItem(father.fatherTraits[3]);
+			father.randomizeStringTraitsArray(); 
+			heightF.setSelectedItem(father.fatherTraits[4]);
+			father.randomizeStringTraitsArray(); 
+			skinColourF.setSelectedItem(father.fatherTraits[6]);
+			father.randomizeStringTraitsArray(); 
+			noseSizeF.setSelectedItem(father.fatherTraits[7]);
+			father.randomizeStringTraitsArray(); 
+			earLobeF.setSelectedItem(father.fatherTraits[8]);
+			father.randomizeStringTraitsArray(); 
+			hairColourF.setSelectedItem(father.fatherTraits[9]);
+			father.randomizeStringTraitsArray(); 
+			hairAmountF.setSelectedItem(father.fatherTraits[10]);
+			father.randomizeStringTraitsArray(); 
+			outlookF.setSelectedItem(father.fatherTraits[11]);
+			father.randomizeStringTraitsArray(); 
+			intelligenceF.setSelectedItem(father.fatherTraits[12]);
+			updateLabels(father.fatherTraits, mother.motherTraits); 
 		} 
 		else if (e.getSource() == randomMother){ 
-			String[] randomMotherTraits = mother.randomizeStringTraitsArray(); 
-			eyeColourM.setSelectedItem(randomMotherTraits[2]); 
-			eyeSizeM.setSelectedItem(randomMotherTraits[3]); 
-			heightM.setSelectedItem(randomMotherTraits[4]);
-			skinColourM.setSelectedItem(randomMotherTraits[6]); 
-			noseSizeM.setSelectedItem(randomMotherTraits[7]);
-			earLobeM.setSelectedItem(randomMotherTraits[8]); 
-			hairColourM.setSelectedItem(randomMotherTraits[9]); 
-			hairAmountM.setSelectedItem(randomMotherTraits[10]); 
-			outlookM.setSelectedItem(randomMotherTraits[11]); 
-			intelligenceM.setSelectedItem(randomMotherTraits[12]);
-			updateLabels(father.fatherTraits, mother.randomizeStringTraitsArray());
+			mother.randomizeStringTraitsArray(); 
+			eyeColourM.setSelectedItem(mother.motherTraits[2]);
+			mother.randomizeStringTraitsArray(); 
+			eyeSizeM.setSelectedItem(mother.motherTraits[3]);
+			mother.randomizeStringTraitsArray(); 
+			heightM.setSelectedItem(mother.motherTraits[4]);
+			mother.randomizeStringTraitsArray(); 
+			skinColourM.setSelectedItem(mother.motherTraits[6]);
+			mother.randomizeStringTraitsArray(); 
+			noseSizeM.setSelectedItem(mother.motherTraits[7]);
+			mother.randomizeStringTraitsArray(); 
+			earLobeM.setSelectedItem(mother.motherTraits[8]);
+			mother.randomizeStringTraitsArray(); 
+			hairColourM.setSelectedItem(mother.motherTraits[9]);
+			mother.randomizeStringTraitsArray(); 
+			hairAmountM.setSelectedItem(mother.motherTraits[10]);
+			mother.randomizeStringTraitsArray(); 
+			outlookM.setSelectedItem(mother.motherTraits[11]);
+			mother.randomizeStringTraitsArray(); 
+			intelligenceM.setSelectedItem(mother.motherTraits[12]);
+			updateLabels(father.fatherTraits, mother.motherTraits);
 		}	 
 
 		// browser button selected, opens FileChooser
 		else{
 			// Updating traits array	
-			father.createStringTraitsArray();
-			mother.createStringTraitsArray();
+			father.createStringTraitsArray(eyeColourF, 
+					eyeSizeF,
+					heightF,
+					skinColourF,
+					noseSizeF,
+					earLobeF,
+					hairColourF,
+					hairAmountF,
+					outlookF,
+					intelligenceF);
+			mother.createStringTraitsArray(eyeColourM, 
+					eyeSizeM,
+					heightM,
+					skinColourM,
+					noseSizeM,
+					earLobeM,
+					hairColourM,
+					hairAmountM,
+					outlookM,
+					intelligenceM);
 			updateLabels(father.fatherTraits, mother.motherTraits);
 		}
 	}
