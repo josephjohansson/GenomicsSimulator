@@ -35,14 +35,13 @@ public class Father extends Person {
 		fatherTraits[2] = eyeColourF.getSelectedItem().toString();
 		fatherTraits[3] = eyeSizeF.getSelectedItem().toString();
 		fatherTraits[4] = heightF.getSelectedItem().toString();
-		fatherTraits[5] = "";
-		fatherTraits[6] = skinColourF.getSelectedItem().toString();
-		fatherTraits[7] = noseSizeF.getSelectedItem().toString();
-		fatherTraits[8] = earLobeF.getSelectedItem().toString();
-		fatherTraits[9] = hairColourF.getSelectedItem().toString();
-		fatherTraits[10] =hairAmountF.getSelectedItem().toString();
-		fatherTraits[11] =outlookF.getSelectedItem().toString();
-		fatherTraits[12] =intelligenceF.getSelectedItem().toString();
+		fatherTraits[5] = skinColourF.getSelectedItem().toString();
+		fatherTraits[6] = noseSizeF.getSelectedItem().toString();
+		fatherTraits[7] = earLobeF.getSelectedItem().toString();
+		fatherTraits[8] = hairColourF.getSelectedItem().toString();
+		fatherTraits[9] =hairAmountF.getSelectedItem().toString();
+		fatherTraits[10] =outlookF.getSelectedItem().toString();
+		fatherTraits[11] =intelligenceF.getSelectedItem().toString();
 		return fatherTraits;
 	}
 	

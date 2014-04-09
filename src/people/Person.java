@@ -51,36 +51,47 @@ public class Person {
 		// Set gender	
 			gender.setCurrentTrait(allTraitsAsStrings[1]);
 			allTraits[1] = gender;
+			System.out.println("the sex is set to: "+gender.getCurrentTrait());
 		// Set eyeColour
 			eyeColour.setCurrentTrait(allTraitsAsStrings[2]);
 			allTraits[2] = eyeColour;
+			System.out.println("the eyecolour is set"+eyeColour.getCurrentTrait());
 		// Set eyeSize
 			eyeSize.setCurrentTrait(allTraitsAsStrings[3]);
 			allTraits[3] = eyeSize;
+			System.out.println("the eyesize is set"+eyeSize.getCurrentTrait());
 		// Set height
 			height.setCurrentTrait(allTraitsAsStrings[4]);
 			allTraits[4] = height;
+			System.out.println("the height is set"+height.getCurrentTrait());
 		// Set skinColour	
-			skinColour.setCurrentTrait(allTraitsAsStrings[6]);
-			allTraits[6] = skinColour;
+			skinColour.setCurrentTrait(allTraitsAsStrings[5]);
+			allTraits[5] = skinColour;
+			System.out.println("the skincolour is set"+skinColour.getCurrentTrait());
 		// Set noseSize
-			noseSize.setCurrentTrait(allTraitsAsStrings[7]);
-			allTraits[7] = noseSize;
+			noseSize.setCurrentTrait(allTraitsAsStrings[6]);
+			allTraits[6] = noseSize;
+			System.out.println("the nosesize is set"+noseSize.getCurrentTrait());
 		// Set earlobe	
-			earlobe.setCurrentTrait(allTraitsAsStrings[8]);
-			allTraits[8] = earlobe;
+			earlobe.setCurrentTrait(allTraitsAsStrings[7]);
+			allTraits[7] = earlobe;
+			System.out.println("the earlobe is set"+earlobe.getCurrentTrait());
 		// Set hairColour
-			hairColour.setCurrentTrait(allTraitsAsStrings[9]);
-			allTraits[9] = hairColour;
+			hairColour.setCurrentTrait(allTraitsAsStrings[8]);
+			allTraits[8] = hairColour;
+			System.out.println("the haircolour is set"+hairColour.getCurrentTrait());
 		// Set hairAmount
-			hairAmount.setCurrentTrait(allTraitsAsStrings[10]);
-			allTraits[10] = hairAmount;
+			hairAmount.setCurrentTrait(allTraitsAsStrings[9]);
+			allTraits[9] = hairAmount;
+			System.out.println("the hairamount is set"+hairAmount.getCurrentTrait());
 		// Set outlook
-			outlook.setCurrentTrait(allTraitsAsStrings[11]);
-			allTraits[11] = outlook;
+			outlook.setCurrentTrait(allTraitsAsStrings[10]);
+			allTraits[10] = outlook;
+			System.out.println("the oulook is set"+outlook.getCurrentTrait());
 		// Set intelligence	
-			intelligence.setCurrentTrait(allTraitsAsStrings[12]);
-			allTraits[12] = intelligence;
+			intelligence.setCurrentTrait(allTraitsAsStrings[11]);
+			allTraits[11] = intelligence;
+			System.out.println("the intelligence is set"+intelligence.getCurrentTrait());
 		// Return traits array
 			return allTraits;
 	}

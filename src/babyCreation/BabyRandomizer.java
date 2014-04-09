@@ -46,17 +46,18 @@ public class BabyRandomizer{
 		babyTraits[0] = "Baby";
 	// For each possible category
 		
-		for (int index = 1; index < 13; index++) {
+		for (int index = 1; index < 12; index++) {
 		// Gets mother's and father's trait for that category
-			String motherTraitString = mother.createStringTraitsArray()[index];
-			System.out.println("hello");
-			String fatherTraitString = father.createStringTraitsArray()[index];
+			String motherTraitString = mother.motherTraits[index];
+			System.out.println(motherTraitString);
+			String fatherTraitString = father.fatherTraits[index];
+			System.out.println(fatherTraitString);
 		// Gets the length of the DNA list for those traits for use in the randomizer	
-			Traits motherTrait = mother.convertStringsToTraits(mother.createStringTraitsArray())[index];
-			System.out.println("hello");
-			Traits fatherTrait = father.convertStringsToTraits(father.createStringTraitsArray())[index];
-			System.out.println("hello");
-		// Sends these to the randomizer	
+			Traits motherTrait = mother.convertStringsToTraits(mother.motherTraits)[index];
+			System.out.println("done mother");
+			Traits fatherTrait = father.convertStringsToTraits(father.fatherTraits)[index];
+			System.out.println("done father");
+		// Sends these to the randomizer
 			String babyTrait = generateChildsTrait(
 					motherTrait.determineCurrentDNA(motherTraitString).size(),
 					fatherTrait.determineCurrentDNA(fatherTraitString).size(),

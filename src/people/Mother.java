@@ -35,14 +35,13 @@ public class Mother extends Person {
 		motherTraits[2] = eyeColourM.getSelectedItem().toString();	
 		motherTraits[3] = eyeSizeM.getSelectedItem().toString();
 		motherTraits[4] = heightM.getSelectedItem().toString();
-		motherTraits[5] = "";
-		motherTraits[6] = skinColourM.getSelectedItem().toString();
-		motherTraits[7] = noseSizeM.getSelectedItem().toString();
-		motherTraits[8] = earLobeM.getSelectedItem().toString();
-		motherTraits[9] = hairColourM.getSelectedItem().toString();
-		motherTraits[10] =hairAmountM.getSelectedItem().toString();
-		motherTraits[11] =outlookM.getSelectedItem().toString();
-		motherTraits[12] =intelligenceM.getSelectedItem().toString();
+		motherTraits[5] = skinColourM.getSelectedItem().toString();
+		motherTraits[6] = noseSizeM.getSelectedItem().toString();
+		motherTraits[7] = earLobeM.getSelectedItem().toString();
+		motherTraits[8] = hairColourM.getSelectedItem().toString();
+		motherTraits[9] =hairAmountM.getSelectedItem().toString();
+		motherTraits[10] =outlookM.getSelectedItem().toString();
+		motherTraits[11] =intelligenceM.getSelectedItem().toString();
 		return motherTraits;
 	}
 

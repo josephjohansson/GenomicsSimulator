@@ -356,9 +356,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	// If user chose to make baby, send traits to baby randomizer and display results	
 		else if (e.getSource() == babyMake) {
 		// Initializes the baby randomizer
-			System.out.println("errorCheck1");
+			
 			BabyRandomizer.makeBabyTraitStringArray(father, mother);
-		/*
 		// Gets the set of traits in string form from the person class
 			System.out.println("errorCheck2");
 			String[] babyTraits = Baby.getBabyTraits();
@@ -369,13 +368,13 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 				"\nbaby's eye colour is: "+babyTraits[2]+
 				"\nbaby's eye size is: "+babyTraits[3]+
 				"\nbaby's height is: "+babyTraits[4]+
-				"\nbaby's skin colour is: "+babyTraits[6]+
-				"\nbaby's nose size is: "+babyTraits[7]+
-				"\nbaby's ear lobe is: "+babyTraits[8]+
-				"\nbaby's hair colour type is: "+babyTraits[9]+
-				"\nbaby's hair amount is: "+babyTraits[10]+
-				"\nbaby's outlook is: "+babyTraits[11]+
-				"\nbaby's intelligence is: "+babyTraits[12]);*/
+				"\nbaby's skin colour is: "+babyTraits[5]+
+				"\nbaby's nose size is: "+babyTraits[6]+
+				"\nbaby's ear lobe is: "+babyTraits[7]+
+				"\nbaby's hair colour type is: "+babyTraits[8]+
+				"\nbaby's hair amount is: "+babyTraits[9]+
+				"\nbaby's outlook is: "+babyTraits[10]+
+				"\nbaby's intelligence is: "+babyTraits[11]);
 		}
 		else if (e.getSource() == randomFather){ 
 			father.randomizeStringTraitsArray(); 
