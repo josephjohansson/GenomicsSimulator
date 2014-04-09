@@ -27,6 +27,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
     JLabel motherBodyImage = new JLabel ();
     JLabel motherHairImage = new JLabel ();
     JLabel motherEyesImage = new JLabel ();
+    BabyPopUp popUp;
     
 	
 	Traits[] allTraits;
@@ -366,7 +367,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			String[] babyTraits = Baby.getBabyTraits();
 		// Displays these traits in a pop up window
 			System.out.println("errorCheck3");
-			JOptionPane.showMessageDialog(null, 	
+			BabyPopUp hello = new BabyPopUp(babyTraits);
+			/*JOptionPane.showMessageDialog(null, 	
 				"baby's gender is: "+babyTraits[1]+
 				"\nbaby's eye colour is: "+babyTraits[2]+
 				"\nbaby's eye size is: "+babyTraits[3]+
@@ -377,7 +379,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 				"\nbaby's hair colour type is: "+babyTraits[8]+
 				"\nbaby's hair amount is: "+babyTraits[9]+
 				"\nbaby's outlook is: "+babyTraits[10]+
-				"\nbaby's intelligence is: "+babyTraits[11]);
+				"\nbaby's intelligence is: "+babyTraits[11]);  */
 		}
 		else if (e.getSource() == randomFather){ 
 			father.randomizeStringTraitsArray(); 

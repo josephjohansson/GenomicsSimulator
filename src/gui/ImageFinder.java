@@ -112,4 +112,18 @@ public class ImageFinder {
 		
 		return eyesIcon;
 	}
+	public static ImageIcon getBabyBody(String[] traits){
+		BufferedImage bodyImage = null;
+		String bodyURL = ImageFinder.findBabySkinColourName(traits);
+		try{
+			bodyImage = ImageIO.read(new File(bodyURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. getEyesIcon"+bodyURL);
+		}
+		
+		ImageIcon bodyIcon = new ImageIcon(bodyImage);
+		
+		return bodyIcon;
+	}
 }
