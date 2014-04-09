@@ -39,7 +39,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	JButton browser;
 	
 	int WINDOW_WIDTH = 800;
-	int WINDOW_HEIGHT = 650;
+	int WINDOW_HEIGHT = 600;
 	
 	// Makes the comboBoxes for the father
 	
@@ -86,21 +86,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	
 	@SuppressWarnings({ "unchecked" })
 	public GeoSimGui(){
-
-		// Option arrays made for comboBoxes
-		
-		
-	// Fills in the comboBoxes for the father
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		super("Genomics Simulator");
 		
 	// Adds action listeners to the comboBoxes for the father
 		eyeColourF.addActionListener(this);
@@ -174,8 +160,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    addComponent(fatherEyesImage, 0,2,1,1,0,0,0,0,0,0);
 	    addComponent(fatherHairImage, 0,2,1,1,0,0,0,0,0,0);
 	    addComponent(fatherBodyImage, 0,2,1,1,0,0,0,0,0,0);
-	    addComponent(genFather, 0,5,1,1,0.5,0.25,10,10,5,10);
-	    addComponent(randomFather, 0,4,1,1,0.5,0.25,5,10,10,10);
+	    addComponent(genFather, 0,5,1,1,0.5,0.25,5,10,10,10);
+	    addComponent(randomFather, 0,4,1,1,0.5,0.25,5,10,0,10);
 	//East 
 	    JLabel motherLabel = new JLabel("Mother");
 
@@ -189,8 +175,8 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    addComponent(motherEyesImage, 2,2,1,1,0,0,0,0,0,0);
 	    addComponent(motherHairImage, 2,2,1,1,0,0,0,0,0,0);
 	    addComponent(motherBodyImage, 2,2,1,1,0,0,0,0,0,0);
-	    addComponent(randomMother, 2,4,1,1,0.5,025,5,10,10,10);
-	    addComponent(genMother, 2,5,1,1,0.5,0.25,10,10,5,10);
+	    addComponent(randomMother, 2,4,1,1,0.5,0.25,5,10,0,10);
+	    addComponent(genMother, 2,5,1,1,0.5,0.25,5,10,10,10);
 	    
 /** Center section holds trait selection options
  * 	trait panel holds parent panels(traitmother and traitfather) for centralized selection
@@ -206,7 +192,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    
 	    JPanel traits = new JPanel(new GridLayout(1,3,40,5));
 	    
-	    JPanel traitsfather = new JPanel(new GridLayout(13,1,5,2));
+	    JPanel traitsfather = new JPanel(new GridLayout(13,1,5,5));
 	    JLabel labelfather = new JLabel("Father's Traits:");
 	    traitsfather.add(labelfather);
 	    traitsfather.add(eyeColourF);
@@ -222,7 +208,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    traits.add(traitsfather);
 	    
 	    
-	    JPanel traitLabels = new JPanel (new GridLayout(13,1,5,2));
+	    JPanel traitLabels = new JPanel (new GridLayout(13,1,5,5));
 	    JLabel traitSelect = new JLabel("Trait Selection");
 	    JLabel eyeColourLabel = new JLabel("-Eye Colour");
 	    JLabel eyeSizeLabel = new JLabel("-Eye Size-");
@@ -247,7 +233,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	    traitLabels.add(IQLabel);
 	    traits.add(traitLabels);
 	    
-	    JPanel traitsmother = new JPanel(new GridLayout(13, 1, 5, 2));
+	    JPanel traitsmother = new JPanel(new GridLayout(13, 1, 5, 5));
 	    JLabel labelmother = new JLabel("Mother's Traits:");
 	    traitsmother.add(labelmother);
 	    traitsmother.add(eyeColourM);
