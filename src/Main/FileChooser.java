@@ -8,16 +8,11 @@ import javax.swing.*;
 @SuppressWarnings("serial")
 public class FileChooser extends JFrame{
 	public File fileToRead(){
-		
-		
-		
-
 	     JFileChooser chooser = new JFileChooser();
-	     int option = chooser.showOpenDialog(FileChooser.this);
+	     int option = chooser.showOpenDialog(null);
 	     try{
 		     if (option == JFileChooser.APPROVE_OPTION) {
-		    	 File readFile = chooser.getSelectedFile();
-		    	 return readFile;
+		    	 File fileToOpen = FileChooser.
 		     }
 		     else{
 		    	 return null;

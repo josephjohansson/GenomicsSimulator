@@ -53,8 +53,8 @@ public class ImageFinder {
 	public static String findBabySkinColourName(String[] traits){
 		StringBuilder skinColour = new StringBuilder();
 		skinColour.append("GenomicsImages/");
-		skinColour.append(traits[1]);
-		skinColour.append(traits[6]);
+		skinColour.append(traits[0]);
+		skinColour.append(traits[5]);
 		skinColour.append("Skin");
 		skinColour.append(".gif");
 		
@@ -63,8 +63,8 @@ public class ImageFinder {
 	public static String findBabyHairColourName (String[] traits){
 		StringBuilder hairColour = new StringBuilder();
 		hairColour.append("GenomicsImages/");
-		hairColour.append(traits[1]);
-		hairColour.append(traits[9]);
+		hairColour.append(traits[0]);
+		hairColour.append(traits[8]);
 		hairColour.append("Hair");
 		hairColour.append(".gif");
 		
@@ -125,5 +125,19 @@ public class ImageFinder {
 		ImageIcon bodyIcon = new ImageIcon(bodyImage);
 		
 		return bodyIcon;
+	}
+	public static ImageIcon getBabyHairIcon(String[] traits){
+		BufferedImage hairImage = null;
+		String hairURL = ImageFinder.findBabyHairColourName(traits);
+		try{
+			hairImage = ImageIO.read(new File(hairURL));
+		}
+		catch (IOException ex){
+			System.out.println("file not found. getHairIcon"+hairURL);
+		}
+		
+		ImageIcon hairIcon = new ImageIcon(hairImage);
+		
+		return hairIcon;
 	}
 }

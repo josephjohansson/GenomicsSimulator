@@ -9,27 +9,31 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+import people.Baby;
+
 import java.awt.*;
 import java.awt.event.*;
 
-import Main.FileWriter;
+import Main.*;
 
 /*
- * Popup window for the birthed babe
+ *  window for the birthed babe
  * Pictures do not show up yet
  * generate DNA does not work either
  */
-public class BabyPopUp extends JFrame{
+public class BabyPopUp extends JFrame implements ActionListener {
 	int WINDOW_WIDTH = 400;
 	int WINDOW_HEIGHT = 300;
 	JButton genBaby = new JButton("Generate DNA");
 	JLabel BabyName = new JLabel("The baby has:");
 	JLabel poop = new JLabel("poop");
-	JLabel babyBodyPic;
-	JLabel babyHairPic;
-	JFrame test = new JFrame();
+	JPanel babyImage = new JPanel();
+	JLabel babyBodyPic = new JLabel();
+	JLabel babyHairPic = new JLabel();
+	JFrame popup = new JFrame();
 	JPanel pictures = new JPanel();
-	JPanel stuff = new JPanel(new GridLayout(12,1,5,2));
+	JPanel traitsDisplay = new JPanel(new GridLayout(12,1,5,2));
+	Baby baby;
 	
 
 	public BabyPopUp(String[] traits) {
@@ -45,29 +49,48 @@ public class BabyPopUp extends JFrame{
 		JLabel outlook = new JLabel("Outlook: "+traits[10]);
 		JLabel intel= new JLabel("Intellegence: "+traits[11]);
 
-		stuff.add(gender);
-		stuff.add(eyeColour);
-		stuff.add(eyeSize);
-		stuff.add(height);
-		stuff.add(skinColour);
-		stuff.add(noseSize);
-		stuff.add(earLobe);
-		stuff.add(hairColour);
-		stuff.add(hairAmount);
-		stuff.add(outlook);
-		stuff.add(intel);
-		stuff.add(genBaby);
+		traitsDisplay.add(gender);
+		traitsDisplay.add(eyeColour);
+		traitsDisplay.add(eyeSize);
+		traitsDisplay.add(height);
+		traitsDisplay.add(skinColour);
+		traitsDisplay.add(noseSize);
+		traitsDisplay.add(earLobe);
+		traitsDisplay.add(hairColour);
+		traitsDisplay.add(hairAmount);
+		traitsDisplay.add(outlook);
+		traitsDisplay.add(intel);
+		traitsDisplay.add(genBaby);
+		genBaby.addActionListener(this);
 		
-		test.add(BabyName,BorderLayout.NORTH);
-		test.add(poop,BorderLayout.WEST);
-		test.add(stuff,BorderLayout.EAST);
+		popup.add(BabyName,BorderLayout.NORTH);
+		
+		popup.add(traitsDisplay,BorderLayout.EAST);
+		popup.add(babyImage);
+		babyBodyPic.setIcon(ImageFinder.getBabyBody(traits));
+		babyHairPic.setIcon(ImageFinder.getBabyHairIcon(traits));
+		
+		babyImage.add(babyBodyPic,BorderLayout.WEST);
+		babyImage.add(babyHairPic,BorderLayout.WEST);
 
 		
-	    test.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-	    test.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+	    popup.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+	    popup.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
 
-	    test.setVisible(true);
-	}	
+	    popup.setVisible(true);
+	}
+	
+	public void actionPerformed(ActionEvent e){
+		if (e.getSource() == genBaby) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			}
+			catch (Exception exeption) { // ignore exceptions and continue
+			}
+			FileWriter.writeFile(baby);
+		}
+	}
 	
 }
 
+;
