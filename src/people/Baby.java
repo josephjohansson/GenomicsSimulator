@@ -4,7 +4,7 @@ package people;
 public class Baby extends Person {
 	
 // Initialization of baby's array of traits in string form	
-	private static String[] babyTraits = new String[12];
+	private static String[] babyTraits = new String[13];
 
 // Sets name for mother (this is needed for the text file)
 	public Baby() {

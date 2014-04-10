@@ -354,7 +354,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			String[] babyTraits = Baby.getBabyTraits();
 		// Displays these traits in a pop up window
 			System.out.println("errorCheck3");
-			BabyPopUp hello = new BabyPopUp(babyTraits);
+			BabyPopUp popup = new BabyPopUp(babyTraits);
 
 		}
 		else if (e.getSource() == randomFather){ 

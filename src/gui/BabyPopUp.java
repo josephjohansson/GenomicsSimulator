@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.UIManager;
 
 import people.Baby;
+import traitsClasses.Traits;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -33,10 +34,13 @@ public class BabyPopUp extends JFrame implements ActionListener {
 	JFrame popup = new JFrame();
 	JPanel pictures = new JPanel();
 	JPanel traitsDisplay = new JPanel(new GridLayout(12,1,5,2));
-	Baby baby;
+	Baby baby = new Baby();
+	String[] traits;
 	
 
 	public BabyPopUp(String[] traits) {
+		System.out.println("hello");
+		Traits[] traitsArrayB = baby.convertStringsToTraits(traits);
 		JLabel gender = new JLabel("Gender: "+traits[1]);
 		JLabel eyeColour = new JLabel("Eye Colour: "+ traits[2]);
 		JLabel eyeSize = new JLabel("Eye Size: " + traits[3]);
@@ -70,8 +74,8 @@ public class BabyPopUp extends JFrame implements ActionListener {
 		babyBodyPic.setIcon(ImageFinder.getBabyBody(traits));
 		babyHairPic.setIcon(ImageFinder.getBabyHairIcon(traits));
 		
-		babyImage.add(babyBodyPic,BorderLayout.WEST);
-		babyImage.add(babyHairPic,BorderLayout.WEST);
+		babyImage.add(babyBodyPic);
+		babyImage.add(babyHairPic);
 
 		
 	    popup.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
