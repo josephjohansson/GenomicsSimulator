@@ -5,16 +5,18 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
-import people.Baby;
 
+import people.Baby;
 import traitsClasses.Traits;
 
 import java.awt.event.*;
+
 import Main.*;
 
 /**
@@ -41,15 +43,15 @@ public class BabyPopUp extends JFrame implements ActionListener {
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
 	
+	@SuppressWarnings("unused")
 	public BabyPopUp(String[] traits) {
-		
+		Traits[] traitsArrayB = baby.convertStringsToTraits(traits);
 		popup = getContentPane();
 	    layout = new GridBagLayout();
 	    popup.setLayout(layout);
 	    
 	    constraints = new GridBagConstraints();
 
-	@SuppressWarnings("unused")
 		JLabel gender = new JLabel("Gender: "+traits[1]);
 		JLabel eyeColour = new JLabel("Eye Colour: "+ traits[2]);
 		JLabel eyeSize = new JLabel("Eye Size: " + traits[3]);

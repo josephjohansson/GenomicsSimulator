@@ -98,7 +98,7 @@ public enum Traits {
  */
 	public void setCurrentTrait(String traitInput){
 		currentTrait = traitInput;
-		System.out.println("current Trait: "+currentTrait);
+		//System.out.println("current Trait: "+currentTrait);
 	}
 	
 /**

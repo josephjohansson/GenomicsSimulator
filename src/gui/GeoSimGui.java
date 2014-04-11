@@ -21,7 +21,7 @@ import java.awt.event.*;
 public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterface {
 	public Mother mother = new Mother();
 	public Father father = new Father();
-	
+	JFrame frame;
     JLabel fatherBodyImage = new JLabel ();
     JLabel fatherEyesImage = new JLabel ();
     JLabel fatherHairImage = new JLabel ();
@@ -340,23 +340,48 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			}
 			catch (Exception exeption) { // ignore exceptions and continue
 			}
+			Object[] options = {"Mother",
+                    "Father"};
+			int n = JOptionPane.showOptionDialog(frame,
+			"Would you like to input a file for the father or mother?",
+			"File Input",
+			JOptionPane.YES_NO_CANCEL_OPTION,
+			JOptionPane.QUESTION_MESSAGE,
+			null,
+			options,
+			options[1]);
+			
 			String DNAString = FileChooser.changeComboBoxes();
 			String[] importedTraits = DNAUploader.getStringTraits(DNAString);
 			
 			
-			
-			eyeColourF.setSelectedItem(importedTraits[2]);
-			eyeSizeF.setSelectedItem(importedTraits[3]);
-			heightF.setSelectedItem(importedTraits[4]);
-			skinColourF.setSelectedItem(importedTraits[5]);
-			noseSizeF.setSelectedItem(importedTraits[6]);
-			earLobeF.setSelectedItem(importedTraits[7]);
-			hairColourF.setSelectedItem(importedTraits[8]);
-			hairAmountF.setSelectedItem(importedTraits[9]);
-			outlookF.setSelectedItem(importedTraits[10]);
-			intelligenceF.setSelectedItem(importedTraits[11]);
-			father.setTraits(importedTraits);
-			updateLabels(father.fatherTraits, mother.motherTraits); 
+			if (n == JOptionPane.NO_OPTION){
+				eyeColourF.setSelectedItem(importedTraits[2]);
+				eyeSizeF.setSelectedItem(importedTraits[3]);
+				heightF.setSelectedItem(importedTraits[4]);
+				skinColourF.setSelectedItem(importedTraits[5]);
+				noseSizeF.setSelectedItem(importedTraits[6]);
+				earLobeF.setSelectedItem(importedTraits[7]);
+				hairColourF.setSelectedItem(importedTraits[8]);
+				hairAmountF.setSelectedItem(importedTraits[9]);
+				outlookF.setSelectedItem(importedTraits[10]);
+				intelligenceF.setSelectedItem(importedTraits[11]);
+				father.setTraits(importedTraits); 
+			}
+			else if(n == JOptionPane.YES_OPTION){
+				eyeColourM.setSelectedItem(importedTraits[2]);
+				eyeSizeM.setSelectedItem(importedTraits[3]);
+				heightM.setSelectedItem(importedTraits[4]);
+				skinColourM.setSelectedItem(importedTraits[5]);
+				noseSizeM.setSelectedItem(importedTraits[6]);
+				earLobeM.setSelectedItem(importedTraits[7]);
+				hairColourM.setSelectedItem(importedTraits[8]);
+				hairAmountM.setSelectedItem(importedTraits[9]);
+				outlookM.setSelectedItem(importedTraits[10]);
+				intelligenceM.setSelectedItem(importedTraits[11]);
+				mother.setTraits(importedTraits);
+			}
+			updateLabels(father.fatherTraits, mother.motherTraits);
 			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
 			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 		}
@@ -427,6 +452,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			}
 			catch (Exception exeption) { // ignore exceptions and continue
 			}
+			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 			FileWriter.writeFile(father);
 			
 		}
@@ -436,6 +462,7 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			}
 			catch (Exception exeption) { // ignore exceptions and continue
 			}
+			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
 			FileWriter.writeFile(mother);
 		}
 
