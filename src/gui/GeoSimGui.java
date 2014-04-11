@@ -55,16 +55,16 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	String[] intelligenceOptions = Traits.INTEL.getTraitSet().toArray(new String[Traits.INTEL.getTraitSet().size()]);
 	
 	// Makes comboBoxes for Father
-	public JComboBox eyeColourF = new JComboBox(eyeColourOptions);
-	public JComboBox eyeSizeF = new JComboBox(eyeSizeOptions);
-	public JComboBox heightF = new JComboBox(heightOptions);
-	public JComboBox skinColourF = new JComboBox(skinColourOptions);
-	public JComboBox noseSizeF = new JComboBox(noseSizeOptions);
-	public JComboBox earLobeF = new JComboBox(earLobeOptions);
-	public JComboBox hairColourF = new JComboBox(hairColourOptions);
-	public JComboBox hairAmountF = new JComboBox(hairAmountOptions);
-	public JComboBox outlookF = new JComboBox(outlookOptions);
-	public JComboBox intelligenceF = new JComboBox(intelligenceOptions);
+	public JComboBox eyeColourF;
+	public JComboBox eyeSizeF;
+	public JComboBox heightF;
+	public JComboBox skinColourF;
+	public JComboBox noseSizeF;
+	public JComboBox earLobeF;
+	public JComboBox hairColourF;
+	public JComboBox hairAmountF;
+	public JComboBox outlookF;
+	public JComboBox intelligenceF;
 
 	// Makes the comboBoxes for the mother
 	public JComboBox eyeColourM;
@@ -82,10 +82,20 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	private GridBagLayout layout;
 	private GridBagConstraints constraints;
 
-	@SuppressWarnings({ "unchecked" })
+	@SuppressWarnings({ "unchecked", "unused" })
 	public GeoSimGui(){
 		super("Genomics Simulator");
-		
+	// Fills in the comboboxes for the father
+		eyeColourF = new JComboBox(eyeColourOptions);
+		eyeSizeF = new JComboBox(eyeSizeOptions);
+		heightF = new JComboBox(heightOptions);
+		skinColourF = new JComboBox(skinColourOptions);
+		noseSizeF = new JComboBox(noseSizeOptions);
+		earLobeF = new JComboBox(earLobeOptions);
+		hairColourF = new JComboBox(hairColourOptions);
+		hairAmountF = new JComboBox(hairAmountOptions);
+		outlookF = new JComboBox(outlookOptions);
+		intelligenceF = new JComboBox(intelligenceOptions);
 	// Adds action listeners to the comboBoxes for the father
 		eyeColourF.addActionListener(this);
 		eyeSizeF.addActionListener(this);
@@ -320,38 +330,44 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 	      container.add(thing);      // add component 
     }
 	
+	@SuppressWarnings("unused")
 	public void actionPerformed(ActionEvent e){
 	// If any of the comboBoxes are clicked, update the String[] of traits
 	// for both mother and father
 		if (e.getSource() == browser){
-			//I commented this out so that I could try manually putting in a DNA set.
-			//What needs to happen, is we need to get a String of DNA from FileChooser and
-			//TextFile, and then just feed that string into the 1st parameter in DNAUploader.update()
+			try {
+				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			}
+			catch (Exception exeption) { // ignore exceptions and continue
+			}
+			String DNAString = FileChooser.changeComboBoxes();
+			String[] importedTraits = DNAUploader.getStringTraits(DNAString);
 			
 			
 			
-			//FileChooser window = new FileChooser();
-			//window.setVisible(true);
-				
-			//This is for when the String of DNA is actually found. called importedDNA
-			DNAUploader.update("CCAAAAAAAAAAAAAAA", father, mother, this);
-			updateLabels(father.fatherTraits, mother.motherTraits);
-			
-		// Debugging s
-			//System.out.println(ImageFinder.findBodyImageName(Person.FATHER.createStringTraitsArrayF()));
-			//System.out.println(ImageFinder.findBodyImageName(Person.MOTHER.createStringTraitsArrayM()));
+			eyeColourF.setSelectedItem(importedTraits[2]);
+			eyeSizeF.setSelectedItem(importedTraits[3]);
+			heightF.setSelectedItem(importedTraits[4]);
+			skinColourF.setSelectedItem(importedTraits[5]);
+			noseSizeF.setSelectedItem(importedTraits[6]);
+			earLobeF.setSelectedItem(importedTraits[7]);
+			hairColourF.setSelectedItem(importedTraits[8]);
+			hairAmountF.setSelectedItem(importedTraits[9]);
+			outlookF.setSelectedItem(importedTraits[10]);
+			intelligenceF.setSelectedItem(importedTraits[11]);
+			father.setTraits(importedTraits);
+			updateLabels(father.fatherTraits, mother.motherTraits); 
+			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
+			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
 		}
 	
 	// If user chose to make baby, send traits to baby randomizer and display results	
 		else if (e.getSource() == babyMake) {
 		// Initializes the baby randomizer
-			
 			BabyRandomizer.makeBabyTraitStringArray(father, mother);
 		// Gets the set of traits in string form from the person class
-			System.out.println("errorCheck2");
 			String[] babyTraits = Baby.getBabyTraits();
 		// Displays these traits in a pop up window
-			System.out.println("errorCheck3");
 			BabyPopUp popup = new BabyPopUp(babyTraits);
 
 		}
@@ -363,19 +379,19 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			father.randomizeStringTraitsArray(); 
 			heightF.setSelectedItem(father.fatherTraits[4]);
 			father.randomizeStringTraitsArray(); 
-			skinColourF.setSelectedItem(father.fatherTraits[6]);
+			skinColourF.setSelectedItem(father.fatherTraits[5]);
 			father.randomizeStringTraitsArray(); 
-			noseSizeF.setSelectedItem(father.fatherTraits[7]);
+			noseSizeF.setSelectedItem(father.fatherTraits[6]);
 			father.randomizeStringTraitsArray(); 
-			earLobeF.setSelectedItem(father.fatherTraits[8]);
+			earLobeF.setSelectedItem(father.fatherTraits[7]);
 			father.randomizeStringTraitsArray(); 
-			hairColourF.setSelectedItem(father.fatherTraits[9]);
+			hairColourF.setSelectedItem(father.fatherTraits[8]);
 			father.randomizeStringTraitsArray(); 
-			hairAmountF.setSelectedItem(father.fatherTraits[10]);
+			hairAmountF.setSelectedItem(father.fatherTraits[9]);
 			father.randomizeStringTraitsArray(); 
-			outlookF.setSelectedItem(father.fatherTraits[11]);
+			outlookF.setSelectedItem(father.fatherTraits[10]);
 			father.randomizeStringTraitsArray(); 
-			intelligenceF.setSelectedItem(father.fatherTraits[12]);
+			intelligenceF.setSelectedItem(father.fatherTraits[11]);
 			updateLabels(father.fatherTraits, mother.motherTraits); 
 			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
 			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);
@@ -388,19 +404,19 @@ public class GeoSimGui extends JFrame implements ActionListener, GeoSimGuiInterf
 			mother.randomizeStringTraitsArray(); 
 			heightM.setSelectedItem(mother.motherTraits[4]);
 			mother.randomizeStringTraitsArray(); 
-			skinColourM.setSelectedItem(mother.motherTraits[6]);
+			skinColourM.setSelectedItem(mother.motherTraits[5]);
 			mother.randomizeStringTraitsArray(); 
-			noseSizeM.setSelectedItem(mother.motherTraits[7]);
+			noseSizeM.setSelectedItem(mother.motherTraits[6]);
 			mother.randomizeStringTraitsArray(); 
-			earLobeM.setSelectedItem(mother.motherTraits[8]);
+			earLobeM.setSelectedItem(mother.motherTraits[7]);
 			mother.randomizeStringTraitsArray(); 
-			hairColourM.setSelectedItem(mother.motherTraits[9]);
+			hairColourM.setSelectedItem(mother.motherTraits[8]);
 			mother.randomizeStringTraitsArray(); 
-			hairAmountM.setSelectedItem(mother.motherTraits[10]);
+			hairAmountM.setSelectedItem(mother.motherTraits[9]);
 			mother.randomizeStringTraitsArray(); 
-			outlookM.setSelectedItem(mother.motherTraits[11]);
+			outlookM.setSelectedItem(mother.motherTraits[10]);
 			mother.randomizeStringTraitsArray(); 
-			intelligenceM.setSelectedItem(mother.motherTraits[12]);
+			intelligenceM.setSelectedItem(mother.motherTraits[11]);
 			updateLabels(father.fatherTraits, mother.motherTraits);
 			Traits[] traitsArrayM = mother.convertStringsToTraits(mother.motherTraits);
 			Traits[] traitsArrayF = father.convertStringsToTraits(father.fatherTraits);

@@ -1,9 +1,6 @@
 package Main;
-import gui.GeoSimGui;
-import people.*;
-import traitsClasses.Traits;
-import java.awt.*;
 
+import traitsClasses.Traits;
 
 public class DNAUploader {
 	public static String DNAGender;
@@ -17,52 +14,47 @@ public class DNAUploader {
 	public static String DNAHairAmount;
 	public static String DNAOutlook;
 	public static String DNAIntelligence;
+	public static String[] importedTraits = new String[12];
 	
-	public static void update(String DNAString, Father father, Mother mother, GeoSimGui gui){
+	
+	public static String[] getStringTraits(String DNAString){
 		uploadDNASequence(DNAString);
 		//if it is a male
 		if (DNAGender.equals("AA")||DNAGender.equals("AC")||DNAGender.equals("AT")||DNAGender.equals("AG")||
 				DNAGender.equals("GG")||DNAGender.equals("GA")||DNAGender.equals("GT")||DNAGender.equals("GC")){
-			GeoSimGui.eyeColourF.setSelectedItem(Traits.EYE_COLOUR.determineCurrentTrait(DNAEyeColour));
-			GeoSimGui.eyeSizeF.setSelectedItem(Traits.EYE_SIZE.determineCurrentTrait(DNAEyeSize)); 
-			GeoSimGui.heightF.setSelectedItem(Traits.HEIGHT.determineCurrentTrait(DNAHeight));
-			GeoSimGui.skinColourF.setSelectedItem(Traits.SKIN_COLOUR.determineCurrentTrait(DNASkinColour));
-			GeoSimGui.noseSizeF.setSelectedItem(Traits.NOSE_SIZE.determineCurrentTrait(DNANoseSize)); 
-			GeoSimGui.earLobeF.setSelectedItem(Traits.EARLOBE.determineCurrentTrait(DNAEarLobe)); 
-			GeoSimGui.hairColourF.setSelectedItem(Traits.HAIR_COLOUR.determineCurrentTrait(DNAHairColour)); 
-			GeoSimGui.hairAmountF.setSelectedItem(Traits.HAIR_AMOUNT.determineCurrentTrait(DNAHairAmount));
-			GeoSimGui.outlookF.setSelectedItem(Traits.OUTLOOK.determineCurrentTrait(DNAOutlook));
-			GeoSimGui.intelligenceF.setSelectedItem(Traits.INTEL.determineCurrentTrait(DNAIntelligence));
+			importedTraits[0] = "Father";
+			importedTraits[1] = "Male";
+			importedTraits[2] = Traits.EYE_COLOUR.determineCurrentTrait(DNAEyeColour);
+			importedTraits[3] = Traits.EYE_SIZE.determineCurrentTrait(DNAEyeSize); 
+			importedTraits[4] = Traits.HEIGHT.determineCurrentTrait(DNAHeight);
+			importedTraits[5] = Traits.SKIN_COLOUR.determineCurrentTrait(DNASkinColour);
+			importedTraits[6] = Traits.NOSE_SIZE.determineCurrentTrait(DNANoseSize); 
+			importedTraits[7] = Traits.EARLOBE.determineCurrentTrait(DNAEarLobe); 
+			importedTraits[8] = Traits.HAIR_COLOUR.determineCurrentTrait(DNAHairColour); 
+			importedTraits[9] = Traits.HAIR_AMOUNT.determineCurrentTrait(DNAHairAmount);
+			importedTraits[10] = Traits.OUTLOOK.determineCurrentTrait(DNAOutlook);
+			importedTraits[11] = Traits.INTEL.determineCurrentTrait(DNAIntelligence);
 			
 		}
 		//if it is a female
 		else{
-			
-			GeoSimGui.eyeColourM.setSelectedItem(Traits.EYE_COLOUR.determineCurrentTrait(DNAEyeColour));
-			
-			
-			GeoSimGui.eyeSizeM.setSelectedItem(Traits.EYE_SIZE.determineCurrentTrait(DNAEyeSize)); 
-			
-			GeoSimGui.heightM.setSelectedItem(Traits.HEIGHT.determineCurrentTrait(DNAHeight));
-			
-			
-			GeoSimGui.skinColourM.setSelectedItem(Traits.SKIN_COLOUR.determineCurrentTrait(DNASkinColour));
-			
-			GeoSimGui.noseSizeM.setSelectedItem(Traits.NOSE_SIZE.determineCurrentTrait(DNANoseSize)); 
-			
-			GeoSimGui.earLobeM.setSelectedItem(Traits.EARLOBE.determineCurrentTrait(DNAEarLobe)); 
-			
-			GeoSimGui.hairColourM.setSelectedItem(Traits.HAIR_COLOUR.determineCurrentTrait(DNAHairColour)); 
-			//I dont know why, but when the f
-			GeoSimGui.hairAmountM.setSelectedItem(Traits.HAIR_AMOUNT.determineCurrentTrait(DNAHairAmount));
-
-			GeoSimGui.outlookM.setSelectedItem(Traits.OUTLOOK.determineCurrentTrait(DNAOutlook));
-
-			GeoSimGui.intelligenceM.setSelectedItem(Traits.INTEL.determineCurrentTrait(DNAIntelligence));
+			importedTraits[0] = "Mother";
+			importedTraits[1] = "Female";
+			importedTraits[2] = Traits.EYE_COLOUR.determineCurrentTrait(DNAEyeColour);
+			importedTraits[3] = Traits.EYE_SIZE.determineCurrentTrait(DNAEyeSize); 
+			importedTraits[4] = Traits.HEIGHT.determineCurrentTrait(DNAHeight);
+			importedTraits[5] = Traits.SKIN_COLOUR.determineCurrentTrait(DNASkinColour);
+			importedTraits[6] = Traits.NOSE_SIZE.determineCurrentTrait(DNANoseSize); 
+			importedTraits[7] = Traits.EARLOBE.determineCurrentTrait(DNAEarLobe); 
+			importedTraits[8] = Traits.HAIR_COLOUR.determineCurrentTrait(DNAHairColour); 
+			importedTraits[9] = Traits.HAIR_AMOUNT.determineCurrentTrait(DNAHairAmount);
+			importedTraits[10] = Traits.OUTLOOK.determineCurrentTrait(DNAOutlook);
+			importedTraits[11] = Traits.INTEL.determineCurrentTrait(DNAIntelligence);
 			
 			
 		}
-		}
+		return importedTraits;
+	}
 	
 	
 	private static void uploadDNASequence(String DNAString){
@@ -81,18 +73,5 @@ public class DNAUploader {
 	
 	
 	
+	}
 }
-}
-/**
-gender.chooseRandomGene()
-+eyeColour.chooseRandomGene()
-+eyeSize.chooseRandomGene()
-+height.chooseRandomGene()
-+skinColour.chooseRandomGene()
-+noseSize.chooseRandomGene()
-+earlobe.chooseRandomGene()
-+hairColour.chooseRandomGene()
-+hairAmount.chooseRandomGene()
-+outlook.chooseRandomGene()
-+intelligence.chooseRandomGene()
-*/

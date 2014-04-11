@@ -5,6 +5,7 @@ import gui.GeoSimGui;
 
 public class Initializer {
 	
+	@SuppressWarnings("unused")
 	public static void main(String[]args){
 	// Makes a default person so that the Gui can access the traits list
 		try {

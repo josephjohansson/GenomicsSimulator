@@ -1,41 +1,36 @@
 package Main;
-import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
+public class FileChooser{
+	public static Scanner selectTextFile() {
+	   do {
+	      JFileChooser chooser = new JFileChooser();
+      FileNameExtensionFilter filter = new FileNameExtensionFilter(
+         "Text/Java files", "txt");
+      chooser.setFileFilter(filter);
+      int returnVal = chooser.showOpenDialog(null);
+			try {
+         if(returnVal == JFileChooser.APPROVE_OPTION) {
+		         return new Scanner(chooser.getSelectedFile());
+         } 
+		   else {
+		         return null;
+			   }
+			}
+			catch (FileNotFoundException e) {
+			   JOptionPane.showMessageDialog(null, "Invalid file!",
+				   "error", JOptionPane.ERROR_MESSAGE); 
+			}
+		} while (true);
+	}
+	public static String changeComboBoxes(){
+		Scanner lineScanner = FileChooser.selectTextFile();
+		String DNA = lineScanner.nextLine();
+		return DNA;
+	}
 
-@SuppressWarnings("serial")
-public class FileChooser extends JFrame{
-	public File fileToRead(){
-	     JFileChooser chooser = new JFileChooser();
-	     int option = chooser.showOpenDialog(null);
-	     try{
-		     if (option == JFileChooser.APPROVE_OPTION) {
-		    	 File fileToOpen = FileChooser.
-		     }
-		     else{
-		    	 return null;
-		     }
-	     }
-	     catch(FileNotFoundException e){
-	    	 System.out.println("Error opening file");
-	    	 
-	     }
-	}
-	
-    public void readFile(File file) throws FileNotFoundException{
-	    if(file.isFile()){
-	    		Scanner fileScanner = new Scanner(file);
-	    		
-	    		
-	    	
-	    
-	    	
-	    }
-	    
-	    		 
-	    		 
-	}
-	
 }

@@ -3,12 +3,11 @@ package people;
 import javax.swing.JComboBox;
 
 import traitsClasses.Traits;
-import gui.GeoSimGui;
 
 public class Father extends Person {
 	
 /** @param fatherTraits = fathers array of traits in string form */
-	public String[] fatherTraits = new String[13];
+	public String[] fatherTraits = new String[12];
 	
 /** Default constructor that sets name for father (this is needed for the text file)	
  */
@@ -20,6 +19,7 @@ public class Father extends Person {
  *  traits (initialized above)	
  *  @return Father's array of strings, where the first two elements are set by default
  */
+	@SuppressWarnings("rawtypes")
 	public String[] createStringTraitsArray(JComboBox eyeColourF, 
 											JComboBox eyeSizeF,
 											JComboBox heightF,
@@ -51,28 +51,26 @@ public class Father extends Person {
 		fatherTraits[2] = Traits.EYE_COLOUR.chooseRandomTrait();
 		fatherTraits[3] = Traits.EYE_SIZE.chooseRandomTrait();
 		fatherTraits[4] = Traits.HEIGHT.chooseRandomTrait();
-		fatherTraits[5] = "";
-		fatherTraits[6] = Traits.SKIN_COLOUR.chooseRandomTrait();
-		fatherTraits[7] = Traits.NOSE_SIZE.chooseRandomTrait();
-		fatherTraits[8] = Traits.EARLOBE.chooseRandomTrait();
-		fatherTraits[9] = Traits.HAIR_COLOUR.chooseRandomTrait();
-		fatherTraits[10] = Traits.HAIR_AMOUNT.chooseRandomTrait();
-		fatherTraits[11] = Traits.OUTLOOK.chooseRandomTrait();
-		fatherTraits[12] = Traits.INTEL.chooseRandomTrait();
+		fatherTraits[5] = Traits.SKIN_COLOUR.chooseRandomTrait();
+		fatherTraits[6] = Traits.NOSE_SIZE.chooseRandomTrait();
+		fatherTraits[7] = Traits.EARLOBE.chooseRandomTrait();
+		fatherTraits[8] = Traits.HAIR_COLOUR.chooseRandomTrait();
+		fatherTraits[9] = Traits.HAIR_AMOUNT.chooseRandomTrait();
+		fatherTraits[10] = Traits.OUTLOOK.chooseRandomTrait();
+		fatherTraits[11] = Traits.INTEL.chooseRandomTrait();
 	}
-	public void setTraits(String[] randomizedTraits){
-		fatherTraits[0] = randomizedTraits[0];
-		fatherTraits[1] = randomizedTraits[1];
-		fatherTraits[2] = randomizedTraits[2];
-		fatherTraits[3] = randomizedTraits[3];
-		fatherTraits[4] = randomizedTraits[4];
-		fatherTraits[5] = "";
-		fatherTraits[6] = randomizedTraits[6];
-		fatherTraits[7] = randomizedTraits[7];
-		fatherTraits[8] = randomizedTraits[8];
-		fatherTraits[9] = randomizedTraits[9];
-		fatherTraits[10] = randomizedTraits[10];
-		fatherTraits[11] = randomizedTraits[11];
-		fatherTraits[12] = randomizedTraits[12];
+	public void setTraits(String[] Traits){
+		fatherTraits[0] = Traits[0];
+		fatherTraits[1] = Traits[1];
+		fatherTraits[2] = Traits[2];
+		fatherTraits[3] = Traits[3];
+		fatherTraits[4] = Traits[4];
+		fatherTraits[5] = Traits[5];
+		fatherTraits[6] = Traits[6];
+		fatherTraits[7] = Traits[7];
+		fatherTraits[8] = Traits[8];
+		fatherTraits[9] = Traits[9];
+		fatherTraits[10] = Traits[10];
+		fatherTraits[11] = Traits[11];
 	}
 }

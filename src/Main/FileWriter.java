@@ -2,7 +2,6 @@ package Main;
 import javax.swing.filechooser.*;
 import javax.swing.*;
 import java.io.*;
-import java.util.*;
 import people.*;
 public class FileWriter {
    /**

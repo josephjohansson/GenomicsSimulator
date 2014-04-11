@@ -11,6 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import people.Baby;
+
+import traitsClasses.Traits;
+
 import java.awt.event.*;
 import Main.*;
 
@@ -21,6 +24,7 @@ import Main.*;
  * @author Jessica
  *
  */
+@SuppressWarnings("serial")
 public class BabyPopUp extends JFrame implements ActionListener {
 	int WINDOW_WIDTH = 400;
 	int WINDOW_HEIGHT = 350;
@@ -45,6 +49,7 @@ public class BabyPopUp extends JFrame implements ActionListener {
 	    
 	    constraints = new GridBagConstraints();
 
+	@SuppressWarnings("unused")
 		JLabel gender = new JLabel("Gender: "+traits[1]);
 		JLabel eyeColour = new JLabel("Eye Colour: "+ traits[2]);
 		JLabel eyeSize = new JLabel("Eye Size: " + traits[3]);
